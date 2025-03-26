@@ -43,7 +43,7 @@ export default function Contact() {
           <p className="text-lg mb-4">
             I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
           </p>
-          <p className="text-lg">Feel free to reach out using the contact form or through my social media profiles.</p>
+          <p className="text-lg">Feel free to reach out through my social media profiles, as the contact form is not working for now.</p>
         </div>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>

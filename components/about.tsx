@@ -5,17 +5,17 @@ export default function About() {
       <div className="grid md:grid-cols-2 gap-8">
         <div>
           <p className="text-lg mb-4">
-            Hi there! I'm a passionate web developer with expertise in building modern, responsive, and user-friendly
+            Hi there! I'm a passionate Computer Science student with expertise in building modern, responsive, and user-friendly
             applications.
           </p>
           <p className="text-lg mb-4">
-            With several years of experience in the field, I've worked on a variety of projects ranging from small
-            business websites to complex web applications. I specialize in front-end development using React and
+            With several years of experience in the field, I've worked on a variety of projects ranging from University to Personal projects.
+            I specialize in front-end development using React and
             Next.js, but I'm also comfortable working with back-end technologies.
           </p>
           <p className="text-lg">
             When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or
-            enjoying outdoor activities.
+            enjoying indoor activities.
           </p>
         </div>
         <div>
@@ -27,7 +27,7 @@ export default function About() {
                 <li>React / Next.js</li>
                 <li>TypeScript</li>
                 <li>Tailwind CSS</li>
-                <li>HTML / CSS</li>
+                <li>HTML / CSS / JS</li>
               </ul>
             </div>
             <div>
@@ -35,8 +35,7 @@ export default function About() {
               <ul className="space-y-1 text-muted-foreground">
                 <li>Node.js</li>
                 <li>Express</li>
-                <li>MongoDB</li>
-                <li>PostgreSQL</li>
+                <li>Supabase</li>
               </ul>
             </div>
             <div>
@@ -45,16 +44,14 @@ export default function About() {
                 <li>Git / GitHub</li>
                 <li>VS Code</li>
                 <li>Figma</li>
-                <li>Docker</li>
               </ul>
             </div>
             <div>
               <h4 className="font-medium mb-2">Other</h4>
               <ul className="space-y-1 text-muted-foreground">
-                <li>CI/CD</li>
-                <li>Testing (Jest, Cypress)</li>
-                <li>Responsive Design</li>
-                <li>Accessibility</li>
+                <li>Flask</li>
+                <li>Java</li>
+                <li>C++</li>
               </ul>
             </div>
           </div>

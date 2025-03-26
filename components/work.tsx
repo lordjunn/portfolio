@@ -1,8 +1,8 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Image from "next/image"
-import { ChevronDown, ChevronRight, ExternalLink, Github } from "lucide-react"
+import { ChevronDown, ChevronRight, ExternalLink, Github, Search, ChevronLeft, ChevronRightIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 interface Project {
@@ -12,148 +12,233 @@ interface Project {
   image: string
   tags: string[]
   github?: string
-  demo?: string
+  website?: string
 }
 
 const projects: Project[] = [
   {
     id: 1,
-    title: "E-commerce Platform",
+    title: "Study with Junn",
     description:
-      "A full-featured e-commerce platform built with Next.js and Stripe integration. This project includes user authentication, product management, shopping cart functionality, and secure payment processing. The admin dashboard allows for easy product and order management with real-time analytics. The responsive design ensures a seamless shopping experience across all devices. The platform also includes features like wishlist, product reviews, and personalized recommendations based on user browsing history.",
-    image: "/placeholder.svg?height=400&width=400",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Stripe"],
-    github: "https://github.com",
-    demo: "https://demo.com",
+      "Developed a website that stores educational materials that I have done, which has benefited my entire intake of 600+ students and others to score higher and better. Applicable to other universities as well.",
+    image:
+      "https://img.freepik.com/free-vector/realistic-test-paper-composition-with-pencil-stack-students-paperwork-with-marks-correct-answers_1284-54249.jpg",
+    tags: ["HTML", "CSS", "JavaScript"],
+    github: "https://github.com/LordJunn/Study-With-Junn",
+    website: "https://lordjunn.github.io/Study-With-Junn/index.html",
   },
   {
     id: 2,
-    title: "Task Management App",
+    title: "Food",
     description:
-      "A collaborative task management application with real-time updates. Users can create projects, assign tasks, set deadlines, and track progress. The app features a drag-and-drop interface for easy task organization and prioritization. It also includes notification systems to keep team members updated on task changes and approaching deadlines.",
-    image: "/placeholder.svg?height=400&width=400",
-    tags: ["React", "Firebase", "Material UI"],
-    github: "https://github.com",
-    demo: "https://demo.com",
+      "One of my earliest websites. Shows food options on campus, and some reviews of food I had.",
+    image: "https://preview.redd.it/whats-son-gokus-favorite-dish-ive-always-loved-the-variety-v0-c4z2a45ke4jb1.jpg?width=736&format=pjpg&auto=webp&s=dd25b7826bd1279637a7feeee8d5bbf5439bf6e5",
+    tags: ["HTML", "CSS", "JavaScript"],
+    github: "https://github.com/LordJunn/Food-MMU",
+    website: "https://lordjunn.github.io/Food-MMU/",
   },
   {
     id: 3,
-    title: "Weather Dashboard",
+    title: "Webstack Trio",
     description:
-      "A weather dashboard that provides current conditions and forecasts for any location. The app uses geolocation to automatically detect the user's location and displays relevant weather information. Users can also search for weather data in different cities and save their favorite locations for quick access.",
+      "A website that hosts all my other mini projects, such as Tic Tac Toe, Tower Defense, Currency Exchanger & more.",
     image: "/placeholder.svg?height=400&width=400",
-    tags: ["JavaScript", "OpenWeather API", "Chart.js"],
-    github: "https://github.com",
-    demo: "https://demo.com",
+    tags: ["HTML", "CSS", "JavaScript", "APIs"],
+    github: "https://github.com/LordJunn/Webstack-Trio",
+    website: "https://lordjunn.github.io/Webstack-Trio/",
   },
   {
     id: 4,
     title: "Portfolio Website",
-    description:
-      "A responsive portfolio website showcasing my projects and skills. The site features a clean, modern design with smooth animations and transitions. It's built with accessibility in mind and optimized for performance across all devices.",
+    description: "A modern portfolio website built with Next.js and TypeScript, featuring a responsive design, dark/light mode toggle, and an integrated blog system with Markdown support. The site showcases my projects, skills, and writing in a clean, accessible interface. It includes project filtering, smooth animations, and optimized performance across all devices.",
     image: "/placeholder.svg?height=400&width=400",
-    tags: ["Next.js", "Tailwind CSS", "Framer Motion"],
-    github: "https://github.com",
-    demo: "https://demo.com",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "React", "Markdown"],
+    github: "https://github.com/LordJunn/portfolio",
+    website: "https://junn-portfolio.vercel.app/",
   },
 ]
 
 export default function Work() {
   const [expandedId, setExpandedId] = useState<number | null>(null)
+  const [searchQuery, setSearchQuery] = useState<string>("")
+  const [startIndex, setStartIndex] = useState(0)
+
+  const filteredProjects = projects.filter(
+    (project) =>
+      project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      project.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      project.tags.some((tag) => tag.toLowerCase().includes(searchQuery.toLowerCase())),
+  )
+
+  // Ensure startIndex is valid when filtered projects change
+  useEffect(() => {
+    if (startIndex > filteredProjects.length - 1) {
+      setStartIndex(Math.max(0, filteredProjects.length - 3))
+    }
+  }, [filteredProjects, startIndex])
+
+  const visibleProjects = filteredProjects.slice(startIndex, startIndex + 3)
 
   const toggleExpand = (id: number) => {
     setExpandedId(expandedId === id ? null : id)
   }
 
+  const handlePrevious = () => {
+    setStartIndex(Math.max(0, startIndex - 1))
+  }
+
+  const handleNext = () => {
+    setStartIndex(Math.min(filteredProjects.length - 1, startIndex + 1))
+  }
+
   return (
     <section id="work" className="py-16">
-      <h2 className="text-3xl font-bold mb-8">Work.</h2>
+      <h2 className="text-3xl font-bold mb-4">Work.</h2>
+      <p className="mb-6">These are the things I done, sorted by personal, followed by team.</p>
+
+      <div className="mb-6">
+        <div className="relative">
+          <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
+            <Search className="h-4 w-4 text-muted-foreground" />
+          </div>
+          <input
+            type="text"
+            placeholder="Search projects..."
+            className="w-full pl-10 pr-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+          {searchQuery && (
+            <button
+              className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground hover:text-foreground"
+              onClick={() => setSearchQuery("")}
+            >
+              ×
+            </button>
+          )}
+        </div>
+      </div>
+
       <div className="border rounded-lg overflow-hidden">
         <div className="bg-muted py-2 px-4 border-b flex items-center gap-4">
-          <span className="font-medium">Project</span>
+          <span className="font-medium">Projects</span>
           <span className="font-medium ml-auto hidden md:block">Tags</span>
           <span className="w-24 text-center font-medium hidden md:block">Links</span>
         </div>
-        <div className="divide-y">
-          {projects.map((project) => (
-            <div key={project.id} className="group">
-              <div
-                className="flex items-center p-4 cursor-pointer hover:bg-muted/50 transition-colors"
-                onClick={() => toggleExpand(project.id)}
-              >
-                <div className="flex items-center gap-4 flex-1">
-                  <div className="relative w-16 h-16 rounded-md overflow-hidden flex-shrink-0">
-                    <Image
-                      src={project.image || "/placeholder.svg"}
-                      alt={project.title}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="font-medium text-lg">{project.title}</h3>
-                    <p className="text-muted-foreground text-sm line-clamp-1">
-                      {project.description}
-                      {!expandedId && project.description.length > 100 && (
-                        <button
-                          className="text-primary font-medium ml-1"
-                          onClick={(e) => {
-                            e.stopPropagation()
-                            toggleExpand(project.id)
-                          }}
-                        >
-                          See more
-                        </button>
+
+        {filteredProjects.length > 0 ? (
+          <>
+            <div className="divide-y">
+              {visibleProjects.map((project) => (
+                <div key={project.id} className="group">
+                  <div
+                    className="flex items-center p-4 cursor-pointer hover:bg-muted/50 transition-colors"
+                    onClick={() => toggleExpand(project.id)}
+                  >
+                    <div className="flex items-center gap-4 flex-1">
+                      <div className="relative w-16 h-16 rounded-md overflow-hidden flex-shrink-0">
+                        <Image
+                          src={project.image || "/placeholder.svg"}
+                          alt={project.title}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="font-medium text-lg">{project.title}</h3>
+                        <p className="text-muted-foreground text-sm line-clamp-1">
+                          {project.description}
+                          {!expandedId && project.description.length > 100 && (
+                            <button
+                              className="text-primary font-medium ml-1"
+                              onClick={(e) => {
+                                e.stopPropagation()
+                                toggleExpand(project.id)
+                              }}
+                            >
+                              See more
+                            </button>
+                          )}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="hidden md:flex gap-2 flex-wrap max-w-[200px] justify-end">
+                      {project.tags.map((tag) => (
+                        <span key={tag} className="bg-muted px-2 py-1 rounded-full text-xs">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="flex items-center gap-2 ml-4">
+                      {project.github && (
+                        <Button variant="ghost" size="icon" asChild onClick={(e) => e.stopPropagation()}>
+                          <a href={project.github} target="_blank" rel="noopener noreferrer">
+                            <Github className="h-4 w-4" />
+                            <span className="sr-only">GitHub</span>
+                          </a>
+                        </Button>
                       )}
-                    </p>
+                      {project.website && (
+                        <Button variant="ghost" size="icon" asChild onClick={(e) => e.stopPropagation()}>
+                          <a href={project.website} target="_blank" rel="noopener noreferrer">
+                            <ExternalLink className="h-4 w-4" />
+                            <span className="sr-only">Live website</span>
+                          </a>
+                        </Button>
+                      )}
+                      {expandedId === project.id ? (
+                        <ChevronDown className="h-4 w-4 text-muted-foreground" />
+                      ) : (
+                        <ChevronRight className="h-4 w-4 text-muted-foreground" />
+                      )}
+                    </div>
                   </div>
+                  {expandedId === project.id && (
+                    <div className="p-4 pt-0 bg-muted/20">
+                      <div className="flex md:hidden gap-2 flex-wrap mb-3">
+                        {project.tags.map((tag) => (
+                          <span key={tag} className="bg-muted px-2 py-1 rounded-full text-xs">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                      <p className="text-sm text-muted-foreground">{project.description}</p>
+                    </div>
+                  )}
                 </div>
-                <div className="hidden md:flex gap-2 flex-wrap max-w-[200px] justify-end">
-                  {project.tags.map((tag) => (
-                    <span key={tag} className="bg-muted px-2 py-1 rounded-full text-xs">
-                      {tag}
-                    </span>
-                  ))}
+              ))}
+            </div>
+
+            {/* Navigation controls */}
+            {filteredProjects.length > 3 && (
+              <div className="flex justify-between items-center p-3 border-t bg-muted/20">
+                <div className="text-sm text-muted-foreground">
+                  Showing {startIndex + 1}-{Math.min(startIndex + 3, filteredProjects.length)} of{" "}
+                  {filteredProjects.length}
                 </div>
-                <div className="flex items-center gap-2 ml-4">
-                  {project.github && (
-                    <Button variant="ghost" size="icon" asChild onClick={(e) => e.stopPropagation()}>
-                      <a href={project.github} target="_blank" rel="noopener noreferrer">
-                        <Github className="h-4 w-4" />
-                        <span className="sr-only">GitHub</span>
-                      </a>
-                    </Button>
-                  )}
-                  {project.demo && (
-                    <Button variant="ghost" size="icon" asChild onClick={(e) => e.stopPropagation()}>
-                      <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="h-4 w-4" />
-                        <span className="sr-only">Live Demo</span>
-                      </a>
-                    </Button>
-                  )}
-                  {expandedId === project.id ? (
-                    <ChevronDown className="h-4 w-4 text-muted-foreground" />
-                  ) : (
-                    <ChevronRight className="h-4 w-4 text-muted-foreground" />
-                  )}
+                <div className="flex gap-2">
+                  <Button variant="outline" size="sm" onClick={handlePrevious} disabled={startIndex === 0}>
+                    <ChevronLeft className="h-4 w-4" />
+                    <span className="sr-only">Previous</span>
+                  </Button>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={handleNext}
+                    disabled={startIndex >= filteredProjects.length - 3}
+                  >
+                    <ChevronRightIcon className="h-4 w-4" />
+                    <span className="sr-only">Next</span>
+                  </Button>
                 </div>
               </div>
-              {expandedId === project.id && (
-                <div className="p-4 pt-0 bg-muted/20">
-                  <div className="flex md:hidden gap-2 flex-wrap mb-3">
-                    {project.tags.map((tag) => (
-                      <span key={tag} className="bg-muted px-2 py-1 rounded-full text-xs">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  <p className="text-sm text-muted-foreground">{project.description}</p>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
+            )}
+          </>
+        ) : (
+          <div className="p-8 text-center">
+            <p className="text-muted-foreground">No projects found matching your search.</p>
+          </div>
+        )}
       </div>
     </section>
   )

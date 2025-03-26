@@ -12,19 +12,15 @@ export default function Footer() {
             <p className="text-sm text-muted-foreground">© {currentYear} Portfolio. All rights reserved.</p>
           </div>
           <div className="flex items-center gap-4">
-            <Link href="https://github.com" target="_blank" rel="noopener noreferrer">
+            <Link href="https://github.com/LordJunn/" target="_blank" rel="noopener noreferrer">
               <Github className="h-5 w-5 hover:text-primary transition-colors" />
               <span className="sr-only">GitHub</span>
             </Link>
-            <Link href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+            <Link href="https://www.linkedin.com/in/junn-kit-735485245/" target="_blank" rel="noopener noreferrer">
               <Linkedin className="h-5 w-5 hover:text-primary transition-colors" />
               <span className="sr-only">LinkedIn</span>
             </Link>
-            <Link href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-              <Twitter className="h-5 w-5 hover:text-primary transition-colors" />
-              <span className="sr-only">Twitter</span>
-            </Link>
-            <Link href="#" target="_blank" rel="noopener noreferrer">
+            <Link href="mailto:ljunnkit5@gmail.com" target="_blank" rel="noopener noreferrer">
               <Mail className="h-5 w-5 hover:text-primary transition-colors" />
               <span className="sr-only">Email</span>
             </Link>

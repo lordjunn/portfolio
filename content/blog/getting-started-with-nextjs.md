@@ -38,4 +38,5 @@ Use the following command to create a new Next.js project:
 
 ```bash
 npx create-next-app@latest my-next-app
+```
 
