@@ -1,9 +1,9 @@
 import Image from "next/image"
 import { notFound } from "next/navigation"
 import { getAllPosts, getPostBySlug } from "@/lib/blog"
-import { markdownToHtml } from "@/lib/markdown" // Import the new function
+import { markdownToHtml } from "@/lib/markdown"
 import type { Metadata } from "next"
-import { Clock, Calendar } from 'lucide-react'
+import { Clock, Calendar } from "lucide-react"
 
 interface BlogPostPageProps {
   params: {
@@ -42,7 +42,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     notFound()
   }
 
-  // Convert markdown to HTML using the new function
+  // Convert markdown to HTML
   const contentHtml = await markdownToHtml(post.content)
 
   return (
@@ -104,3 +104,4 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     </div>
   )
 }
+

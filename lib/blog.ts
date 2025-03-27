@@ -22,6 +22,10 @@ export interface BlogPost {
 
 const postsDirectory = path.join(process.cwd(), "content/blog")
 
+// Make sure the getAllPosts function properly handles the new blog post
+// by ensuring it can read the content/blog directory correctly
+
+// Update the error handling in getAllPosts to provide more detailed logs
 export async function getAllPosts(): Promise<BlogPost[]> {
   try {
     // Check if directory exists
@@ -35,6 +39,7 @@ export async function getAllPosts(): Promise<BlogPost[]> {
     }
 
     const fileNames = await fs.readdir(postsDirectory)
+    console.log(`Found ${fileNames.length} files in blog directory:`, fileNames)
 
     // Filter out non-markdown files
     const markdownFiles = fileNames.filter((fileName) => fileName.endsWith(".md") || fileName.endsWith(".mdx"))
