@@ -5,6 +5,7 @@ import Footer from "@/components/footer"
 import { Toaster } from "@/components/ui/toaster"
 import type { Metadata } from "next"
 import "./globals.css"
+import "./highlight.css" // Add this line after your globals.css import
 
 export const metadata: Metadata = {
   title: "Portfolio",
