@@ -45,7 +45,7 @@ const projects: Project[] = [
     title: "Webstack Trio",
     description:
       "A website that hosts all my other mini projects, including Tic Tac Toe, Maze, Tower Defense, Wordle, Calculator, Currency Exchanger, and other fun interactive games and useful utilities.",
-    image: "/placeholder.svg?height=400&width=400",
+    image: "https://imakestuff.online/wp-content/uploads/2019/12/HTML-CSS-JS-Logo-600x619.png",
     tags: ["HTML", "CSS", "JavaScript", "APIs"],
     projectType: ["Solo", "Personal"],
     github: "https://github.com/LordJunn/Webstack-Trio",
@@ -56,7 +56,7 @@ const projects: Project[] = [
     title: "Portfolio Website",
     description:
       "A modern portfolio website built with Next.js and TypeScript, featuring a responsive design, dark/light mode toggle, and an integrated blog system with Markdown support. The site showcases my projects, skills, and writing in a clean, accessible interface. It includes project filtering, smooth animations, and optimized performance across all devices.",
-    image: "/placeholder.svg?height=400&width=400",
+    image: "https://i.pinimg.com/736x/27/8f/89/278f8911cd0bb929a45209f749096358.jpg",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "React", "Markdown"],
     projectType: ["Solo", "Personal"],
     github: "https://github.com/LordJunn/portfolio",
@@ -67,7 +67,7 @@ const projects: Project[] = [
     title: "Introduction to Italy",
     description:
       "One of my earliest group assignments. Led a group of 4 to introduce the countrys attractions, transportation, gastronomy and other things a tourist would like to know.",
-    image: "/placeholder.svg?height=400&width=400",
+    image: "https://upload.wikimedia.org/wikipedia/en/thumb/0/03/Flag_of_Italy.svg/1200px-Flag_of_Italy.svg.png",
     tags: ["HTML", "CSS"],
     projectType: ["Team Lead", "University"],
     github: "https://github.com/LordJunn/portfolio",
@@ -78,7 +78,7 @@ const projects: Project[] = [
     title: "Restaurant CRUD CLI App",
     description:
       "Led a group of 4 to create a mini Python CLI application that simulates a restaurant backend, such as receiving orders, setting food availability, checkout and other functions.",
-    image: "/placeholder.svg?height=400&width=400",
+    image: "https://static.vecteezy.com/system/resources/previews/011/943/265/non_2x/pixel-art-wooden-table-with-chairs-and-food-tray-icon-for-8bit-game-on-white-background-vector.jpg",
     tags: ["Python", "CLI"],
     projectType: ["Team Lead", "University"],
     //github: "https://github.com/LordJunn/portfolio",
@@ -89,7 +89,7 @@ const projects: Project[] = [
     title: "Restaurant CRUD Flask App",
     description:
       "Contributed to a group of 4 to create a Flask application that simulates both a restaurant frontend and backend.",
-    image: "/placeholder.svg?height=400&width=400",
+    image: "https://www.shutterstock.com/image-vector/cafeteria-chair-table-coffee-pot-600nw-2063937668.jpg",
     tags: ["Flask"],
     projectType: ["Team", "University"],
     //github: "https://github.com/LordJunn/portfolio",
@@ -99,7 +99,7 @@ const projects: Project[] = [
     id: 8,
     title: "Assembly code intepreter CLI",
     description: "Contributed to a group of 4 to create an ASM code intepreter based on CLI.",
-    image: "/placeholder.svg?height=400&width=400",
+    image: "https://static-00.iconduck.com/assets.00/assembly-icon-2048x2048-wspx42mf.png",
     tags: ["C++", "CLI"],
     projectType: ["Team", "University"],
     //github: "https://github.com/LordJunn/portfolio",
@@ -109,7 +109,7 @@ const projects: Project[] = [
     id: 9,
     title: "Robocop 5000",
     description: "Contributed to a group of 6 to create a 'Robot War' simulator using OOP & DS concepts.",
-    image: "/placeholder.svg?height=400&width=400",
+    image: "https://cdn.dribbble.com/userupload/11728109/file/original-5b23dc8c17dbdd997f330778d2e13f84.jpg?resize=1600x1200",
     tags: ["C++", "CLI"],
     projectType: ["Team", "University"],
     //github: "https://github.com/LordJunn/portfolio",
