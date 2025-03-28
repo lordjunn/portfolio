@@ -10,7 +10,8 @@ interface Project {
   title: string
   description: string
   image: string
-  tags: string[]
+  tags: string[] // Tech stack tags (HTML, CSS, JavaScript, etc.)
+  projectType: string[] // Project type tags (solo, team, university, etc.)
   github?: string
   website?: string
 }
@@ -24,16 +25,18 @@ const projects: Project[] = [
     image:
       "https://img.freepik.com/free-vector/realistic-test-paper-composition-with-pencil-stack-students-paperwork-with-marks-correct-answers_1284-54249.jpg",
     tags: ["HTML", "CSS", "JavaScript"],
+    projectType: ["Solo", "Personal"],
     github: "https://github.com/LordJunn/Study-With-Junn",
     website: "https://lordjunn.github.io/Study-With-Junn/index.html",
   },
   {
     id: 2,
     title: "Food",
-    description:
-      "One of my earliest websites. Shows food options on campus, and some reviews of food I had.",
-    image: "https://preview.redd.it/whats-son-gokus-favorite-dish-ive-always-loved-the-variety-v0-c4z2a45ke4jb1.jpg?width=736&format=pjpg&auto=webp&s=dd25b7826bd1279637a7feeee8d5bbf5439bf6e5",
+    description: "One of my earliest websites. Shows food options on campus, and some reviews of food I had.",
+    image:
+      "https://preview.redd.it/whats-son-gokus-favorite-dish-ive-always-loved-the-variety-v0-c4z2a45ke4jb1.jpg?width=736&format=pjpg&auto=webp&s=dd25b7826bd1279637a7feeee8d5bbf5439bf6e5",
     tags: ["HTML", "CSS", "JavaScript"],
+    projectType: ["Solo", "Personal"],
     github: "https://github.com/LordJunn/Food-MMU",
     website: "https://lordjunn.github.io/Food-MMU/",
   },
@@ -41,20 +44,87 @@ const projects: Project[] = [
     id: 3,
     title: "Webstack Trio",
     description:
-      "A website that hosts all my other mini projects, such as Tic Tac Toe, Tower Defense, Currency Exchanger & more.",
+      "A website that hosts all my other mini projects, including Tic Tac Toe, Maze, Tower Defense, Wordle, Calculator, Currency Exchanger, and other fun interactive games and useful utilities.",
     image: "/placeholder.svg?height=400&width=400",
     tags: ["HTML", "CSS", "JavaScript", "APIs"],
+    projectType: ["Solo", "Personal"],
     github: "https://github.com/LordJunn/Webstack-Trio",
     website: "https://lordjunn.github.io/Webstack-Trio/",
   },
   {
     id: 4,
     title: "Portfolio Website",
-    description: "A modern portfolio website built with Next.js and TypeScript, featuring a responsive design, dark/light mode toggle, and an integrated blog system with Markdown support. The site showcases my projects, skills, and writing in a clean, accessible interface. It includes project filtering, smooth animations, and optimized performance across all devices.",
+    description:
+      "A modern portfolio website built with Next.js and TypeScript, featuring a responsive design, dark/light mode toggle, and an integrated blog system with Markdown support. The site showcases my projects, skills, and writing in a clean, accessible interface. It includes project filtering, smooth animations, and optimized performance across all devices.",
     image: "/placeholder.svg?height=400&width=400",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "React", "Markdown"],
+    projectType: ["Solo", "Personal"],
     github: "https://github.com/LordJunn/portfolio",
     website: "https://junn-portfolio.vercel.app/",
+  },
+  {
+    id: 5,
+    title: "Introduction to Italy",
+    description:
+      "One of my earliest group assignments. Led a group of 4 to introduce the countrys attractions, transportation, gastronomy and other things a tourist would like to know.",
+    image: "/placeholder.svg?height=400&width=400",
+    tags: ["HTML", "CSS"],
+    projectType: ["Team Lead", "University"],
+    github: "https://github.com/LordJunn/portfolio",
+    website: "https://lordjunn.github.io/italy/",
+  },
+  {
+    id: 6,
+    title: "Restaurant CRUD CLI App",
+    description:
+      "Led a group of 4 to create a mini Python CLI application that simulates a restaurant backend, such as receiving orders, setting food availability, checkout and other functions.",
+    image: "/placeholder.svg?height=400&width=400",
+    tags: ["Python", "CLI"],
+    projectType: ["Team Lead", "University"],
+    //github: "https://github.com/LordJunn/portfolio",
+    //website: "https://junn-portfolio.vercel.app/",
+  },
+  {
+    id: 7,
+    title: "Restaurant CRUD Flask App",
+    description:
+      "Contributed to a group of 4 to create a Flask application that simulates both a restaurant frontend and backend.",
+    image: "/placeholder.svg?height=400&width=400",
+    tags: ["Flask"],
+    projectType: ["Team", "University"],
+    //github: "https://github.com/LordJunn/portfolio",
+    //website: "https://junn-portfolio.vercel.app/",
+  },
+  {
+    id: 8,
+    title: "Assembly code intepreter CLI",
+    description: "Contributed to a group of 4 to create an ASM code intepreter based on CLI.",
+    image: "/placeholder.svg?height=400&width=400",
+    tags: ["C++", "CLI"],
+    projectType: ["Team", "University"],
+    //github: "https://github.com/LordJunn/portfolio",
+    //website: "https://junn-portfolio.vercel.app/",
+  },
+  {
+    id: 9,
+    title: "Robocop 5000",
+    description: "Contributed to a group of 6 to create a 'Robot War' simulator using OOP & DS concepts.",
+    image: "/placeholder.svg?height=400&width=400",
+    tags: ["C++", "CLI"],
+    projectType: ["Team", "University"],
+    //github: "https://github.com/LordJunn/portfolio",
+    //website: "https://junn-portfolio.vercel.app/",
+  },
+  {
+    id: 10,
+    title: "Kwazam Chess",
+    description:
+      "Contributed to a group of 4 to create a special Chess game with load & save functions with special pieces.",
+    image: "/placeholder.svg?height=400&width=400",
+    tags: ["Java"],
+    projectType: ["Team", "University"],
+    //github: "https://github.com/LordJunn/portfolio",
+    //website: "https://junn-portfolio.vercel.app/",
   },
 ]
 
@@ -67,13 +137,14 @@ export default function Work() {
     (project) =>
       project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       project.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      project.tags.some((tag) => tag.toLowerCase().includes(searchQuery.toLowerCase())),
+      project.tags.some((tag) => tag.toLowerCase().includes(searchQuery.toLowerCase())) ||
+      project.projectType.some((type) => type.toLowerCase().includes(searchQuery.toLowerCase())),
   )
 
   // Ensure startIndex is valid when filtered projects change
   useEffect(() => {
     if (startIndex > filteredProjects.length - 1) {
-      setStartIndex(Math.max(0, filteredProjects.length - 3))
+      setStartIndex(Math.max(0, filteredProjects.length - 1))
     }
   }, [filteredProjects, startIndex])
 
@@ -122,7 +193,7 @@ export default function Work() {
       <div className="border rounded-lg overflow-hidden">
         <div className="bg-muted py-2 px-4 border-b flex items-center gap-4">
           <span className="font-medium">Projects</span>
-          <span className="font-medium ml-auto hidden md:block">Tags</span>
+          <span className="font-medium ml-auto hidden md:block">Project Type</span>
           <span className="w-24 text-center font-medium hidden md:block">Links</span>
         </div>
 
@@ -163,9 +234,9 @@ export default function Work() {
                       </div>
                     </div>
                     <div className="hidden md:flex gap-2 flex-wrap max-w-[200px] justify-end">
-                      {project.tags.map((tag) => (
-                        <span key={tag} className="bg-muted px-2 py-1 rounded-full text-xs">
-                          {tag}
+                      {project.projectType.map((type) => (
+                        <span key={type} className="bg-primary/10 text-primary px-2 py-1 rounded-full text-xs">
+                          {type}
                         </span>
                       ))}
                     </div>
@@ -195,14 +266,23 @@ export default function Work() {
                   </div>
                   {expandedId === project.id && (
                     <div className="p-4 pt-0 bg-muted/20">
+                      {/* Show project type tags on mobile */}
                       <div className="flex md:hidden gap-2 flex-wrap mb-3">
+                        {project.projectType.map((type) => (
+                          <span key={type} className="bg-primary/10 text-primary px-2 py-1 rounded-full text-xs">
+                            {type}
+                          </span>
+                        ))}
+                      </div>
+                      <p className="text-sm text-muted-foreground mb-3">{project.description}</p>
+                      {/* Tech stack tags now appear below the description */}
+                      <div className="flex flex-wrap gap-2 mt-2">
                         {project.tags.map((tag) => (
                           <span key={tag} className="bg-muted px-2 py-1 rounded-full text-xs">
                             {tag}
                           </span>
                         ))}
                       </div>
-                      <p className="text-sm text-muted-foreground">{project.description}</p>
                     </div>
                   )}
                 </div>

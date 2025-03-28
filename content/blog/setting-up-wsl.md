@@ -20,9 +20,10 @@ If you're a developer looking to work with a Linux environment on your Windows m
 This article will guide you through the process of setting up WSL, installing Ubuntu 24.04 LTS and getting Node.js.
 
 # Why use WSL?
-To me, I usually code all my Python things in here to prevent conflicts on my main Windows. Ever since I got introduced to WSL, my coding environment
-has never been better. It may just be my personal preference, but I like my things to work out of the box, without any issues for a long time, even if 
-it meant installing and tinkering more things. 
+To me, I usually code all my Python things in here to prevent conflicts on my main Windows. 
+Ever since I got introduced to WSL, my coding environment has never been better. 
+It may just be my personal preference, but I like my things to work out of the box, without any issues for a long time, even if it meant installing and tinkering more things. 
+
 Like a programmer, build a program that takes them 10 hours, to do a task that takes them 10 minutes.
 
 ## Step 1: Install WSL 2
@@ -35,6 +36,7 @@ To begin, we need to install Windows Subsystem for Linux 2 (WSL 2) on your syste
 
   ```powershell
   wsl --install
+  
   ```
 
   This will download and install WSL 2 on your system. You might see messages like this in your terminal:
@@ -51,6 +53,7 @@ To begin, we need to install Windows Subsystem for Linux 2 (WSL 2) on your syste
 
   ```powershell
   DISM /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+
   ```
 
   Once this is done, you will need to restart your system to complete the installation.
@@ -63,6 +66,7 @@ To begin, we need to install Windows Subsystem for Linux 2 (WSL 2) on your syste
 
   ```powershell
   C:\WINDOWS\System32\wsl.exe --install -d Ubuntu-24.04
+
   ```
 
   You'll see messages like:
@@ -79,6 +83,7 @@ To begin, we need to install Windows Subsystem for Linux 2 (WSL 2) on your syste
 
   ```powershell
   wsl -d Ubuntu-24.04
+
   ```
 
   The first time you run Ubuntu, it will set up the necessary files and prompt you to create a user account. Follow the instructions on the screen.
@@ -93,6 +98,7 @@ Now that you have Ubuntu running in WSL, it's time to install Node.js, a must-ha
 
   ```bash
   sudo apt-get install curl
+
   ```
 
 ### 2. Install NVM (Node Version Manager):
@@ -101,6 +107,7 @@ Now that you have Ubuntu running in WSL, it's time to install Node.js, a must-ha
 
   ```bash
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
+
   ```
 
   After the installation, restart your terminal (or close and reopen it).
@@ -111,6 +118,7 @@ Now that you have Ubuntu running in WSL, it's time to install Node.js, a must-ha
 
   ```bash
   nvm install --lts
+
   ```
 
   This will download and install the latest LTS version of Node.js. You can verify the installation by running:
@@ -118,6 +126,7 @@ Now that you have Ubuntu running in WSL, it's time to install Node.js, a must-ha
   ```bash
   node -v
   npm -v
+  
   ```
 
 ## Bonus Steps: Installing language packs
