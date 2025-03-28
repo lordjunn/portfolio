@@ -96,7 +96,7 @@ export default function BlogPage() {
                   <h2 className="text-2xl font-bold mb-2">{post.title}</h2>
                   <p className="text-muted-foreground mb-4 line-clamp-3">{post.preview}</p>
                   <p className="text-sm text-muted-foreground">
-                    {new Date(post.date).toLocaleDateString("en-US", {
+                    {new Date(post.date).toLocaleDateString("en-MY", {
                       year: "numeric",
                       month: "numeric",
                       day: "numeric",

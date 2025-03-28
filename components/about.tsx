@@ -5,17 +5,15 @@ export default function About() {
       <div className="grid md:grid-cols-2 gap-8">
         <div>
           <p className="text-lg mb-4">
-            Hi there! I'm a passionate Computer Science student with expertise in building modern, responsive, and user-friendly
-            applications.
+            Hi! I'm a Computer Science student currently studying at Multimedia University Cyberjaya. 
+            I'm passionate about coding and building applications that are both functional and visually appealing.
           </p>
           <p className="text-lg mb-4">
-            With several years of experience in the field, I've worked on a variety of projects ranging from University to Personal projects.
-            I specialize in front-end development using React and
-            Next.js, but I'm also comfortable working with back-end technologies.
+            I’ve been learning and working on a variety of projects throughout my studies, focusing mostly on front-end web development. 
+            While my main interest is in front-end, I also enjoy exploring back-end technologies and integrating them with my front-end work.
           </p>
           <p className="text-lg">
-            When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or
-            enjoying indoor activities.
+            Outside of coding, I love staying up-to-date with the latest technologies, working on personal projects, and improving myself, little by little, day by day.
           </p>
         </div>
         <div>
@@ -60,4 +58,3 @@ export default function About() {
     </section>
   )
 }
-

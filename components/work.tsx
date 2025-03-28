@@ -148,7 +148,7 @@ export default function Work() {
     }
   }, [filteredProjects, startIndex])
 
-  const visibleProjects = filteredProjects.slice(startIndex, startIndex + 3)
+  const visibleProjects = filteredProjects.slice(startIndex, Math.min(startIndex + 3, filteredProjects.length))
 
   const toggleExpand = (id: number) => {
     setExpandedId(expandedId === id ? null : id)
@@ -159,7 +159,7 @@ export default function Work() {
   }
 
   const handleNext = () => {
-    setStartIndex(Math.min(filteredProjects.length - 1, startIndex + 1))
+    setStartIndex(Math.min(filteredProjects.length - 3, startIndex + 1))
   }
 
   return (
@@ -219,7 +219,7 @@ export default function Work() {
                         <h3 className="font-medium text-lg">{project.title}</h3>
                         <p className="text-muted-foreground text-sm line-clamp-1">
                           {project.description}
-                          {!expandedId && project.description.length > 100 && (
+                          {!expandedId && project.description.length > 1000 && (
                             <button
                               className="text-primary font-medium ml-1"
                               onClick={(e) => {

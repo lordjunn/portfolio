@@ -40,5 +40,6 @@ HTML is the standard markup language for documents designed to be displayed in a
   <script src="script.js"></script>
 </body>
 </html>
+
 ```
 
