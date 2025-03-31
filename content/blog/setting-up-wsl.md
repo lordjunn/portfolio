@@ -1,12 +1,12 @@
 ---
-date: '2023-07-15T10:00:00.000Z'
+date: '2025-03-26T07:43:00.727Z'
 title: Setting Up WSL and Installing Essential Tools on Windows
 tagline: A Step-by-Step Guide to Set Up WSL 2 and Install Node.js
 preview: >-
   Learn how to set up Windows Subsystem for Linux (WSL), install Ubuntu, and get essential development tools like Node.js running on your system.
 image: >-
   https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2070
-keywords: "WSL, Ubuntu, Node.js, PostgreSQL, Windows Subsystem for Linux"
+keywords: "WSL, Ubuntu, Node.js, Windows Subsystem for Linux"
 author:
   authorname: Lord Junn
   authorimage: >-
