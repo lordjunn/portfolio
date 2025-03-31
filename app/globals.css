@@ -148,99 +148,147 @@
   @apply bg-muted/50 px-1.5 py-0.5 rounded text-sm font-mono;
 }
 
-/* Code block styling */
+/* ===== CODE BLOCK STYLING ===== */
 .markdown-content pre {
-  @apply my-4 rounded-lg overflow-x-auto;
-  background-color: #1e1e2e;
-  color: #cdd6f4;
-  padding: 1rem;
+  /* Vertical spacing between code blocks and other elements */
+  @apply my-6 rounded-lg overflow-x-auto;
+
+  /* Background and text colors for dark mode (default) */
+  background-color: #1e1e2e; /* Dark background color */
+  color: #cdd6f4; /* Light text color */
+
+  /* Internal padding - controls space inside the code block */
+  padding: 1.5rem; /* Increase this for more space inside the code block */
+
+  /* These control how wide the code block is compared to the container */
+  margin-left: -0.5rem; /* Negative margin makes the block extend left */
+  margin-right: -0.5rem; /* Negative margin makes the block extend right */
+
+  /* Width calculation - should match the sum of the absolute values of the margins */
+  width: calc(100% + 1rem); /* 100% + (0.5rem left + 0.5rem right) */
+
+  /* Vertical spacing - additional control for top/bottom margins */
+  margin-top: 1.5rem; /* Space above code blocks */
+  margin-bottom: 1.5rem; /* Space below code blocks */
 }
 
+/* Styling for the actual code inside the code block */
 .markdown-content pre code {
-  @apply font-mono text-sm;
-  line-height: 1.5;
-  white-space: pre;
-  display: block;
+  @apply font-mono text-sm; /* Font family and size */
+  line-height: 1.6; /* Controls the spacing between lines of code */
+  white-space: pre; /* Preserves whitespace and line breaks */
+  display: block; /* Makes the code take up the full width */
 }
 
-/* Add syntax highlighting with Prism.js-like styles */
+/* Light mode styling for code blocks */
+@media (prefers-color-scheme: light) {
+  .markdown-content pre {
+    background-color: #f6f8fa; /* Light gray background for light mode */
+    color: #24292e; /* Dark text for light mode */
+  }
+}
+
+/* Dark mode styling for code blocks (when using class-based dark mode) */
+.dark .markdown-content pre {
+  background-color: #1e1e2e; /* Dark background for dark mode */
+  color: #cdd6f4; /* Light text for dark mode */
+}
+
+/* ===== SYNTAX HIGHLIGHTING STYLES ===== */
+/* These styles control the colors of different code elements */
+
+/* Base style for code blocks with syntax highlighting */
 .code-block {
   background-color: #1e1e2e !important;
   color: #cdd6f4 !important;
 }
 
+/* HTML/XML tag styling */
 .code-block.language-html .token.tag,
 .code-block.language-xml .token.tag {
-  color: #f38ba8;
+  color: #f38ba8; /* Pink color for HTML/XML tags */
 }
 
+/* HTML/XML attribute name styling */
 .code-block.language-html .token.attr-name,
 .code-block.language-xml .token.attr-name {
-  color: #a6e3a1;
+  color: #a6e3a1; /* Green color for attribute names */
 }
 
+/* HTML/XML attribute value styling */
 .code-block.language-html .token.attr-value,
 .code-block.language-xml .token.attr-value {
-  color: #fab387;
+  color: #fab387; /* Orange color for attribute values */
 }
 
+/* HTML/XML comment styling */
 .code-block.language-html .token.comment,
 .code-block.language-xml .token.comment {
-  color: #7f849c;
+  color: #7f849c; /* Gray color for comments */
 }
 
+/* CSS selector styling */
 .code-block.language-css .token.selector {
-  color: #f38ba8;
+  color: #f38ba8; /* Pink color for CSS selectors */
 }
 
+/* CSS property styling */
 .code-block.language-css .token.property {
-  color: #89b4fa;
+  color: #89b4fa; /* Blue color for CSS properties */
 }
 
+/* CSS value styling */
 .code-block.language-css .token.value {
-  color: #fab387;
+  color: #fab387; /* Orange color for CSS values */
 }
 
+/* CSS comment styling */
 .code-block.language-css .token.comment {
-  color: #7f849c;
+  color: #7f849c; /* Gray color for CSS comments */
 }
 
+/* JavaScript/TypeScript keyword styling */
 .code-block.language-javascript .token.keyword,
 .code-block.language-js .token.keyword,
 .code-block.language-typescript .token.keyword,
 .code-block.language-ts .token.keyword {
-  color: #f38ba8;
+  color: #f38ba8; /* Pink color for keywords */
 }
 
+/* JavaScript/TypeScript string styling */
 .code-block.language-javascript .token.string,
 .code-block.language-js .token.string,
 .code-block.language-typescript .token.string,
 .code-block.language-ts .token.string {
-  color: #a6e3a1;
+  color: #a6e3a1; /* Green color for strings */
 }
 
+/* JavaScript/TypeScript function styling */
 .code-block.language-javascript .token.function,
 .code-block.language-js .token.function,
 .code-block.language-typescript .token.function,
 .code-block.language-ts .token.function {
-  color: #89b4fa;
+  color: #89b4fa; /* Blue color for functions */
 }
 
+/* JavaScript/TypeScript number styling */
 .code-block.language-javascript .token.number,
 .code-block.language-js .token.number,
 .code-block.language-typescript .token.number,
 .code-block.language-ts .token.number {
-  color: #fab387;
+  color: #fab387; /* Orange color for numbers */
 }
 
+/* JavaScript/TypeScript comment styling */
 .code-block.language-javascript .token.comment,
 .code-block.language-js .token.comment,
 .code-block.language-typescript .token.comment,
 .code-block.language-ts .token.comment {
-  color: #7f849c;
+  color: #7f849c; /* Gray color for comments */
 }
 
-/* Prose styles for compatibility */
+/* ===== PROSE STYLES FOR COMPATIBILITY ===== */
+/* These styles ensure compatibility with the Tailwind Typography plugin */
 .prose {
   @apply text-foreground;
 }
@@ -282,5 +330,103 @@
 
 .dark .prose {
   @apply text-foreground;
+}
+
+/* ===== BLOG IMAGE LAYOUTS ===== */
+/* These classes provide different image layouts for blog posts */
+
+/* Full-width image that spans the entire container */
+.markdown-content .img-full {
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 0.5rem;
+}
+
+/* Half-width image aligned to the left with text wrapping around */
+.markdown-content .img-left {
+  float: left;
+  width: 50%;
+  margin-right: 1.5rem;
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+/* Half-width image aligned to the right with text wrapping around */
+.markdown-content .img-right {
+  float: right;
+  width: 50%;
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+/* Medium-sized image (70% width) centered */
+.markdown-content .img-medium {
+  display: block;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 0.5rem;
+}
+
+/* Small image (30% width) centered, good for logos or icons */
+.markdown-content .img-small {
+  display: block;
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 0.5rem;
+}
+
+/* Image with caption */
+.markdown-content .img-with-caption {
+  display: block;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.markdown-content .caption {
+  display: block;
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+/* Clear floats after image layouts to prevent layout issues */
+.markdown-content .clear-float {
+  clear: both;
+  display: block;
+  content: "";
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .markdown-content .img-left,
+  .markdown-content .img-right {
+    float: none;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .markdown-content .img-medium,
+  .markdown-content .img-small {
+    width: 100%;
+  }
 }
 
