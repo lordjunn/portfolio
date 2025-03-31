@@ -47,16 +47,14 @@ To set up and customize the portfolio, follow the steps below:
 
 ### 1. **Download the Template**
 
-You can either clone the repository or download it as a ZIP file.
+You can either clone the repository or download it as a ZIP file, command below.
 
 ```bash
-# Clone the repository
 git clone https://github.com/LordJunn/portfolio.git
-# Or download the ZIP and extract it
 ```
 ### 2. **Prepare Your Blog Posts**
 
-To start with a clean slate, remove any existing posts in the /content/blog/ directory.
+To start with a clean slate, remove any existing posts in the <code>/content/blog/ </code> directory.
 
 ```bash
 # Delete all existing blog posts for a fresh start
@@ -67,13 +65,13 @@ rm -rf content/blog/*
 
 Edit the necessary components and pages as needed. Below are the key components to modify:
 
-    About Section: Update the <code>/components/about.tsx</code> file to add your personal information.
-    Hero Section: Modify <code>/components/hero.tsx</code> to customize your homepage introduction.
-    Pages: Update other relevant pages inside the <code>/components/</code> directory to reflect your unique content.
+About Section: Update the <code>/components/about.tsx </code> file to add your personal information.
+Hero Section: Modify <code>/components/hero.tsx </code> to customize your homepage introduction.
+Pages: Update other relevant pages inside the <code>/components/ </code> directory to reflect your unique content.
 
 ### 4. **Change the Icon**
 
-If you wish to change the favicon or other icons, navigate to the <code>/public/</code> directory and replace the current icons.
+If you wish to change the favicon or other icons, navigate to the <code>/public/ </code> directory and replace the current icons.
 
 ### 5. **Deploy Your Site**
 
@@ -83,6 +81,6 @@ Once you've made your changes, deploy the site using your preferred platform, su
 
 We welcome contributions to improve this template! If you'd like to contribute:
 
-    Fork the repository.
-    Create a new branch for your changes.
-    Submit a pull request with a detailed description of the changes you made.
+Fork the repository.
+Create a new branch for your changes.
+Submit a pull request with a detailed description of the changes you made.
