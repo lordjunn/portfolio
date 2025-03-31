@@ -148,147 +148,99 @@
   @apply bg-muted/50 px-1.5 py-0.5 rounded text-sm font-mono;
 }
 
-/* ===== CODE BLOCK STYLING ===== */
+/* Code block styling */
 .markdown-content pre {
-  /* Vertical spacing between code blocks and other elements */
-  @apply my-6 rounded-lg overflow-x-auto;
-
-  /* Background and text colors for dark mode (default) */
-  background-color: #1e1e2e; /* Dark background color */
-  color: #cdd6f4; /* Light text color */
-
-  /* Internal padding - controls space inside the code block */
-  padding: 1.5rem; /* Increase this for more space inside the code block */
-
-  /* These control how wide the code block is compared to the container */
-  margin-left: -0.5rem; /* Negative margin makes the block extend left */
-  margin-right: -0.5rem; /* Negative margin makes the block extend right */
-
-  /* Width calculation - should match the sum of the absolute values of the margins */
-  width: calc(100% + 1rem); /* 100% + (0.5rem left + 0.5rem right) */
-
-  /* Vertical spacing - additional control for top/bottom margins */
-  margin-top: 1.5rem; /* Space above code blocks */
-  margin-bottom: 1.5rem; /* Space below code blocks */
+  @apply my-4 rounded-lg overflow-x-auto;
+  background-color: #1e1e2e;
+  color: #cdd6f4;
+  padding: 1rem;
 }
 
-/* Styling for the actual code inside the code block */
 .markdown-content pre code {
-  @apply font-mono text-sm; /* Font family and size */
-  line-height: 1.6; /* Controls the spacing between lines of code */
-  white-space: pre; /* Preserves whitespace and line breaks */
-  display: block; /* Makes the code take up the full width */
+  @apply font-mono text-sm;
+  line-height: 1.5;
+  white-space: pre;
+  display: block;
 }
 
-/* Light mode styling for code blocks */
-@media (prefers-color-scheme: light) {
-  .markdown-content pre {
-    background-color: #f6f8fa; /* Light gray background for light mode */
-    color: #24292e; /* Dark text for light mode */
-  }
-}
-
-/* Dark mode styling for code blocks (when using class-based dark mode) */
-.dark .markdown-content pre {
-  background-color: #1e1e2e; /* Dark background for dark mode */
-  color: #cdd6f4; /* Light text for dark mode */
-}
-
-/* ===== SYNTAX HIGHLIGHTING STYLES ===== */
-/* These styles control the colors of different code elements */
-
-/* Base style for code blocks with syntax highlighting */
+/* Add syntax highlighting with Prism.js-like styles */
 .code-block {
   background-color: #1e1e2e !important;
   color: #cdd6f4 !important;
 }
 
-/* HTML/XML tag styling */
 .code-block.language-html .token.tag,
 .code-block.language-xml .token.tag {
-  color: #f38ba8; /* Pink color for HTML/XML tags */
+  color: #f38ba8;
 }
 
-/* HTML/XML attribute name styling */
 .code-block.language-html .token.attr-name,
 .code-block.language-xml .token.attr-name {
-  color: #a6e3a1; /* Green color for attribute names */
+  color: #a6e3a1;
 }
 
-/* HTML/XML attribute value styling */
 .code-block.language-html .token.attr-value,
 .code-block.language-xml .token.attr-value {
-  color: #fab387; /* Orange color for attribute values */
+  color: #fab387;
 }
 
-/* HTML/XML comment styling */
 .code-block.language-html .token.comment,
 .code-block.language-xml .token.comment {
-  color: #7f849c; /* Gray color for comments */
+  color: #7f849c;
 }
 
-/* CSS selector styling */
 .code-block.language-css .token.selector {
-  color: #f38ba8; /* Pink color for CSS selectors */
+  color: #f38ba8;
 }
 
-/* CSS property styling */
 .code-block.language-css .token.property {
-  color: #89b4fa; /* Blue color for CSS properties */
+  color: #89b4fa;
 }
 
-/* CSS value styling */
 .code-block.language-css .token.value {
-  color: #fab387; /* Orange color for CSS values */
+  color: #fab387;
 }
 
-/* CSS comment styling */
 .code-block.language-css .token.comment {
-  color: #7f849c; /* Gray color for CSS comments */
+  color: #7f849c;
 }
 
-/* JavaScript/TypeScript keyword styling */
 .code-block.language-javascript .token.keyword,
 .code-block.language-js .token.keyword,
 .code-block.language-typescript .token.keyword,
 .code-block.language-ts .token.keyword {
-  color: #f38ba8; /* Pink color for keywords */
+  color: #f38ba8;
 }
 
-/* JavaScript/TypeScript string styling */
 .code-block.language-javascript .token.string,
 .code-block.language-js .token.string,
 .code-block.language-typescript .token.string,
 .code-block.language-ts .token.string {
-  color: #a6e3a1; /* Green color for strings */
+  color: #a6e3a1;
 }
 
-/* JavaScript/TypeScript function styling */
 .code-block.language-javascript .token.function,
 .code-block.language-js .token.function,
 .code-block.language-typescript .token.function,
 .code-block.language-ts .token.function {
-  color: #89b4fa; /* Blue color for functions */
+  color: #89b4fa;
 }
 
-/* JavaScript/TypeScript number styling */
 .code-block.language-javascript .token.number,
 .code-block.language-js .token.number,
 .code-block.language-typescript .token.number,
 .code-block.language-ts .token.number {
-  color: #fab387; /* Orange color for numbers */
+  color: #fab387;
 }
 
-/* JavaScript/TypeScript comment styling */
 .code-block.language-javascript .token.comment,
 .code-block.language-js .token.comment,
 .code-block.language-typescript .token.comment,
 .code-block.language-ts .token.comment {
-  color: #7f849c; /* Gray color for comments */
+  color: #7f849c;
 }
 
-/* ===== PROSE STYLES FOR COMPATIBILITY ===== */
-/* These styles ensure compatibility with the Tailwind Typography plugin */
+/* Prose styles for compatibility */
 .prose {
   @apply text-foreground;
 }
