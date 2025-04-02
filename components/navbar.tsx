@@ -59,7 +59,7 @@ export default function Navbar() {
           <Link href="/blog" className="text-sm font-medium hover:text-primary">
             Blog
           </Link>
-          <Link href="#" className="text-sm font-medium hover:text-primary">
+          <Link href="/Resume.pdf" className="text-sm font-medium hover:text-primary">
             Resume
           </Link>
           <Link href="/#contact" className="text-sm font-medium hover:text-primary">

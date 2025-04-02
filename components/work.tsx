@@ -23,7 +23,7 @@ const projects: Project[] = [
     description:
       "Developed a website that stores educational materials that I have done, which has benefited my entire intake of 600+ students and others to score higher and better. Applicable to other universities as well.",
     image:
-      "https://img.freepik.com/free-vector/realistic-test-paper-composition-with-pencil-stack-students-paperwork-with-marks-correct-answers_1284-54249.jpg",
+      "/Exams.jpg",
     tags: ["HTML", "CSS", "JavaScript"],
     projectType: ["Solo", "Personal"],
     github: "https://github.com/LordJunn/Study-With-Junn",
@@ -120,7 +120,7 @@ const projects: Project[] = [
     title: "Kwazam Chess",
     description:
       "Contributed to a group of 4 to create a special Chess game with load & save functions with special pieces.",
-    image: "/placeholder.svg?height=400&width=400",
+    image: "/placeholder.svg",
     tags: ["Java"],
     projectType: ["Team", "University"],
     //github: "https://github.com/LordJunn/portfolio",
