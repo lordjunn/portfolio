@@ -77,7 +77,7 @@ This will start the Next.js application and you can view it by going to http://l
 
 The file structure of a Next.js project is simple and intuitive. Here's a breakdown of the key folders and files:
 
-<code>pages/: This is where your React components go. Each file in this directory automatically becomes a route in your app. For example, <code>pages/index</code>.js will be accessible at <code>/</code>, and <code>pages/about.js</code> will be accessible at <code>/about</code>.
+<code>pages/</code>: This is where your React components go. Each file in this directory automatically becomes a route in your app. For example, <code>pages/index</code>.js will be accessible at <code>/</code>, and <code>pages/about.js</code> will be accessible at <code>/about</code>.
 <code>public/</code>: This directory is where you can place static assets like images, fonts, and other files that don't require processing.
 <code>styles/</code>: This folder contains the CSS files for your project, and you can add global styles here or use CSS modules for specific components.
 
