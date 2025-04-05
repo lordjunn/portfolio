@@ -34,7 +34,7 @@ const projects: Project[] = [
     title: "Food",
     description: "One of my earliest websites. Shows food options on campus, and some reviews of food I had.",
     image:
-      "https://preview.redd.it/whats-son-gokus-favorite-dish-ive-always-loved-the-variety-v0-c4z2a45ke4jb1.jpg?width=736&format=pjpg&auto=webp&s=dd25b7826bd1279637a7feeee8d5bbf5439bf6e5",
+      "/Work/Food.png",
     tags: ["HTML", "CSS", "JavaScript"],
     projectType: ["Solo", "Personal"],
     github: "https://github.com/LordJunn/Food-MMU",
@@ -45,7 +45,7 @@ const projects: Project[] = [
     title: "Webstack Trio",
     description:
       "A website that hosts all my other mini projects, including Tic Tac Toe, Maze, Tower Defense, Wordle, Calculator, Currency Exchanger, and other fun interactive games and useful utilities.",
-    image: "https://imakestuff.online/wp-content/uploads/2019/12/HTML-CSS-JS-Logo-600x619.png",
+    image: "/Work/Trio.png",
     tags: ["HTML", "CSS", "JavaScript", "APIs"],
     projectType: ["Solo", "Personal"],
     github: "https://github.com/LordJunn/Webstack-Trio",
