@@ -23,7 +23,7 @@ const projects: Project[] = [
     description:
       "Developed a website that stores educational materials that I have done, which has benefited my entire intake of 600+ students and others to score higher and better. Applicable to other universities as well.",
     image:
-      "/Exams.jpg",
+      "/Work/Exams.jpg",
     tags: ["HTML", "CSS", "JavaScript"],
     projectType: ["Solo", "Personal"],
     github: "https://github.com/LordJunn/Study-With-Junn",

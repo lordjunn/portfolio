@@ -61,7 +61,7 @@
     "fs": "latest",
     "path": "latest",
     "gray-matter": "latest",
-
+    "nodemailer": "^6.9.7",
     "marked": "^9.1.5",
     "highlight.js": "^11.9.0"
 

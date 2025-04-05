@@ -1,5 +1,5 @@
 ---
-date: '2023-03-15T12:00:00.000Z'
+date: '2025-04-02T12:00:00.000Z'
 title: Getting Started with Next.js
 tagline: A beginner's guide to the React framework
 preview: >-
@@ -8,9 +8,9 @@ image: >-
   https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80
 keywords: "Next.js, React, Web Development"
 author:
-  authorname: John Doe
+  authorname: Lord Junn
   authorimage: >-
-    https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80
+    https://cdn.discordapp.com/avatars/294784896579403777/fffbe8d9591126d66f8a3b57da81e26a.png?size=4096
 readingtime: 5
 ---
 
@@ -87,7 +87,7 @@ One of the simplest features of Next.js is its file-based routing. To create new
 
 ### Example: Creating an About Page
 
-Create a new file in the pages folder named about.js:
+Create a new file in the pages folder named `about.js`:
 
 ```jsx
 export default function About() {
@@ -109,7 +109,7 @@ You can structure your app using reusable components. Next.js works seamlessly w
 
 ### Example: Creating a Header Component
 
-First, create a new components folder in the root of your project. Then, add a file named Header.js inside the components folder:
+First, create a new components folder in the root of your project. Then, add a file named `Header.js` inside the components folder:
 
 ```jsx
 export default function Header() {
@@ -121,7 +121,7 @@ export default function Header() {
 }
 ```
 
-Now, you can import and use this component in any page. For example, you can add it to the pages/index.js file like this:
+Now, you can import and use this component in any page. For example, you can add it to the `pages/index.js` file like this:
 
 ```jsx
 import Header from '../components/Header';
@@ -140,7 +140,7 @@ export default function Home() {
 
 Next.js makes it easy to pre-render your pages at build time using Static Site Generation (SSG). This means that when you deploy your site, the HTML for each page is generated ahead of time, making your pages load faster.
 
-To implement SSG, you can use the getStaticProps function inside your page component. Here's an example:
+To implement SSG, you can use the `getStaticProps` function inside your page component. Here's an example:
 
 ```jsx
 export async function getStaticProps() {
@@ -171,7 +171,7 @@ export default function Posts({ posts }) {
 }
 ```
 
-In the example above, the getStaticProps function fetches data before the page is rendered, and the fetched data is passed as props to the Posts component. This allows you to generate static pages with dynamic content.
+In the example above, the `getStaticProps` function fetches data before the page is rendered, and the fetched data is passed as props to the Posts component. This allows you to generate static pages with dynamic content.
 
 ## Server-Side Rendering (SSR)
 
