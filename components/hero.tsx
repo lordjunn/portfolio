@@ -9,9 +9,9 @@ export default function Hero() {
   const greetings = ["Hello", "Halo", "哈喽"]
   const currentGreetingIndex = useRef(0)
   const isDeleting = useRef(false)
-  const typingSpeed = useRef(150)
-  const pauseBeforeDelete = useRef(1500)
-  const pauseBeforeType = useRef(500)
+  const typingSpeed = useRef(50)
+  const pauseBeforeDelete = useRef(2000)
+  const pauseBeforeType = useRef(200)
 
   useEffect(() => {
     let timeout: NodeJS.Timeout
@@ -61,19 +61,15 @@ export default function Hero() {
           I'm a developer passionate about creating beautiful and functional web experiences.
         </p>
         <div className="flex items-center gap-4 mt-4">
-          <Link href="https://github.com" target="_blank" rel="noopener noreferrer">
+          <Link href="https://github.com/LordJunn/" target="_blank" rel="noopener noreferrer">
             <Github className="h-5 w-5 hover:text-primary transition-colors" />
             <span className="sr-only">GitHub</span>
           </Link>
-          <Link href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+          <Link href="https://www.linkedin.com/in/junn-kit-735485245/" target="_blank" rel="noopener noreferrer">
             <Linkedin className="h-5 w-5 hover:text-primary transition-colors" />
             <span className="sr-only">LinkedIn</span>
           </Link>
-          <Link href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-            <Twitter className="h-5 w-5 hover:text-primary transition-colors" />
-            <span className="sr-only">Twitter</span>
-          </Link>
-          <Link href="#" target="_blank" rel="noopener noreferrer">
+          <Link href="mailto:ljunnkit5@gmail.com" target="_blank" rel="noopener noreferrer">
             <Mail className="h-5 w-5 hover:text-primary transition-colors" />
             <span className="sr-only">Email</span>
           </Link>
