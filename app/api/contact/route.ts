@@ -31,17 +31,23 @@ Email: ${email}
 Message: ${message}
       `,
       html: `
-<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-  <h2 style="color: #333;">New Contact Form Submission</h2>
-  <p><strong>Name:</strong> ${name}</p>
-  <p><strong>Email:</strong> ${email}</p>
-  <p><strong>Message:</strong></p>
-  <div style="background-color: #f5f5f5; padding: 15px; border-radius: 5px;">
-    ${message.replace(/\n/g, "<br>")}
+<div style="font-family: Arial, sans-serif; color: #333; background-color: #f9f9f9; padding: 20px; max-width: 600px; margin: 0 auto; border: 1px solid #ddd; border-radius: 8px;">
+  <h2 style="font-size: 24px; color: #0056b3; margin-bottom: 20px;">New Contact Form Submission</h2>
+  <p style="font-size: 16px; margin-bottom: 10px;"><strong>Name:</strong> ${name}</p>
+  <p style="font-size: 16px; margin-bottom: 10px;"><strong>Email:</strong> ${email}</p>
+  
+  <p style="font-size: 16px; margin-bottom: 20px;"><strong>Message:</strong></p>
+  <div style="background-color: #ffffff; padding: 20px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+    <p style="font-size: 16px; line-height: 1.5;">${message.replace(/\n/g, "<br>")}</p>
   </div>
-  <p style="color: #777; margin-top: 20px; font-size: 12px;">
-    This email was sent from your portfolio contact form.
+
+  <p style="font-size: 12px; color: #777; margin-top: 30px; text-align: center;">
+    This email was sent from your portfolio contact form. If you did not request this, please ignore.
   </p>
+
+  <div style="text-align: center; margin-top: 30px;">
+    <a href="mailto:${email}" style="color: #0056b3; text-decoration: none; font-weight: bold;">Reply to ${name}</a>
+  </div>
 </div>
       `,
     }

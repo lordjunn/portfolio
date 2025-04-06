@@ -9,7 +9,7 @@ export default function Hero() {
   const greetings = ["Hello", "Halo", "哈喽"]
   const currentGreetingIndex = useRef(0)
   const isDeleting = useRef(false)
-  const typingSpeed = useRef(50)
+  const typingSpeed = useRef(30)
   const pauseBeforeDelete = useRef(2000)
   const pauseBeforeType = useRef(200)
 
@@ -23,7 +23,7 @@ export default function Hero() {
         // Deleting text
         if (greeting.length > 0) {
           setGreeting((prev) => prev.slice(0, -1))
-          timeout = setTimeout(typeEffect, typingSpeed.current / 2) // Faster when deleting
+          timeout = setTimeout(typeEffect, typingSpeed.current / 1.5) // Faster when deleting
         } else {
           // Finished deleting
           isDeleting.current = false
