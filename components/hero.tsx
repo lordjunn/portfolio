@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { Github, Linkedin, Twitter, Mail } from "lucide-react"
+import { Github, Linkedin, Mail } from "lucide-react"
 import { useState, useEffect, useRef } from "react"
 
 export default function Hero() {
@@ -9,9 +9,14 @@ export default function Hero() {
   const greetings = ["Hello", "Halo", "哈喽"]
   const currentGreetingIndex = useRef(0)
   const isDeleting = useRef(false)
-  const typingSpeed = useRef(30)
-  const pauseBeforeDelete = useRef(2000)
-  const pauseBeforeType = useRef(200)
+
+  // Adjustable speeds (in milliseconds)
+  const [typingSpeed, setTypingSpeed] = useState({
+    typing: 150, // Time between adding characters
+    deleting: 75, // Time between removing characters
+    pauseBeforeDelete: 1500, // Pause time after completing a word
+    pauseBeforeType: 500, // Pause time after deleting a word
+  })
 
   useEffect(() => {
     let timeout: NodeJS.Timeout
@@ -23,22 +28,25 @@ export default function Hero() {
         // Deleting text
         if (greeting.length > 0) {
           setGreeting((prev) => prev.slice(0, -1))
-          timeout = setTimeout(typeEffect, typingSpeed.current / 1.5) // Faster when deleting
+          timeout = setTimeout(typeEffect, typingSpeed.deleting) // Faster when deleting
         } else {
           // Finished deleting
           isDeleting.current = false
           currentGreetingIndex.current = (currentGreetingIndex.current + 1) % greetings.length
-          timeout = setTimeout(typeEffect, pauseBeforeType.current)
+          timeout = setTimeout(typeEffect, typingSpeed.pauseBeforeType)
         }
       } else {
         // Typing text
         if (greeting.length < currentGreeting.length) {
           setGreeting((prev) => currentGreeting.slice(0, prev.length + 1))
-          timeout = setTimeout(typeEffect, typingSpeed.current)
+
+          // Randomize typing speed slightly to make it look more human
+          const randomVariation = Math.random() * 50 - 25 // ±25ms variation
+          timeout = setTimeout(typeEffect, typingSpeed.typing + randomVariation)
         } else {
           // Finished typing
           isDeleting.current = true
-          timeout = setTimeout(typeEffect, pauseBeforeDelete.current)
+          timeout = setTimeout(typeEffect, typingSpeed.pauseBeforeDelete)
         }
       }
     }
@@ -46,7 +54,7 @@ export default function Hero() {
     timeout = setTimeout(typeEffect, 1000) // Initial delay
 
     return () => clearTimeout(timeout)
-  }, [greeting])
+  }, [greeting, typingSpeed])
 
   return (
     <section className="py-20 md:py-32">
