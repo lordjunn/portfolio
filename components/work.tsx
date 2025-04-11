@@ -31,7 +31,7 @@ const projects: Project[] = [
   },
   {
     id: 2,
-    title: "Food",
+    title: "Dine with Junn",
     description: "One of my earliest websites. Shows food options on campus, and some reviews of food I had.",
     image:
       "/Work/Food.png",
@@ -82,7 +82,7 @@ const projects: Project[] = [
     tags: ["Python", "CLI"],
     projectType: ["Team Lead", "University"],
     //github: "https://github.com/LordJunn/portfolio",
-    //website: "https://junn-portfolio.vercel.app/",
+    website: "https://colab.research.google.com/drive/1IQtX3yY3Qt8CK1lqRfYVT1SMnBd2p9zJ",
   },
   {
     id: 7,
@@ -120,10 +120,10 @@ const projects: Project[] = [
     title: "Kwazam Chess",
     description:
       "Contributed to a group of 4 to create a special Chess game with load & save functions with special pieces.",
-    image: "/placeholder.svg",
+    image: "https://raw.githubusercontent.com/LordJunn/Kwazam-Chess/refs/heads/main/MainMenu.png",
     tags: ["Java"],
     projectType: ["Team", "University"],
-    //github: "https://github.com/LordJunn/portfolio",
+    github: "https://github.com/LordJunn/Kwazam-Chess",
     //website: "https://junn-portfolio.vercel.app/",
   },
 ]

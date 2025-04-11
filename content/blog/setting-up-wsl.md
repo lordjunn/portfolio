@@ -5,7 +5,7 @@ tagline: A Step-by-Step Guide to Set Up WSL 2 and Install Node.js
 preview: >-
   Learn how to set up Windows Subsystem for Linux (WSL), install Ubuntu, and get essential development tools like Node.js running on your system.
 image: >-
-  https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2070
+  https://miro.medium.com/v2/resize:fit:1400/1*3VYUGhMdzPrwioPwHjD9lA.jpeg
 keywords: "WSL, Ubuntu, Node.js, Windows Subsystem for Linux"
 author:
   authorname: Lord Junn
