@@ -5,7 +5,7 @@ tagline: A Step-by-Step Guide to Set Up This Portfolio Website for Your Own Use
 preview: >-
   Learn how to clone, configure, and deploy your personalized portfolio website with ease using Next.js, TypeScript, and Tailwind CSS.
 image: >-
-  https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgjRhtdOGQLcfaRiqTG3gZm5aEcVDFY5bnUw&s
+  https://www.mortsandmore.com/wp-content/uploads/2019/06/IMG_4996-2-1600x1067.jpg
 keywords: "Next.js, TypeScript, Tailwind CSS, Portfolio"
 author:
   authorname: Lord Junn

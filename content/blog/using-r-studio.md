@@ -1,9 +1,9 @@
 ---
 date: '2025-04-10T08:00:00.000Z'
 title: Using R Studio
-tagline: A brief subtitle or tagline for your post
+tagline: Everything I learned from CDS6224 in one quick guide.
 preview: >-
-  This is a short preview or summary of your blog post. It will appear in the blog listing page. Make it engaging to encourage readers to click through to the full article.
+  This article is mostly to explain what I've learn from the course Statistical Data Analysis (CDS6224) regarding R studio. Think of it as a general guide.
 image: >-
   https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyQYUUDj134qNqcQ2zONrDr54rCS7Is7JrtQ&s
 keywords: "R Studio, Statistical Data Analysis, R"
