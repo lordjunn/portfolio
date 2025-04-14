@@ -65,13 +65,15 @@ rm -rf content/blog/*
 
 Edit the necessary components and pages as needed. Below are the key components to modify:
 
-About Section: Update the `/components/about.tsx` file to add your personal information.
-Hero Section: Modify `/components/hero.tsx` to customize your homepage introduction.
-Pages: Update other relevant pages inside the `/components/` directory to reflect your unique content.
+About Section: Update the `/components/ui/about.tsx` file to add your personal information. 
+Hero Section: Modify `/components/ui/hero.tsx` to customize your homepage introduction. 
+Contact Section: Change your nodemailer credentials in `.env` so it will be mailed to you instead. 
+Pages: Update other relevant pages inside the `/components/ui/` directory to reflect your unique content. 
 
 ### 4. **Change the Icon**
 
-If you wish to change the favicon or other icons, navigate to the `/public/` directory and replace the current icons.
+If you wish to change the favicon or other icons, navigate to the `/public/` directory and replace the current icons. 
+Same goes for the images in `/public/work/`.
 
 ### 5. **Deploy Your Site**
 

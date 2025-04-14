@@ -16,6 +16,21 @@ interface Project {
   website?: string
 }
 
+/*
+  {
+    id: 1,
+    title: "duh",
+    description:
+      "desc here, use `` for longer descs",
+    image:
+      "/placeholder.svg?height=400&width=400",
+    tags: ["HTML", "CSS", "JavaScript"],
+    projectType: ["Solo", "Personal"],
+    github: "https://github.com/LordJunn/Study-With-Junn",
+    website: "https://lordjunn.github.io/Study-With-Junn/index.html",
+  },
+*/
+
 const projects: Project[] = [
   {
     id: 1,
@@ -65,8 +80,7 @@ const projects: Project[] = [
   {
     id: 5,
     title: "Introduction to Italy",
-    description:
-      "One of my earliest group assignments. Led a group of 4 to introduce the countrys attractions, transportation, gastronomy and other things a tourist would like to know.",
+    description: "One of my earliest group projects. Led a team of 4 to create a website introducing Italy’s attractions, transportation, gastronomy, and other key tourist info.",
     image: "https://upload.wikimedia.org/wikipedia/en/thumb/0/03/Flag_of_Italy.svg/1200px-Flag_of_Italy.svg.png",
     tags: ["HTML", "CSS"],
     projectType: ["Team Lead", "University"],
@@ -77,7 +91,8 @@ const projects: Project[] = [
     id: 6,
     title: "Restaurant CRUD CLI App",
     description:
-      "Led a group of 4 to create a mini Python CLI application that simulates a restaurant backend, such as receiving orders, setting food availability, checkout and other functions.",
+      `Led a team of 4 to build a Python-based command-line app simulating a restaurant backend. 
+      Features include user login, menu CRUD operations, order handling, and checkout.`,
     image: "https://static.vecteezy.com/system/resources/previews/011/943/265/non_2x/pixel-art-wooden-table-with-chairs-and-food-tray-icon-for-8bit-game-on-white-background-vector.jpg",
     tags: ["Python", "CLI"],
     projectType: ["Team Lead", "University"],
@@ -112,7 +127,7 @@ const projects: Project[] = [
     image: "https://cdn.dribbble.com/userupload/11728109/file/original-5b23dc8c17dbdd997f330778d2e13f84.jpg?resize=1600x1200",
     tags: ["C++", "CLI"],
     projectType: ["Team", "University"],
-    //github: "https://github.com/LordJunn/portfolio",
+    github: "https://github.com/LordJunn/Robocop5000",
     //website: "https://junn-portfolio.vercel.app/",
   },
   {
@@ -124,6 +139,30 @@ const projects: Project[] = [
     tags: ["Java"],
     projectType: ["Team", "University"],
     github: "https://github.com/LordJunn/Kwazam-Chess",
+    //website: "https://junn-portfolio.vercel.app/",
+  },
+  {
+    id: 11,
+    title: "iKun Music",
+    description:
+      "Contributed to a group of 3 to create a music sharing web app, includes roles such as User, Artist & Admin.",
+    image: "/Work/iKun.png",
+    tags: ["Flask"],
+    projectType: ["Team", "University"],
+    //github: "https://github.com/jackodinn/sef-musicSharingApp",
+    //website: "https://junn-portfolio.vercel.app/",
+  },
+  {
+    id: 12,
+    title: "CPU Scheduling Algorithm Simulator",
+    description:
+      `Contributed to a group of 4 to create a CPU Scheduler Algorithm Simulator that simulates algorithms such as Round Robin, (Non) Preemptive Priority and FCFS.
+      
+      Despite the Github says otherwise, I contributed to the Preemptive Priority.`,
+    image: "/placeholder.svg?height=400&width=400",
+    tags: ["Python, GUI"],
+    projectType: ["Team", "University"],
+    github: "https://github.com/Meiyp0817/CPU-SchedulingAlgorithm-Simulator",
     //website: "https://junn-portfolio.vercel.app/",
   },
 ]
