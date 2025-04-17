@@ -145,12 +145,13 @@ const projects: Project[] = [
     id: 11,
     title: "iKun Music",
     description:
-      "Contributed to a group of 3 to create a music sharing web app, includes roles such as User, Artist & Admin.",
+      `Contributed to a group of 3 to create a music sharing web app, includes roles such as User, Artist & Admin.<br>
+      Currently being hosted on pythonanywhere.`,
     image: "/Work/iKun.png",
-    tags: ["Flask"],
+    tags: ["Flask", "SQLite", "PythonAnywhere"],
     projectType: ["Team", "University"],
     //github: "https://github.com/jackodinn/sef-musicSharingApp",
-    //website: "https://junn-portfolio.vercel.app/",
+    website: "https://lordjunn.pythonanywhere.com/",
   },
   {
     id: 12,
@@ -160,7 +161,7 @@ const projects: Project[] = [
       
       Despite the Github says otherwise, I contributed to the Preemptive Priority.`,
     image: "/placeholder.svg?height=400&width=400",
-    tags: ["Python, GUI"],
+    tags: ["Python", "GUI"],
     projectType: ["Team", "University"],
     github: "https://github.com/Meiyp0817/CPU-SchedulingAlgorithm-Simulator",
     //website: "https://junn-portfolio.vercel.app/",
