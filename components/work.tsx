@@ -34,9 +34,11 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
-    title: "Study with Junn",
+    title: "Study with Junn ⭐",
     description:
-      "Developed a website that stores educational materials that I have done, which has benefited my entire intake of 600+ students and others to score higher and better. Applicable to other universities as well.",
+      `Developed a website that stores educational materials that I have done, which has benefited my entire intake of 600+ students and others to score higher and better. 
+      
+      Applicable to other universities as well.`,
     image:
       "/Work/Exams.jpg",
     tags: ["HTML", "CSS", "JavaScript"],
@@ -47,10 +49,12 @@ const projects: Project[] = [
   {
     id: 2,
     title: "Dine with Junn",
-    description: "One of my earliest websites. Shows food options on campus, and some reviews of food I had.",
+    description: 
+      `One of my earliest websites. Shows food options on campus, and some reviews of food I had.
+      It also features an all in 1 site that has all the food I ate through an extracted .csv file.`,
     image:
       "/Work/Food.png",
-    tags: ["HTML", "CSS", "JavaScript"],
+    tags: ["HTML", "CSS", "JavaScript", "CSV"],
     projectType: ["Solo", "Personal"],
     github: "https://github.com/LordJunn/Food-MMU",
     website: "https://lordjunn.github.io/Food-MMU/",
@@ -145,7 +149,7 @@ const projects: Project[] = [
     id: 11,
     title: "iKun Music",
     description:
-      `Contributed to a group of 3 to create a music sharing web app, includes roles such as User, Artist & Admin.<br>
+      `Contributed to a group of 3 to create a music sharing web app, includes roles such as User, Artist & Admin.
       Currently being hosted on pythonanywhere.`,
     image: "/Work/iKun.png",
     tags: ["Flask", "SQLite", "PythonAnywhere"],
@@ -157,7 +161,10 @@ const projects: Project[] = [
     id: 12,
     title: "CPU Scheduling Algorithm Simulator",
     description:
-      `Contributed to a group of 4 to create a CPU Scheduler Algorithm Simulator that simulates algorithms such as Round Robin, (Non) Preemptive Priority and FCFS.
+      `Contributed to a group of 4 to create a CPU Scheduler Algorithm Simulator that simulates algorithms such as:
+      -Round Robin, 
+      -(Non) Preemptive Priority, both of them, and
+      -FCFS.
       
       Despite the Github says otherwise, I contributed to the Preemptive Priority.`,
     image: "/placeholder.svg?height=400&width=400",
@@ -313,9 +320,9 @@ export default function Work() {
                             {type}
                           </span>
                         ))}
-                      </div>
-                      <p className="text-sm text-muted-foreground mb-3">{project.description}</p>
-                      {/* Tech stack tags now appear below the description */}
+                      </div> 
+                      <p className="text-sm text-muted-foreground mb-3 whitespace-pre-line">{project.description}</p>
+                      {/* Tech stack tags now appear below the description EDIT: whitespace-pre-line is new, remove if no likey */}
                       <div className="flex flex-wrap gap-2 mt-2">
                         {project.tags.map((tag) => (
                           <span key={tag} className="bg-muted px-2 py-1 rounded-full text-xs">

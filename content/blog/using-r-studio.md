@@ -29,15 +29,10 @@ Let's assume x, y, z as our variables.
 ### Non R Commands
 `CTRL + L`: Clears the screen
 
-## Subheading 2
+## Other Tips
+Remember to add another `/` should you wish to import files from other places.  
+Otherwise, it is preferable to put the `.csv` directly into the folder of your workplace to prevent potential errors (for the less technically savvy).
 
-This is the content under the second subheading. You can continue with your next main point or topic.
 
-### Smaller Subheading
 
-You can use smaller subheadings for subtopics.
-
-## Subheading 3
-
-This is the content under the third subheading. You can wrap up your article with a conclusion or final thoughts.
 
