@@ -6,6 +6,14 @@ import { MoonIcon, SunIcon, Menu, X } from "lucide-react"
 import { useTheme } from "@/components/theme-provider"
 import { Button } from "@/components/ui/button"
 
+const navLinks = [
+  { href: "/#work", label: "Work" },
+  { href: "/#about", label: "About" },
+  { href: "/blog", label: "Blog" },
+  { href: "/Resume.pdf", label: "Resume" },
+  { href: "/#contact", label: "Contact" },
+]
+
 export default function Navbar() {
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
@@ -50,21 +58,15 @@ export default function Navbar() {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-6">
-          <Link href="/#work" className="text-sm font-medium hover:text-primary">
-            Work
-          </Link>
-          <Link href="/#about" className="text-sm font-medium hover:text-primary">
-            About
-          </Link>
-          <Link href="/blog" className="text-sm font-medium hover:text-primary">
-            Blog
-          </Link>
-          <Link href="/Resume.pdf" className="text-sm font-medium hover:text-primary">
-            Resume
-          </Link>
-          <Link href="/#contact" className="text-sm font-medium hover:text-primary">
-            Contact
-          </Link>
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="text-sm font-medium hover:text-primary"
+            >
+              {link.label}
+            </Link>
+          ))}
           <Button variant="ghost" size="icon" aria-label="Toggle Theme" className="rounded-full" onClick={toggleTheme}>
             {mounted && (theme === "dark" ? <SunIcon className="h-5 w-5" /> : <MoonIcon className="h-5 w-5" />)}
           </Button>
@@ -108,25 +110,16 @@ export default function Navbar() {
                 </Button>
               </div>
               <nav className="flex flex-col gap-6">
-                <Link href="/#work" className="text-xl font-medium py-2 hover:text-primary" onClick={closeMobileMenu}>
-                  Work
-                </Link>
-                <Link href="/#about" className="text-xl font-medium py-2 hover:text-primary" onClick={closeMobileMenu}>
-                  About
-                </Link>
-                <Link href="/blog" className="text-xl font-medium py-2 hover:text-primary" onClick={closeMobileMenu}>
-                  Blog
-                </Link>
-                <Link href="#" className="text-xl font-medium py-2 hover:text-primary" onClick={closeMobileMenu}>
-                  Resume
-                </Link>
-                <Link
-                  href="/#contact"
-                  className="text-xl font-medium py-2 hover:text-primary"
-                  onClick={closeMobileMenu}
-                >
-                  Contact
-                </Link>
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="text-xl font-medium py-2 hover:text-primary"
+                    onClick={closeMobileMenu}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
               </nav>
               <div className="mt-auto text-sm text-muted-foreground">
                 <p>© {new Date().getFullYear()} Portfolio</p>
@@ -138,4 +131,3 @@ export default function Navbar() {
     </header>
   )
 }
-

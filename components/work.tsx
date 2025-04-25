@@ -109,7 +109,7 @@ const projects: Project[] = [
     description:
       "Contributed to a group of 4 to create a Flask application that simulates both a restaurant frontend and backend.",
     image: "https://www.shutterstock.com/image-vector/cafeteria-chair-table-coffee-pot-600nw-2063937668.jpg",
-    tags: ["Flask"],
+    tags: ["Python", "Flask"],
     projectType: ["Team", "University"],
     //github: "https://github.com/LordJunn/portfolio",
     //website: "https://junn-portfolio.vercel.app/",
@@ -167,7 +167,7 @@ const projects: Project[] = [
       -FCFS.
       
       Despite the Github says otherwise, I contributed to the Preemptive Priority.`,
-    image: "/placeholder.svg?height=400&width=400",
+    image: "https://ih1.redbubble.net/image.1120540391.8213/st,small,507x507-pad,600x600,f8f8f8.jpg",
     tags: ["Python", "GUI"],
     projectType: ["Team", "University"],
     github: "https://github.com/Meiyp0817/CPU-SchedulingAlgorithm-Simulator",
