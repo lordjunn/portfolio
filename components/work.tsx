@@ -2,8 +2,19 @@
 
 import { useState, useEffect } from "react"
 import Image from "next/image"
-import { ChevronDown, ChevronRight, ExternalLink, Github, Search, ChevronLeft, ChevronRightIcon } from "lucide-react"
+import {
+  ChevronDown,
+  ChevronRight,
+  ExternalLink,
+  Github,
+  Search,
+  ChevronLeft,
+  ChevronRightIcon,
+  Award,
+  Users,
+} from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 interface Project {
   id: number
@@ -14,6 +25,26 @@ interface Project {
   projectType: string[] // Project type tags (solo, team, university, etc.)
   github?: string
   website?: string
+}
+
+interface Certificate {
+  id: number
+  title: string
+  issuer: string
+  date: string
+  description: string
+  image: string
+  credential?: string
+}
+
+interface Experience {
+  id: number
+  title: string
+  organization?: string // Made organization optional
+  role?: string // Role is optional
+  period: string
+  description: string
+  image: string
 }
 
 /*
@@ -35,12 +66,10 @@ const projects: Project[] = [
   {
     id: 1,
     title: "Study with Junn ⭐",
-    description:
-      `Developed a website that stores educational materials that I have done, which has benefited my entire intake of 600+ students and others to score higher and better. 
+    description: `Developed a website that stores educational materials that I have done, which has benefited my entire intake of 600+ students and others to score higher and better. 
       
       Applicable to other universities as well.`,
-    image:
-      "/Work/Exams.jpg",
+    image: "/Work/Exams.jpg",
     tags: ["HTML", "CSS", "JavaScript"],
     projectType: ["Solo", "Personal"],
     github: "https://github.com/LordJunn/Study-With-Junn",
@@ -49,11 +78,10 @@ const projects: Project[] = [
   {
     id: 2,
     title: "Dine with Junn",
-    description: 
-      `One of my earliest websites. Shows food options on campus, and some reviews of food I had.
-      It also features an all in 1 site that has all the food I ate through an extracted .csv file.`,
-    image:
-      "/Work/Food.png",
+    description: `One of my earliest websites. Displays food options on and off campus along with reviews of the meals I've had. 
+      It features an all-in-one site that loads data from a CSV file, showing the full list of food items I've tried with added search and sorting options. 
+      Later versions include monthly graphs to visualize food pricing trends, focusing on the cost per meal.`,
+    image: "/Work/Food.png",
     tags: ["HTML", "CSS", "JavaScript", "CSV"],
     projectType: ["Solo", "Personal"],
     github: "https://github.com/LordJunn/Food-MMU",
@@ -62,8 +90,21 @@ const projects: Project[] = [
   {
     id: 3,
     title: "Webstack Trio",
-    description:
-      "A website that hosts all my other mini projects, including Tic Tac Toe, Maze, Tower Defense, Wordle, Calculator, Currency Exchanger, and other fun interactive games and useful utilities.",
+    description: `A website that hosts all my other mini projects, including Tic Tac Toe, Maze, Tower Defense, Wordle, Calculator, Currency Exchanger, and other fun interactive games and useful utilities.
+      
+      <b>Game based projects:</b>
+      - Tic Tac Toe 
+      - Maze game 
+      - (Easier) 2048 
+      - Tower Defense (PvZ type) 
+      - Memory Card game 
+      - Wordle (not API for now) 
+
+      <b>Non-game projects:</b>
+
+      - Scientific Calculator 
+      - Music Player (Desktop version works well, mobile version less optimized)
+      - Quad Currency Exchange`,
     image: "/Work/Trio.png",
     tags: ["HTML", "CSS", "JavaScript", "APIs"],
     projectType: ["Solo", "Personal"],
@@ -84,7 +125,8 @@ const projects: Project[] = [
   {
     id: 5,
     title: "Introduction to Italy",
-    description: "One of my earliest group projects. Led a team of 4 to create a website introducing Italy’s attractions, transportation, gastronomy, and other key tourist info.",
+    description:
+      "One of my earliest group projects. Led a team of 4 to create a website introducing Italy’s attractions, transportation, gastronomy, and other key tourist info.",
     image: "https://upload.wikimedia.org/wikipedia/en/thumb/0/03/Flag_of_Italy.svg/1200px-Flag_of_Italy.svg.png",
     tags: ["HTML", "CSS"],
     projectType: ["Team Lead", "University"],
@@ -94,10 +136,10 @@ const projects: Project[] = [
   {
     id: 6,
     title: "Restaurant CRUD CLI App",
-    description:
-      `Led a team of 4 to build a Python-based command-line app simulating a restaurant backend. 
+    description: `Led a team of 4 to build a Python-based command-line app simulating a restaurant backend. 
       Features include user login, menu CRUD operations, order handling, and checkout.`,
-    image: "https://static.vecteezy.com/system/resources/previews/011/943/265/non_2x/pixel-art-wooden-table-with-chairs-and-food-tray-icon-for-8bit-game-on-white-background-vector.jpg",
+    image:
+      "https://static.vecteezy.com/system/resources/previews/011/943/265/non_2x/pixel-art-wooden-table-with-chairs-and-food-tray-icon-for-8bit-game-on-white-background-vector.jpg",
     tags: ["Python", "CLI"],
     projectType: ["Team Lead", "University"],
     //github: "https://github.com/LordJunn/portfolio",
@@ -128,7 +170,8 @@ const projects: Project[] = [
     id: 9,
     title: "Robocop 5000",
     description: "Contributed to a group of 6 to create a 'Robot War' simulator using OOP & DS concepts.",
-    image: "https://cdn.dribbble.com/userupload/11728109/file/original-5b23dc8c17dbdd997f330778d2e13f84.jpg?resize=1600x1200",
+    image:
+      "https://cdn.dribbble.com/userupload/11728109/file/original-5b23dc8c17dbdd997f330778d2e13f84.jpg?resize=1600x1200",
     tags: ["C++", "CLI"],
     projectType: ["Team", "University"],
     github: "https://github.com/LordJunn/Robocop5000",
@@ -148,8 +191,7 @@ const projects: Project[] = [
   {
     id: 11,
     title: "iKun Music",
-    description:
-      `Contributed to a group of 3 to create a music sharing web app, includes roles such as User, Artist & Admin.
+    description: `Contributed to a group of 3 to create a music sharing web app, includes roles such as User, Artist & Admin.
       Currently being hosted on pythonanywhere.`,
     image: "/Work/iKun.png",
     tags: ["Flask", "SQLite", "PythonAnywhere"],
@@ -160,8 +202,7 @@ const projects: Project[] = [
   {
     id: 12,
     title: "CPU Scheduling Algorithm Simulator",
-    description:
-      `Contributed to a group of 4 to create a CPU Scheduler Algorithm Simulator that simulates algorithms such as:
+    description: `Contributed to a group of 4 to create a CPU Scheduler Algorithm Simulator that simulates algorithms such as:
       -Round Robin, 
       -(Non) Preemptive Priority, both of them, and
       -FCFS.
@@ -175,10 +216,137 @@ const projects: Project[] = [
   },
 ]
 
+// New certificates array
+/*
+  {
+    id: 2,
+    title: "React Developer Certification",
+    issuer: "Meta",
+    date: "August 2023",
+    description:
+      "Professional certification in React development covering components, hooks, state management, and deployment.",
+    image: "/placeholder.svg?height=400&width=400",
+    credential: "https://meta.com/verify/789012",
+  },
+*/
+const certificates: Certificate[] = [
+  {
+    id: 1,
+    title: "CCNA: Introduction to Networks",
+    issuer: "Cisco Networking Academy",
+    date: "March 2025",
+    description: `
+    From understanding network architectures and protocols to mastering IP addressing and Ethernet fundamentals, you'll develop foundational knowledge and build your networking basics. 
+    Basically the course Computer Networks in my uni.
+    `,
+    image: "https://1000logos.net/wp-content/uploads/2016/11/Cisco-logo.png",
+    credential: "https://www.netacad.com/certificates?issuanceId=319adae7-9228-4d64-99b0-4870daa58b8b",
+  },
+]
+
+// Updated experiences array with some entries having no role
+/*
+  {
+    id: 1,
+    title: "",
+    organization: "",
+    role: "",
+    period: "",
+    description: `
+    
+    `,
+    image: "/placeholder.svg?height=400&width=400",
+  },
+*/
+const experiences: Experience[] = [
+  {
+    id: 1,
+    title: "Committee Member of Technical Division",
+    organization: "MMU IT Society",
+    // No role provided here
+    period: "Jan 2025+",
+    description: `
+    Collaborated with the technical team to develop and maintain projects for both the Society and the University.
+    
+    
+    <b>Projects done:</b>
+    MMU Clubs Site (Backend for admin, Design for SuperUser)
+    MMU Hack Day (idk)
+    `,
+    image: "/placeholder.svg?height=400&width=400",
+  },
+  {
+    id: 2,
+    title: "CodeNection 2024",
+    organization: "MMU IT Society",
+    role: "Participant",
+    period: "23 Nov 2024",
+    description: `
+    Participated in CodeNection 2024, a nationwide competitive programming competition organized by the IT Society of MMU Cyberjaya.
+    Collaborated in a team of two in the Closed Category, solving challenging algorithmic problems under time pressure.
+    Ranked 10th out of 57 teams in the Closed Category, and 11th overall across both Closed and Open Categories based on total points — out of 633 participants from 37 universities nationwide.
+    Although we did not advance to the finals, the experience sharpened my problem-solving skills and strengthened my ability to work collaboratively in high-stakes environments.
+    `,
+    image: "/placeholder.svg?height=400&width=400",
+  },
+  {
+    id: 3,
+    title: "Hackerspace MMU",
+    role: "Member",
+    period: "Aug?? 2024+",
+    description: `
+    Joined Hackerspace MMU, a vibrant community of self-learners and tech enthusiasts at Multimedia University Cyberjaya.
+    At times engaged in weekly meetups every Tuesday evening, and presented ideas for new projects, and progress updates to peers for constructive feedback.
+    Benefited from a supportive environment fostering continuous learning, where members share knowledge, discuss the latest tech trends, and provide assistance in overcoming coding challenges.
+    Embraced the hackerspace philosophy: "I hear and I forget. I see and I remember. I do and I understand.
+
+    <b>Projects presented:</b>
+    Study site (Study with Junn)
+    Tic Tac Toe (Webstack Trio)
+    `,
+    image: "/placeholder.svg?height=400&width=400",
+  },
+  {
+    id: 4,
+    title: "Event Management Member",
+    organization: "Game Development Club MMU Cyberjaya",
+    period: "Jan 2025+",
+    description: `
+    Joined the Game Development Club MMU Cyberjaya, a dynamic community dedicated to fostering game development skills and creativity among students.
+    As an Event Management Member, I assist in organizing and executing various club events, one of which would be the AGM. My responsibilities encompass:
+    - Coordinating logistics for events, ensuring smooth execution.
+    - Collaborating with team members to plan engaging activities.
+    - Assisting in setting up and overseeing event operations.
+    Through these experiences, I am honing my organizational and teamwork skills, contributing to the vibrant tech community at MMU.
+
+    <b>Events managed:</b>
+    Annual General Meeting (Just the setup & cleanup)
+    `,
+    image: "/placeholder.svg?height=400&width=400",
+  },
+  {
+    id: 5,
+    title: "Committee Member of Technical Division",
+    organization: "Codenection 2025",
+    period: "Apr 2025 - ?? 2025",
+    description: `
+    Hackathon, no more Competitive Programming. 
+    Not participant, am the one working on this now
+    Make Wordpress site, maybe assist in PA stuff?
+    Unsure, will get to that later.
+    `,
+    image: "/placeholder.svg?height=400&width=400",
+  },
+
+]
+
 export default function Work() {
   const [expandedId, setExpandedId] = useState<number | null>(null)
+  const [expandedCertId, setExpandedCertId] = useState<number | null>(null)
+  const [expandedExpId, setExpandedExpId] = useState<number | null>(null)
   const [searchQuery, setSearchQuery] = useState<string>("")
   const [startIndex, setStartIndex] = useState(0)
+  const [activeTab, setActiveTab] = useState("projects")
 
   const filteredProjects = projects.filter(
     (project) =>
@@ -186,6 +354,23 @@ export default function Work() {
       project.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
       project.tags.some((tag) => tag.toLowerCase().includes(searchQuery.toLowerCase())) ||
       project.projectType.some((type) => type.toLowerCase().includes(searchQuery.toLowerCase())),
+  )
+
+  // Filter certificates based on search query
+  const filteredCertificates = certificates.filter(
+    (cert) =>
+      cert.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      cert.issuer.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      cert.description.toLowerCase().includes(searchQuery.toLowerCase()),
+  )
+
+  // Filter experiences based on search query
+  const filteredExperiences = experiences.filter(
+    (exp) =>
+      exp.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      exp.organization.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      (exp.role && exp.role.toLowerCase().includes(searchQuery.toLowerCase())) ||
+      exp.description.toLowerCase().includes(searchQuery.toLowerCase()),
   )
 
   // Ensure startIndex is valid when filtered projects change
@@ -201,6 +386,14 @@ export default function Work() {
     setExpandedId(expandedId === id ? null : id)
   }
 
+  const toggleExpandCert = (id: number) => {
+    setExpandedCertId(expandedCertId === id ? null : id)
+  }
+
+  const toggleExpandExp = (id: number) => {
+    setExpandedExpId(expandedExpId === id ? null : id)
+  }
+
   const handlePrevious = () => {
     setStartIndex(Math.max(0, startIndex - 1))
   }
@@ -209,10 +402,15 @@ export default function Work() {
     setStartIndex(Math.min(filteredProjects.length - 3, startIndex + 1))
   }
 
+  // Function to safely render HTML content
+  const renderHTML = (html: string) => {
+    return { __html: html.replace(/\n/g, "<br/>") }
+  }
+
   return (
     <section id="work" className="py-16">
       <h2 className="text-3xl font-bold mb-4">Work.</h2>
-      <p className="mb-6">These are the things I done, sorted by personal, followed by team.</p>
+      <p className="mb-6">My projects, certificates, and experiences.</p>
 
       <div className="mb-6">
         <div className="relative">
@@ -221,7 +419,7 @@ export default function Work() {
           </div>
           <input
             type="text"
-            placeholder="Search projects..."
+            placeholder="Search..."
             className="w-full pl-10 pr-4 py-2 border rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
@@ -237,136 +435,329 @@ export default function Work() {
         </div>
       </div>
 
-      <div className="border rounded-lg overflow-hidden">
-        <div className="bg-muted py-2 px-4 border-b flex items-center gap-4">
-          <span className="font-medium">Projects</span>
-          <span className="font-medium ml-auto hidden md:block">Project Type</span>
-          <span className="w-24 text-center font-medium hidden md:block">Links</span>
-        </div>
+      <Tabs defaultValue="projects" className="w-full" onValueChange={setActiveTab} value={activeTab}>
+        <TabsList className="grid grid-cols-3 mb-6">
+          <TabsTrigger value="projects">Projects</TabsTrigger>
+          <TabsTrigger value="certificates">Certificates</TabsTrigger>
+          <TabsTrigger value="experiences">Experiences</TabsTrigger>
+        </TabsList>
 
-        {filteredProjects.length > 0 ? (
-          <>
-            <div className="divide-y">
-              {visibleProjects.map((project) => (
-                <div key={project.id} className="group">
-                  <div
-                    className="flex items-center p-4 cursor-pointer hover:bg-muted/50 transition-colors"
-                    onClick={() => toggleExpand(project.id)}
-                  >
-                    <div className="flex items-center gap-4 flex-1">
-                      <div className="relative w-16 h-16 rounded-md overflow-hidden flex-shrink-0">
-                        <Image
-                          src={project.image || "/placeholder.svg"}
-                          alt={project.title}
-                          fill
-                          className="object-cover"
-                        />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <h3 className="font-medium text-lg">{project.title}</h3>
-                        <p className="text-muted-foreground text-sm line-clamp-1">
-                          {project.description}
-                          {!expandedId && project.description.length > 1000 && (
-                            <button
-                              className="text-primary font-medium ml-1"
-                              onClick={(e) => {
-                                e.stopPropagation()
-                                toggleExpand(project.id)
-                              }}
-                            >
-                              See more
-                            </button>
-                          )}
-                        </p>
-                      </div>
-                    </div>
-                    <div className="hidden md:flex gap-2 flex-wrap max-w-[200px] justify-end">
-                      {project.projectType.map((type) => (
-                        <span key={type} className="bg-primary/10 text-primary px-2 py-1 rounded-full text-xs">
-                          {type}
-                        </span>
-                      ))}
-                    </div>
-                    <div className="flex items-center gap-2 ml-4">
-                      {project.github && (
-                        <Button variant="ghost" size="icon" asChild onClick={(e) => e.stopPropagation()}>
-                          <a href={project.github} target="_blank" rel="noopener noreferrer">
-                            <Github className="h-4 w-4" />
-                            <span className="sr-only">GitHub</span>
-                          </a>
-                        </Button>
-                      )}
-                      {project.website && (
-                        <Button variant="ghost" size="icon" asChild onClick={(e) => e.stopPropagation()}>
-                          <a href={project.website} target="_blank" rel="noopener noreferrer">
-                            <ExternalLink className="h-4 w-4" />
-                            <span className="sr-only">Live website</span>
-                          </a>
-                        </Button>
-                      )}
-                      {expandedId === project.id ? (
-                        <ChevronDown className="h-4 w-4 text-muted-foreground" />
-                      ) : (
-                        <ChevronRight className="h-4 w-4 text-muted-foreground" />
-                      )}
-                    </div>
-                  </div>
-                  {expandedId === project.id && (
-                    <div className="p-4 pt-0 bg-muted/20">
-                      {/* Show project type tags on mobile */}
-                      <div className="flex md:hidden gap-2 flex-wrap mb-3">
-                        {project.projectType.map((type) => (
-                          <span key={type} className="bg-primary/10 text-primary px-2 py-1 rounded-full text-xs">
-                            {type}
-                          </span>
-                        ))}
-                      </div> 
-                      <p className="text-sm text-muted-foreground mb-3 whitespace-pre-line">{project.description}</p>
-                      {/* Tech stack tags now appear below the description EDIT: whitespace-pre-line is new, remove if no likey */}
-                      <div className="flex flex-wrap gap-2 mt-2">
-                        {project.tags.map((tag) => (
-                          <span key={tag} className="bg-muted px-2 py-1 rounded-full text-xs">
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </div>
-              ))}
+        {/* Projects Tab */}
+        <TabsContent value="projects">
+          <div className="border rounded-lg overflow-hidden">
+            <div className="bg-muted py-2 px-4 border-b flex items-center gap-4">
+              <span className="font-medium">Projects</span>
+              <span className="font-medium ml-auto hidden md:block">Project Type</span>
+              <span className="w-24 text-center font-medium hidden md:block">Links</span>
             </div>
 
-            {/* Navigation controls */}
-            {filteredProjects.length > 3 && (
-              <div className="flex justify-between items-center p-3 border-t bg-muted/20">
-                <div className="text-sm text-muted-foreground">
-                  Showing {startIndex + 1}-{Math.min(startIndex + 3, filteredProjects.length)} of{" "}
-                  {filteredProjects.length}
+            {filteredProjects.length > 0 ? (
+              <>
+                <div className="divide-y">
+                  {visibleProjects.map((project) => (
+                    <div key={project.id} className="group">
+                      <div
+                        className="flex items-center p-4 cursor-pointer hover:bg-muted/50 transition-colors"
+                        onClick={() => toggleExpand(project.id)}
+                      >
+                        <div className="flex items-center gap-4 flex-1">
+                          <div className="relative w-16 h-16 rounded-md overflow-hidden flex-shrink-0">
+                            <Image
+                              src={project.image || "/placeholder.svg"}
+                              alt={project.title}
+                              fill
+                              className="object-cover"
+                            />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <h3 className="font-medium text-lg">{project.title}</h3>
+                            <p className="text-muted-foreground text-sm line-clamp-1">
+                              {project.description.replace(/<[^>]*>/g, "")}
+                              {!expandedId && project.description.length > 1000 && (
+                                <button
+                                  className="text-primary font-medium ml-1"
+                                  onClick={(e) => {
+                                    e.stopPropagation()
+                                    toggleExpand(project.id)
+                                  }}
+                                >
+                                  See more
+                                </button>
+                              )}
+                            </p>
+                          </div>
+                        </div>
+                        <div className="hidden md:flex gap-2 flex-wrap max-w-[200px] justify-end">
+                          {project.projectType.map((type) => (
+                            <span key={type} className="bg-primary/10 text-primary px-2 py-1 rounded-full text-xs">
+                              {type}
+                            </span>
+                          ))}
+                        </div>
+                        <div className="flex items-center gap-2 ml-4">
+                          {project.github && (
+                            <Button variant="ghost" size="icon" asChild onClick={(e) => e.stopPropagation()}>
+                              <a href={project.github} target="_blank" rel="noopener noreferrer">
+                                <Github className="h-4 w-4" />
+                                <span className="sr-only">GitHub</span>
+                              </a>
+                            </Button>
+                          )}
+                          {project.website && (
+                            <Button variant="ghost" size="icon" asChild onClick={(e) => e.stopPropagation()}>
+                              <a href={project.website} target="_blank" rel="noopener noreferrer">
+                                <ExternalLink className="h-4 w-4" />
+                                <span className="sr-only">Live website</span>
+                              </a>
+                            </Button>
+                          )}
+                          {expandedId === project.id ? (
+                            <ChevronDown className="h-4 w-4 text-muted-foreground" />
+                          ) : (
+                            <ChevronRight className="h-4 w-4 text-muted-foreground" />
+                          )}
+                        </div>
+                      </div>
+                      {expandedId === project.id && (
+                        <div className="p-4 pt-0 bg-muted/20">
+                          {/* Show project type tags on mobile */}
+                          <div className="flex md:hidden gap-2 flex-wrap mb-3">
+                            {project.projectType.map((type) => (
+                              <span key={type} className="bg-primary/10 text-primary px-2 py-1 rounded-full text-xs">
+                                {type}
+                              </span>
+                            ))}
+                          </div>
+                          {/* Use dangerouslySetInnerHTML to render HTML content */}
+                          <div
+                            className="text-sm text-muted-foreground mb-3"
+                            dangerouslySetInnerHTML={renderHTML(project.description)}
+                          />
+                          {/* Tech stack tags now appear below the description */}
+                          <div className="flex flex-wrap gap-2 mt-2">
+                            {project.tags.map((tag) => (
+                              <span key={tag} className="bg-muted px-2 py-1 rounded-full text-xs">
+                                {tag}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  ))}
                 </div>
-                <div className="flex gap-2">
-                  <Button variant="outline" size="sm" onClick={handlePrevious} disabled={startIndex === 0}>
-                    <ChevronLeft className="h-4 w-4" />
-                    <span className="sr-only">Previous</span>
-                  </Button>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={handleNext}
-                    disabled={startIndex >= filteredProjects.length - 3}
-                  >
-                    <ChevronRightIcon className="h-4 w-4" />
-                    <span className="sr-only">Next</span>
-                  </Button>
-                </div>
+
+                {/* Navigation controls */}
+                {filteredProjects.length > 3 && (
+                  <div className="flex justify-between items-center p-3 border-t bg-muted/20">
+                    <div className="text-sm text-muted-foreground">
+                      Showing {startIndex + 1}-{Math.min(startIndex + 3, filteredProjects.length)} of{" "}
+                      {filteredProjects.length}
+                    </div>
+                    <div className="flex gap-2">
+                      <Button variant="outline" size="sm" onClick={handlePrevious} disabled={startIndex === 0}>
+                        <ChevronLeft className="h-4 w-4" />
+                        <span className="sr-only">Previous</span>
+                      </Button>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={handleNext}
+                        disabled={startIndex >= filteredProjects.length - 3}
+                      >
+                        <ChevronRightIcon className="h-4 w-4" />
+                        <span className="sr-only">Next</span>
+                      </Button>
+                    </div>
+                  </div>
+                )}
+              </>
+            ) : (
+              <div className="p-8 text-center">
+                <p className="text-muted-foreground">No projects found matching your search.</p>
               </div>
             )}
-          </>
-        ) : (
-          <div className="p-8 text-center">
-            <p className="text-muted-foreground">No projects found matching your search.</p>
           </div>
-        )}
-      </div>
+        </TabsContent>
+
+        {/* Certificates Tab */}
+        <TabsContent value="certificates">
+          <div className="border rounded-lg overflow-hidden">
+            <div className="bg-muted py-2 px-4 border-b flex items-center gap-4">
+              <span className="font-medium">Certificates</span>
+              <span className="font-medium ml-auto hidden md:block">Issuer</span>
+              <span className="w-24 text-center font-medium hidden md:block">Date</span>
+            </div>
+
+            {filteredCertificates.length > 0 ? (
+              <div className="divide-y">
+                {filteredCertificates.map((cert) => (
+                  <div key={cert.id} className="group">
+                    <div
+                      className="flex items-center p-4 cursor-pointer hover:bg-muted/50 transition-colors"
+                      onClick={() => toggleExpandCert(cert.id)}
+                    >
+                      <div className="flex items-center gap-4 flex-1">
+                        <div className="relative w-16 h-16 rounded-md overflow-hidden flex-shrink-0 bg-muted flex items-center justify-center">
+                          {cert.image ? (
+                            <Image
+                              src={cert.image || "/placeholder.svg"}
+                              alt={cert.title}
+                              fill
+                              className="object-cover"
+                            />
+                          ) : (
+                            <Award className="h-8 w-8 text-muted-foreground" />
+                          )}
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <h3 className="font-medium text-lg">{cert.title}</h3>
+                          <p className="text-muted-foreground text-sm line-clamp-1">
+                            {cert.description.replace(/<[^>]*>/g, "")}
+                          </p>
+                        </div>
+                      </div>
+                      <div className="hidden md:block text-right text-sm text-muted-foreground">{cert.issuer}</div>
+                      <div className="hidden md:block w-24 text-center text-sm text-muted-foreground">{cert.date}</div>
+                      <div className="flex items-center ml-4">
+                        {cert.credential && (
+                          <Button variant="ghost" size="icon" asChild onClick={(e) => e.stopPropagation()}>
+                            <a href={cert.credential} target="_blank" rel="noopener noreferrer">
+                              <ExternalLink className="h-4 w-4" />
+                              <span className="sr-only">View credential</span>
+                            </a>
+                          </Button>
+                        )}
+                        {expandedCertId === cert.id ? (
+                          <ChevronDown className="h-4 w-4 text-muted-foreground" />
+                        ) : (
+                          <ChevronRight className="h-4 w-4 text-muted-foreground" />
+                        )}
+                      </div>
+                    </div>
+                    {expandedCertId === cert.id && (
+                      <div className="p-4 pt-0 bg-muted/20">
+                        <div className="md:hidden flex flex-col gap-1 mb-3">
+                          <div className="flex items-center gap-2">
+                            <span className="font-medium">Issuer:</span>
+                            <span className="text-muted-foreground">{cert.issuer}</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <span className="font-medium">Date:</span>
+                            <span className="text-muted-foreground">{cert.date}</span>
+                          </div>
+                        </div>
+                        <div
+                          className="text-sm text-muted-foreground"
+                          dangerouslySetInnerHTML={renderHTML(cert.description)}
+                        />
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="p-8 text-center">
+                <p className="text-muted-foreground">No certificates found matching your search.</p>
+              </div>
+            )}
+          </div>
+        </TabsContent>
+
+        {/* Experiences Tab */}
+        <TabsContent value="experiences">
+          <div className="border rounded-lg overflow-hidden">
+            <div className="bg-muted py-2 px-4 border-b flex items-center gap-4">
+              <span className="font-medium">Experiences</span>
+              {/* Only show Organization header if we have experiences with both role and organization */}
+              {experiences.some((exp) => exp.role && exp.organization) && (
+                <span className="font-medium ml-auto hidden md:block">Organization</span>
+              )}
+              <span className="w-24 text-center font-medium hidden md:block">Period</span>
+            </div>
+
+            {filteredExperiences.length > 0 ? (
+              <div className="divide-y">
+                {filteredExperiences.map((exp) => (
+                  <div key={exp.id} className="group">
+                    <div
+                      className="flex items-center p-4 cursor-pointer hover:bg-muted/50 transition-colors"
+                      onClick={() => toggleExpandExp(exp.id)}
+                    >
+                      <div className="flex items-center gap-4 flex-1">
+                        <div className="relative w-16 h-16 rounded-md overflow-hidden flex-shrink-0 bg-muted flex items-center justify-center">
+                          {exp.image ? (
+                            <Image
+                              src={exp.image || "/placeholder.svg"}
+                              alt={exp.title}
+                              fill
+                              className="object-cover"
+                            />
+                          ) : (
+                            <Users className="h-8 w-8 text-muted-foreground" />
+                          )}
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <h3 className="font-medium text-lg">{exp.title}</h3>
+                          {/* Show role if it exists, otherwise organization if it exists, otherwise nothing */}
+                          {(exp.role || exp.organization) && (
+                            <p className="text-muted-foreground text-sm">{exp.role || exp.organization || ""}</p>
+                          )}
+                        </div>
+                      </div>
+                      {/* Only show organization in its original position if both role and organization exist */}
+                      {exp.role && exp.organization && (
+                        <div className="hidden md:block text-right text-sm text-muted-foreground">
+                          {exp.organization}
+                        </div>
+                      )}
+                      {(!exp.role || !exp.organization) && <div className="hidden md:block"></div>}
+                      <div className="hidden md:block w-24 text-center text-sm text-muted-foreground">{exp.period}</div>
+                      <div className="flex items-center ml-4">
+                        {expandedExpId === exp.id ? (
+                          <ChevronDown className="h-4 w-4 text-muted-foreground" />
+                        ) : (
+                          <ChevronRight className="h-4 w-4 text-muted-foreground" />
+                        )}
+                      </div>
+                    </div>
+                    {expandedExpId === exp.id && (
+                      <div className="p-4 pt-0 bg-muted/20">
+                        <div className="md:hidden flex flex-col gap-1 mb-3">
+                          {exp.role && (
+                            <div className="flex items-center gap-2">
+                              <span className="font-medium">Role:</span>
+                              <span className="text-muted-foreground">{exp.role}</span>
+                            </div>
+                          )}
+                          {exp.organization && (
+                            <div className="flex items-center gap-2">
+                              <span className="font-medium">Organization:</span>
+                              <span className="text-muted-foreground">{exp.organization}</span>
+                            </div>
+                          )}
+                          <div className="flex items-center gap-2">
+                            <span className="font-medium">Period:</span>
+                            <span className="text-muted-foreground">{exp.period}</span>
+                          </div>
+                        </div>
+                        <div
+                          className="text-sm text-muted-foreground"
+                          dangerouslySetInnerHTML={renderHTML(exp.description)}
+                        />
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="p-8 text-center">
+                <p className="text-muted-foreground">No experiences found matching your search.</p>
+              </div>
+            )}
+          </div>
+        </TabsContent>
+      </Tabs>
     </section>
   )
 }
