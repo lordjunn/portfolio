@@ -346,6 +346,7 @@ export default function Work() {
   const [expandedExpId, setExpandedExpId] = useState<number | null>(null)
   const [searchQuery, setSearchQuery] = useState<string>("")
   const [startIndex, setStartIndex] = useState(0)
+  const [expStartIndex, setExpStartIndex] = useState(0)
   const [activeTab, setActiveTab] = useState("projects")
 
   const filteredProjects = projects.filter(
@@ -368,7 +369,7 @@ export default function Work() {
   const filteredExperiences = experiences.filter(
     (exp) =>
       exp.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      exp.organization.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      (exp.organization && exp.organization.toLowerCase().includes(searchQuery.toLowerCase())) ||
       (exp.role && exp.role.toLowerCase().includes(searchQuery.toLowerCase())) ||
       exp.description.toLowerCase().includes(searchQuery.toLowerCase()),
   )
@@ -380,7 +381,18 @@ export default function Work() {
     }
   }, [filteredProjects, startIndex])
 
+  // Ensure expStartIndex is valid when filtered experiences change
+  useEffect(() => {
+    if (expStartIndex > filteredExperiences.length - 1) {
+      setExpStartIndex(Math.max(0, filteredExperiences.length - 1))
+    }
+  }, [filteredExperiences, expStartIndex])
+
   const visibleProjects = filteredProjects.slice(startIndex, Math.min(startIndex + 3, filteredProjects.length))
+  const visibleExperiences = filteredExperiences.slice(
+    expStartIndex,
+    Math.min(expStartIndex + 3, filteredExperiences.length),
+  )
 
   const toggleExpand = (id: number) => {
     setExpandedId(expandedId === id ? null : id)
@@ -400,6 +412,14 @@ export default function Work() {
 
   const handleNext = () => {
     setStartIndex(Math.min(filteredProjects.length - 3, startIndex + 1))
+  }
+
+  const handlePreviousExp = () => {
+    setExpStartIndex(Math.max(0, expStartIndex - 1))
+  }
+
+  const handleNextExp = () => {
+    setExpStartIndex(Math.min(filteredExperiences.length - 3, expStartIndex + 1))
   }
 
   // Function to safely render HTML content
@@ -669,87 +689,110 @@ export default function Work() {
           <div className="border rounded-lg overflow-hidden">
             <div className="bg-muted py-2 px-4 border-b flex items-center gap-4">
               <span className="font-medium">Experiences</span>
-              {/* Only show Organization header if we have experiences with both role and organization */}
-              {experiences.some((exp) => exp.role && exp.organization) && (
-                <span className="font-medium ml-auto hidden md:block">Organization</span>
-              )}
-              <span className="w-24 text-center font-medium hidden md:block">Period</span>
+              <span className="font-medium ml-auto hidden md:block">Period</span>
             </div>
 
             {filteredExperiences.length > 0 ? (
-              <div className="divide-y">
-                {filteredExperiences.map((exp) => (
-                  <div key={exp.id} className="group">
-                    <div
-                      className="flex items-center p-4 cursor-pointer hover:bg-muted/50 transition-colors"
-                      onClick={() => toggleExpandExp(exp.id)}
-                    >
-                      <div className="flex items-center gap-4 flex-1">
-                        <div className="relative w-16 h-16 rounded-md overflow-hidden flex-shrink-0 bg-muted flex items-center justify-center">
-                          {exp.image ? (
-                            <Image
-                              src={exp.image || "/placeholder.svg"}
-                              alt={exp.title}
-                              fill
-                              className="object-cover"
-                            />
-                          ) : (
-                            <Users className="h-8 w-8 text-muted-foreground" />
-                          )}
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <h3 className="font-medium text-lg">{exp.title}</h3>
-                          {/* Show role if it exists, otherwise organization if it exists, otherwise nothing */}
-                          {(exp.role || exp.organization) && (
-                            <p className="text-muted-foreground text-sm">{exp.role || exp.organization || ""}</p>
-                          )}
-                        </div>
-                      </div>
-                      {/* Only show organization in its original position if both role and organization exist */}
-                      {exp.role && exp.organization && (
-                        <div className="hidden md:block text-right text-sm text-muted-foreground">
-                          {exp.organization}
-                        </div>
-                      )}
-                      {(!exp.role || !exp.organization) && <div className="hidden md:block"></div>}
-                      <div className="hidden md:block w-24 text-center text-sm text-muted-foreground">{exp.period}</div>
-                      <div className="flex items-center ml-4">
-                        {expandedExpId === exp.id ? (
-                          <ChevronDown className="h-4 w-4 text-muted-foreground" />
-                        ) : (
-                          <ChevronRight className="h-4 w-4 text-muted-foreground" />
-                        )}
-                      </div>
-                    </div>
-                    {expandedExpId === exp.id && (
-                      <div className="p-4 pt-0 bg-muted/20">
-                        <div className="md:hidden flex flex-col gap-1 mb-3">
-                          {exp.role && (
+              <>
+                <div className="divide-y">
+                  {visibleExperiences.map((exp) => (
+                    <div key={exp.id} className="group">
+                      <div
+                        className="flex items-center p-4 cursor-pointer hover:bg-muted/50 transition-colors"
+                        onClick={() => toggleExpandExp(exp.id)}
+                      >
+                        <div className="flex items-center gap-4 flex-1">
+                          <div className="relative w-16 h-16 rounded-md overflow-hidden flex-shrink-0 bg-muted flex items-center justify-center">
+                            {exp.image ? (
+                              <Image
+                                src={exp.image || "/placeholder.svg"}
+                                alt={exp.title}
+                                fill
+                                className="object-cover"
+                              />
+                            ) : (
+                              <Users className="h-8 w-8 text-muted-foreground" />
+                            )}
+                          </div>
+                          <div className="flex-1 min-w-0">
                             <div className="flex items-center gap-2">
-                              <span className="font-medium">Role:</span>
-                              <span className="text-muted-foreground">{exp.role}</span>
+                              <h3 className="font-medium text-lg">{exp.title}</h3>
+                              {/* Show organization next to title if both role and organization exist */}
+                              {exp.role && exp.organization && (
+                                <span className="text-sm text-muted-foreground">• {exp.organization}</span>
+                              )}
                             </div>
-                          )}
-                          {exp.organization && (
-                            <div className="flex items-center gap-2">
-                              <span className="font-medium">Organization:</span>
-                              <span className="text-muted-foreground">{exp.organization}</span>
-                            </div>
-                          )}
-                          <div className="flex items-center gap-2">
-                            <span className="font-medium">Period:</span>
-                            <span className="text-muted-foreground">{exp.period}</span>
+                            {/* Show role if it exists, otherwise show organization */}
+                            {exp.role ? (
+                              <p className="text-muted-foreground text-sm">{exp.role}</p>
+                            ) : exp.organization ? (
+                              <p className="text-muted-foreground text-sm">{exp.organization}</p>
+                            ) : null}
                           </div>
                         </div>
-                        <div
-                          className="text-sm text-muted-foreground"
-                          dangerouslySetInnerHTML={renderHTML(exp.description)}
-                        />
+                        <div className="text-right text-sm text-muted-foreground pr-4">{exp.period}</div>
+                        <div className="flex items-center">
+                          {expandedExpId === exp.id ? (
+                            <ChevronDown className="h-4 w-4 text-muted-foreground" />
+                          ) : (
+                            <ChevronRight className="h-4 w-4 text-muted-foreground" />
+                          )}
+                        </div>
                       </div>
-                    )}
+                      {expandedExpId === exp.id && (
+                        <div className="p-4 pt-0 bg-muted/20">
+                          <div className="flex flex-col gap-1 mb-3">
+                            {exp.organization && (
+                              <div className="flex items-center gap-2">
+                                <span className="font-medium">Organization:</span>
+                                <span className="text-muted-foreground">{exp.organization}</span>
+                              </div>
+                            )}
+                            {exp.role && (
+                              <div className="flex items-center gap-2">
+                                <span className="font-medium">Role:</span>
+                                <span className="text-muted-foreground">{exp.role}</span>
+                              </div>
+                            )}
+                            <div className="flex items-center gap-2">
+                              <span className="font-medium">Period:</span>
+                              <span className="text-muted-foreground">{exp.period}</span>
+                            </div>
+                          </div>
+                          <div
+                            className="text-sm text-muted-foreground"
+                            dangerouslySetInnerHTML={renderHTML(exp.description)}
+                          />
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+                {/* Navigation controls for experiences */}
+                {filteredExperiences.length > 3 && (
+                  <div className="flex justify-between items-center p-3 border-t bg-muted/20">
+                    <div className="text-sm text-muted-foreground">
+                      Showing {expStartIndex + 1}-{Math.min(expStartIndex + 3, filteredExperiences.length)} of{" "}
+                      {filteredExperiences.length}
+                    </div>
+                    <div className="flex gap-2">
+                      <Button variant="outline" size="sm" onClick={handlePreviousExp} disabled={expStartIndex === 0}>
+                        <ChevronLeft className="h-4 w-4" />
+                        <span className="sr-only">Previous</span>
+                      </Button>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={handleNextExp}
+                        disabled={expStartIndex >= filteredExperiences.length - 3}
+                      >
+                        <ChevronRightIcon className="h-4 w-4" />
+                        <span className="sr-only">Next</span>
+                      </Button>
+                    </div>
                   </div>
-                ))}
-              </div>
+                )}
+              </>
             ) : (
               <div className="p-8 text-center">
                 <p className="text-muted-foreground">No experiences found matching your search.</p>
