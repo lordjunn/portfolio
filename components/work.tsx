@@ -115,7 +115,9 @@ const projects: Project[] = [
     id: 4,
     title: "Portfolio Website",
     description:
-      "A modern portfolio website built with Next.js and TypeScript, featuring a responsive design, dark/light mode toggle, and an integrated blog system with Markdown support. The site showcases my projects, skills, and writing in a clean, accessible interface. It includes project filtering, smooth animations, and optimized performance across all devices.",
+      `A modern portfolio website built with Next.js and TypeScript, featuring a responsive design, dark/light mode toggle, and an integrated blog system with Markdown support. 
+      The site showcases my projects, skills, and writing in a clean, accessible interface. 
+      It includes project filtering, smooth animations, and optimized performance across all devices.`,
     image: "https://i.pinimg.com/736x/27/8f/89/278f8911cd0bb929a45209f749096358.jpg",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "React", "Markdown"],
     projectType: ["Solo", "Personal"],
@@ -236,8 +238,10 @@ const certificates: Certificate[] = [
     issuer: "Cisco Networking Academy",
     date: "March 2025",
     description: `
-    From understanding network architectures and protocols to mastering IP addressing and Ethernet fundamentals, you'll develop foundational knowledge and build your networking basics. 
-    Basically the course Computer Networks in my uni.
+    From understanding network architectures and protocols to mastering IP addressing and Ethernet fundamentals, I developed foundational knowledge and built my networking basics. 
+    Includes usage of Cisco Packet Tracer v6 & v8.
+
+    Basically the course "Computer Networks" in my uni.
     `,
     image: "https://1000logos.net/wp-content/uploads/2016/11/Cisco-logo.png",
     credential: "https://www.netacad.com/certificates?issuanceId=319adae7-9228-4d64-99b0-4870daa58b8b",
@@ -267,13 +271,13 @@ const experiences: Experience[] = [
     period: "Jan 2025+",
     description: `
     Collaborated with the technical team to develop and maintain projects for both the Society and the University.
-    
+    All the while honing my current skillset and gaining new skills out of the university syllabus.
     
     <b>Projects done:</b>
-    MMU Clubs Site (Backend for admin, Design for SuperUser)
-    MMU Hack Day (idk)
+    MMU Clubs Site (Backend for admin, Design for SuperUser, not yet deployed)
+    MMU Hack Day (likely done a bit before codenection)
     `,
-    image: "/placeholder.svg?height=400&width=400",
+    image: "/Experience/ITS.jpg",
   },
   {
     id: 2,
@@ -287,13 +291,13 @@ const experiences: Experience[] = [
     Ranked 10th out of 57 teams in the Closed Category, and 11th overall across both Closed and Open Categories based on total points — out of 633 participants from 37 universities nationwide.
     Although we did not advance to the finals, the experience sharpened my problem-solving skills and strengthened my ability to work collaboratively in high-stakes environments.
     `,
-    image: "/placeholder.svg?height=400&width=400",
+    image: "/Experience/Codenection.png",
   },
   {
     id: 3,
     title: "Hackerspace MMU",
     role: "Member",
-    period: "Aug?? 2024+",
+    period: "16 Aug 2024+",
     description: `
     Joined Hackerspace MMU, a vibrant community of self-learners and tech enthusiasts at Multimedia University Cyberjaya.
     At times engaged in weekly meetups every Tuesday evening, and presented ideas for new projects, and progress updates to peers for constructive feedback.
@@ -304,7 +308,7 @@ const experiences: Experience[] = [
     Study site (Study with Junn)
     Tic Tac Toe (Webstack Trio)
     `,
-    image: "/placeholder.svg?height=400&width=400",
+    image: "/Experience/Hackerspace.png",
   },
   {
     id: 4,
@@ -321,14 +325,15 @@ const experiences: Experience[] = [
 
     <b>Events managed:</b>
     Annual General Meeting (Just the setup & cleanup)
+    MMU Game Jam 2025 (soon!)
     `,
-    image: "/placeholder.svg?height=400&width=400",
+    image: "/Experience/GDC.png",
   },
   {
     id: 5,
     title: "Committee Member of Technical Division",
     organization: "Codenection 2025",
-    period: "Apr 2025 - ?? 2025",
+    period: "Apr 2025 - Nov? 2025",
     description: `
     Hackathon, no more Competitive Programming. 
     Not participant, am the one working on this now
