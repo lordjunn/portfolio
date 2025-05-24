@@ -268,7 +268,7 @@ const experiences: Experience[] = [
     title: "Committee Member of Technical Division",
     organization: "MMU IT Society",
     // No role provided here
-    period: "Jan 2025+",
+    period: "30 Dec 2024+",
     description: `
     Collaborated with the technical team to develop and maintain projects for both the Society and the University.
     All the while honing my current skillset and gaining new skills out of the university syllabus.
@@ -302,7 +302,7 @@ const experiences: Experience[] = [
     Joined Hackerspace MMU, a vibrant community of self-learners and tech enthusiasts at Multimedia University Cyberjaya.
     At times engaged in weekly meetups every Tuesday evening, and presented ideas for new projects, and progress updates to peers for constructive feedback.
     Benefited from a supportive environment fostering continuous learning, where members share knowledge, discuss the latest tech trends, and provide assistance in overcoming coding challenges.
-    Embraced the hackerspace philosophy: "I hear and I forget. I see and I remember. I do and I understand.
+    Embraced the hackerspace philosophy: "I hear and I forget. I see and I remember. I do and I understand."
 
     <b>Projects presented:</b>
     Study site (Study with Junn)
@@ -314,7 +314,7 @@ const experiences: Experience[] = [
     id: 4,
     title: "Event Management Member",
     organization: "Game Development Club MMU Cyberjaya",
-    period: "Jan 2025+",
+    period: "5 Jan 2025+",
     description: `
     Joined the Game Development Club MMU Cyberjaya, a dynamic community dedicated to fostering game development skills and creativity among students.
     As an Event Management Member, I assist in organizing and executing various club events, one of which would be the AGM. My responsibilities encompass:
@@ -325,24 +325,44 @@ const experiences: Experience[] = [
 
     <b>Events managed:</b>
     Annual General Meeting (Just the setup & cleanup)
-    MMU Game Jam 2025 (soon!)
+    MMU Game Jam 2025 (Logistics + Event Management)
     `,
     image: "/Experience/GDC.png",
   },
   {
     id: 5,
     title: "Committee Member of Technical Division",
-    organization: "Codenection 2025",
-    period: "Apr 2025 - Nov? 2025",
+    organization: "CodeNection 2025",
+    period: "12 Apr 2025 - 9 Nov 2025",
     description: `
     Hackathon, no more Competitive Programming. 
-    Not participant, am the one working on this now
-    Make Wordpress site, maybe assist in PA stuff?
-    Unsure, will get to that later.
+    Not participant, am the one working on this now.
+
+    Things I'm told I'll be doing:
+    All technical aspects of the event (PA System, Speakers, controlling slides, etc.)
+    Website UI/UX Design
+    Website Frontend & Backend Development
+    Discord Bot Development
+    `,
+    image: "/Experience/Codenection.png",
+  },
+  {
+    id: 6,
+    title: "MMU Game Jam 2025",
+    organization: "GDC MMU",
+    role: "Logistics + Event Management Committee Member",
+    period: "23 May 2025 - 25 May 2025",
+    description: `
+    I'm just here for 2 days but I'll write what I have done.
+    
+    Day 1:
+    Carried a few stand fans from FOE 1st floor to radio room
+    Took 5 VIP gifts from Chancellor & sent them to cinema
+    "Assisted" carrying lunch for committee from FAIE LG to cinema (walked there, look at people take food, go back)
+    Took 1 big mat from surau to radio room/store (out of 3)
     `,
     image: "/placeholder.svg?height=400&width=400",
   },
-
 ]
 
 export default function Work() {
