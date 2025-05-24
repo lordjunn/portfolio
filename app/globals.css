@@ -97,23 +97,23 @@
 }
 
 .markdown-content h1 {
-  @apply text-4xl font-bold leading-tight mt-8 mb-4;
+  @apply text-3xl font-bold mt-8 mb-4;
 }
 
 .markdown-content h2 {
-  @apply text-2xl font-bold leading-snug mt-6 mb-3;
+  @apply text-2xl font-bold mt-6 mb-3;
 }
 
 .markdown-content h3 {
-  @apply text-lg font-bold leading-snug mt-5 mb-2;
+  @apply text-xl font-bold mt-5 mb-2;
 }
 
 .markdown-content h4 {
-  @apply text-base font-semibold leading-snug mt-4 mb-2;
+  @apply text-lg font-semibold mt-4 mb-2;
 }
 
 .markdown-content p {
-  @apply my-4 leading-relaxed;
+  @apply my-4 leading-7;
 }
 
 .markdown-content a {
@@ -148,99 +148,147 @@
   @apply bg-muted/50 px-1.5 py-0.5 rounded text-sm font-mono;
 }
 
-/* Code block styling */
+/* ===== CODE BLOCK STYLING ===== */
 .markdown-content pre {
-  @apply my-4 rounded-lg overflow-x-auto;
-  background-color: #1e1e2e;
-  color: #cdd6f4;
-  padding: 1rem;
+  /* Vertical spacing between code blocks and other elements */
+  @apply my-6 rounded-lg overflow-x-auto;
+
+  /* Background and text colors for dark mode (default) */
+  background-color: #1e1e2e; /* Dark background color */
+  color: #cdd6f4; /* Light text color */
+
+  /* Internal padding - controls space inside the code block */
+  padding: 1.5rem; /* Increase this for more space inside the code block */
+
+  /* These control how wide the code block is compared to the container */
+  margin-left: -0.5rem; /* Negative margin makes the block extend left */
+  margin-right: -0.5rem; /* Negative margin makes the block extend right */
+
+  /* Width calculation - should match the sum of the absolute values of the margins */
+  width: calc(100% + 1rem); /* 100% + (0.5rem left + 0.5rem right) */
+
+  /* Vertical spacing - additional control for top/bottom margins */
+  margin-top: 1.5rem; /* Space above code blocks */
+  margin-bottom: 1.5rem; /* Space below code blocks */
 }
 
+/* Styling for the actual code inside the code block */
 .markdown-content pre code {
-  @apply font-mono text-sm;
-  line-height: 1.5;
-  white-space: pre;
-  display: block;
+  @apply font-mono text-sm; /* Font family and size */
+  line-height: 1.6; /* Controls the spacing between lines of code */
+  white-space: pre; /* Preserves whitespace and line breaks */
+  display: block; /* Makes the code take up the full width */
 }
 
-/* Add syntax highlighting with Prism.js-like styles */
+/* Light mode styling for code blocks */
+@media (prefers-color-scheme: light) {
+  .markdown-content pre {
+    background-color: #f6f8fa; /* Light gray background for light mode */
+    color: #24292e; /* Dark text for light mode */
+  }
+}
+
+/* Dark mode styling for code blocks (when using class-based dark mode) */
+.dark .markdown-content pre {
+  background-color: #1e1e2e; /* Dark background for dark mode */
+  color: #cdd6f4; /* Light text for dark mode */
+}
+
+/* ===== SYNTAX HIGHLIGHTING STYLES ===== */
+/* These styles control the colors of different code elements */
+
+/* Base style for code blocks with syntax highlighting */
 .code-block {
   background-color: #1e1e2e !important;
   color: #cdd6f4 !important;
 }
 
+/* HTML/XML tag styling */
 .code-block.language-html .token.tag,
 .code-block.language-xml .token.tag {
-  color: #f38ba8;
+  color: #f38ba8; /* Pink color for HTML/XML tags */
 }
 
+/* HTML/XML attribute name styling */
 .code-block.language-html .token.attr-name,
 .code-block.language-xml .token.attr-name {
-  color: #a6e3a1;
+  color: #a6e3a1; /* Green color for attribute names */
 }
 
+/* HTML/XML attribute value styling */
 .code-block.language-html .token.attr-value,
 .code-block.language-xml .token.attr-value {
-  color: #fab387;
+  color: #fab387; /* Orange color for attribute values */
 }
 
+/* HTML/XML comment styling */
 .code-block.language-html .token.comment,
 .code-block.language-xml .token.comment {
-  color: #7f849c;
+  color: #7f849c; /* Gray color for comments */
 }
 
+/* CSS selector styling */
 .code-block.language-css .token.selector {
-  color: #f38ba8;
+  color: #f38ba8; /* Pink color for CSS selectors */
 }
 
+/* CSS property styling */
 .code-block.language-css .token.property {
-  color: #89b4fa;
+  color: #89b4fa; /* Blue color for CSS properties */
 }
 
+/* CSS value styling */
 .code-block.language-css .token.value {
-  color: #fab387;
+  color: #fab387; /* Orange color for CSS values */
 }
 
+/* CSS comment styling */
 .code-block.language-css .token.comment {
-  color: #7f849c;
+  color: #7f849c; /* Gray color for CSS comments */
 }
 
+/* JavaScript/TypeScript keyword styling */
 .code-block.language-javascript .token.keyword,
 .code-block.language-js .token.keyword,
 .code-block.language-typescript .token.keyword,
 .code-block.language-ts .token.keyword {
-  color: #f38ba8;
+  color: #f38ba8; /* Pink color for keywords */
 }
 
+/* JavaScript/TypeScript string styling */
 .code-block.language-javascript .token.string,
 .code-block.language-js .token.string,
 .code-block.language-typescript .token.string,
 .code-block.language-ts .token.string {
-  color: #a6e3a1;
+  color: #a6e3a1; /* Green color for strings */
 }
 
+/* JavaScript/TypeScript function styling */
 .code-block.language-javascript .token.function,
 .code-block.language-js .token.function,
 .code-block.language-typescript .token.function,
 .code-block.language-ts .token.function {
-  color: #89b4fa;
+  color: #89b4fa; /* Blue color for functions */
 }
 
+/* JavaScript/TypeScript number styling */
 .code-block.language-javascript .token.number,
 .code-block.language-js .token.number,
 .code-block.language-typescript .token.number,
 .code-block.language-ts .token.number {
-  color: #fab387;
+  color: #fab387; /* Orange color for numbers */
 }
 
+/* JavaScript/TypeScript comment styling */
 .code-block.language-javascript .token.comment,
 .code-block.language-js .token.comment,
 .code-block.language-typescript .token.comment,
 .code-block.language-ts .token.comment {
-  color: #7f849c;
+  color: #7f849c; /* Gray color for comments */
 }
 
-/* Prose styles for compatibility */
+/* ===== PROSE STYLES FOR COMPATIBILITY ===== */
+/* These styles ensure compatibility with the Tailwind Typography plugin */
 .prose {
   @apply text-foreground;
 }
@@ -382,3 +430,38 @@
   }
 }
 
+/* Custom scrollbar styles */
+.scrollbar-thin {
+  scrollbar-width: thin;
+}
+
+.scrollbar-thumb-muted {
+  scrollbar-color: hsl(var(--muted-foreground)) transparent;
+}
+
+.scrollbar-track-transparent {
+  scrollbar-color: hsl(var(--muted-foreground)) transparent;
+}
+
+/* Webkit scrollbar styles for better browser support */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: hsl(var(--muted-foreground));
+  border-radius: 3px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(var(--foreground));
+}
+
+/* Smooth scrolling */
+.scrollbar-thin {
+  scroll-behavior: smooth;
+}

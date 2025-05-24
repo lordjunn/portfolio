@@ -6,14 +6,6 @@ import { MoonIcon, SunIcon, Menu, X } from "lucide-react"
 import { useTheme } from "@/components/theme-provider"
 import { Button } from "@/components/ui/button"
 
-const navLinks = [
-  { href: "/#work", label: "Work" },
-  { href: "/#about", label: "About" },
-  { href: "/blog", label: "Blog" },
-  { href: "/Resume.pdf", label: "Resume" },
-  { href: "/#contact", label: "Contact" },
-]
-
 export default function Navbar() {
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
@@ -58,15 +50,26 @@ export default function Navbar() {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-6">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-sm font-medium hover:text-primary"
-            >
-              {link.label}
-            </Link>
-          ))}
+          <Link href="/#work" className="text-sm font-medium hover:text-primary">
+            Work
+          </Link>
+          <Link href="/#about" className="text-sm font-medium hover:text-primary">
+            About
+          </Link>
+          <Link href="/blog" className="text-sm font-medium hover:text-primary">
+            Blog
+          </Link>
+          <Link
+            href="/resume.pdf"
+            className="text-sm font-medium hover:text-primary"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Resume
+          </Link>
+          <Link href="/#contact" className="text-sm font-medium hover:text-primary">
+            Contact
+          </Link>
           <Button variant="ghost" size="icon" aria-label="Toggle Theme" className="rounded-full" onClick={toggleTheme}>
             {mounted && (theme === "dark" ? <SunIcon className="h-5 w-5" /> : <MoonIcon className="h-5 w-5" />)}
           </Button>
@@ -96,9 +99,10 @@ export default function Navbar() {
           <div className="fixed inset-0 bg-background/80 backdrop-blur-sm" onClick={closeMobileMenu}></div>
 
           {/* Side Panel */}
-          <div className="relative ml-auto w-[75%] min-w-[250px] max-w-[350px] bg-background shadow-xl h-full border-l">
+          <div className="relative ml-auto w-[280px] min-w-[280px] max-w-[320px] bg-background shadow-xl h-full border-l">
             <div className="flex flex-col h-full p-6">
-              <div className="flex justify-end mb-8">
+              <div className="flex justify-between items-center mb-8">
+                <h2 className="text-lg font-semibold">Menu</h2>
                 <Button
                   variant="ghost"
                   size="icon"
@@ -109,20 +113,47 @@ export default function Navbar() {
                   <X className="h-6 w-6" />
                 </Button>
               </div>
-              <nav className="flex flex-col gap-6">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className="text-xl font-medium py-2 hover:text-primary"
-                    onClick={closeMobileMenu}
-                  >
-                    {link.label}
-                  </Link>
-                ))}
+              <nav className="flex flex-col gap-4">
+                <Link
+                  href="/#work"
+                  className="text-lg font-medium py-3 px-2 hover:text-primary hover:bg-muted/50 rounded-md transition-colors"
+                  onClick={closeMobileMenu}
+                >
+                  Work
+                </Link>
+                <Link
+                  href="/#about"
+                  className="text-lg font-medium py-3 px-2 hover:text-primary hover:bg-muted/50 rounded-md transition-colors"
+                  onClick={closeMobileMenu}
+                >
+                  About
+                </Link>
+                <Link
+                  href="/blog"
+                  className="text-lg font-medium py-3 px-2 hover:text-primary hover:bg-muted/50 rounded-md transition-colors"
+                  onClick={closeMobileMenu}
+                >
+                  Blog
+                </Link>
+                <Link
+                  href="/resume.pdf"
+                  className="text-lg font-medium py-3 px-2 hover:text-primary hover:bg-muted/50 rounded-md transition-colors"
+                  onClick={closeMobileMenu}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Resume
+                </Link>
+                <Link
+                  href="/#contact"
+                  className="text-lg font-medium py-3 px-2 hover:text-primary hover:bg-muted/50 rounded-md transition-colors"
+                  onClick={closeMobileMenu}
+                >
+                  Contact
+                </Link>
               </nav>
-              <div className="mt-auto text-sm text-muted-foreground">
-                <p>© {new Date().getFullYear()} Portfolio</p>
+              <div className="mt-auto pt-6 border-t">
+                <p className="text-sm text-muted-foreground">© {new Date().getFullYear()} Portfolio</p>
               </div>
             </div>
           </div>

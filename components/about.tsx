@@ -3,70 +3,73 @@
 import { useState } from "react"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 
-// Define skill categories with proficiency levels
 const skillCategories = {
   frontend: {
     title: "Frontend",
     description: "Client-side technologies and frameworks",
     skills: [
-      { name: "React", level: "Advanced", years: 3 },
-      { name: "Next.js", level: "Advanced", years: 2 },
-      { name: "TypeScript", level: "Intermediate", years: 2 },
-      { name: "Tailwind CSS", level: "Advanced", years: 2 },
-      { name: "HTML/CSS", level: "Advanced", years: 4 },
-      { name: "JavaScript", level: "Advanced", years: 4 },
-      { name: "Vue.js", level: "Beginner", years: 0.5 },
+      { name: "React", level: "Beginner", years: 1 },
+      { name: "Next.js", level: "Beginner", years: 1 },
+      { name: "TypeScript", level: "Beginner", years: 1 },
+      { name: "Tailwind CSS", level: "Novice", years: 1 },
+      { name: "HTML", level: "Advanced", years: 3 },
+      { name: "CSS", level: "Advanced", years: 3 },
     ],
   },
   backend: {
     title: "Backend",
     description: "Server-side technologies and databases",
     skills: [
-      { name: "Node.js", level: "Intermediate", years: 2 },
-      { name: "Express", level: "Intermediate", years: 2 },
-      { name: "Python", level: "Advanced", years: 3 },
-      { name: "Flask", level: "Intermediate", years: 1 },
-      { name: "Supabase", level: "Intermediate", years: 1 },
-      { name: "PostgreSQL", level: "Beginner", years: 0.5 },
-      { name: "SQLite", level: "Intermediate", years: 2 },
+      { name: "Node.js", level: "Beginner", years: 2 },
+      { name: "Express", level: "Beginner", years: 2 },
+      { name: "Flask", level: "Beginner", years: 1 },
+      { name: "Supabase", level: "Beginner", years: 1 },
+      { name: "PostgreSQL", level: "Novice", years: 0.5 },
+      { name: "SQLite", level: "Beginner", years: 2 },
     ],
   },
-  languages: {
+  programming: {
     title: "Programming Languages",
     description: "Core programming languages I work with",
     skills: [
-      { name: "JavaScript", level: "Advanced", years: 4 },
-      { name: "TypeScript", level: "Intermediate", years: 2 },
-      { name: "Python", level: "Advanced", years: 3 },
-      { name: "Java", level: "Intermediate", years: 2 },
-      { name: "C++", level: "Intermediate", years: 2 },
-      { name: "C", level: "Beginner", years: 1 },
+      { name: "JavaScript", level: "Proficient", years: 3 },
+      { name: "Python", level: "Proficient", years: 3 },
+      { name: "Java", level: "Beginner", years: 2 },
+      { name: "C++", level: "Beginner", years: 2 },
+      { name: "R", level: "Novice", years: 1 },
     ],
   },
   tools: {
     title: "Tools & Platforms",
     description: "Development tools and platforms",
     skills: [
-      { name: "Git/GitHub", level: "Advanced", years: 3 },
-      { name: "VS Code", level: "Advanced", years: 4 },
-      { name: "Figma", level: "Intermediate", years: 1 },
-      { name: "Vercel", level: "Intermediate", years: 2 },
-      { name: "PythonAnywhere", level: "Beginner", years: 0.5 },
-      { name: "Cisco Packet Tracer", level: "Intermediate", years: 1 },
+      { name: "Git/GitHub", level: "Intermediate", years: 5 },
+      { name: "VS Code", level: "Proficient", years: 3 },
+      { name: "Figma", level: "Beginner", years: 2 },
+      { name: "Vercel", level: "Beginner", years: 1 },
+      { name: "PythonAnywhere", level: "Novice", years: 1 },
+      { name: "Cisco Packet Tracer", level: "Beginner", years: 1 },
     ],
   },
   concepts: {
     title: "Concepts & Methodologies",
     description: "Software development concepts and practices",
     skills: [
-      { name: "Responsive Design", level: "Advanced", years: 3 },
-      { name: "RESTful APIs", level: "Intermediate", years: 2 },
-      { name: "Object-Oriented Programming", level: "Advanced", years: 3 },
-      { name: "Data Structures & Algorithms", level: "Intermediate", years: 2 },
-      { name: "Version Control", level: "Advanced", years: 3 },
-      { name: "Agile Development", level: "Beginner", years: 1 },
+      { name: "Responsive Design", level: "Beginner", years: 3 },
+      { name: "RESTful APIs", level: "Beginner", years: 1 },
+      { name: "Object-Oriented Programming", level: "Beginner", years: 2 },
+      { name: "Data Structures & Algorithms", level: "Beginner", years: 1 },
+    ],
+  },
+  languages: {
+    title: "Languages",
+    description: "Human languages I can speak and understand",
+    skills: [
+      { name: "English", level: "Advanced" }, 
+      { name: "Malay", level: "Proficient" }, 
+      { name: "Chinese (Mandarin)", level: "Intermediate" },
+      { name: "Chinese (Cantonese)", level: "Advanced"},
     ],
   },
 }
@@ -74,12 +77,18 @@ const skillCategories = {
 // Helper function to get level color
 const getLevelColor = (level: string) => {
   switch (level) {
-    case "Advanced":
-      return "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300"
-    case "Intermediate":
-      return "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300"
+    case "Novice":
+      return "bg-slate-100 text-slate-800 dark:bg-slate-900 dark:text-slate-300"
     case "Beginner":
       return "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300"
+    case "Intermediate":
+      return "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300"
+    case "Proficient":
+      return "bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-300"
+    case "Advanced":
+      return "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300"
+    case "Expert":
+      return "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300"
     default:
       return "bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-300"
   }
@@ -95,7 +104,7 @@ export default function About() {
         <div>
           <p className="text-lg mb-4">
             Hi there! I'm a passionate Computer Science student with expertise in building modern, responsive, and
-            user-friendly applications.
+            user-friendly applications. Currently looking for internships from 28 July 2025 until 26 October 2025 as mandated by my University.
           </p>
           <p className="text-lg mb-4">
             With several years of experience in the field, I've worked on a variety of projects ranging from University
@@ -154,11 +163,11 @@ export default function About() {
                 ))}
             </div>
           ) : (
-            // Detailed tabbed view
+            // Detailed tabbed view with responsive grid
             <Tabs defaultValue="frontend" className="w-full">
-              <TabsList className="grid grid-cols-3 lg:grid-cols-6 mb-4">
+              <TabsList className="grid grid-cols-3 sm:grid-cols-2 lg:grid-cols-6 mb-4 h-auto p-1 gap-1">
                 {Object.entries(skillCategories).map(([key, category]) => (
-                  <TabsTrigger key={key} value={key} className="text-xs">
+                  <TabsTrigger key={key} value={key} className="text-xs px-2 py-2 h-auto whitespace-nowrap">
                     {category.title.split(" ")[0]}
                   </TabsTrigger>
                 ))}
@@ -168,19 +177,29 @@ export default function About() {
                 <TabsContent key={key} value={key} className="space-y-4">
                   <div>
                     <h4 className="font-medium text-sm text-muted-foreground mb-3">{category.description}</h4>
-                    <div className="grid grid-cols-1 gap-2">
-                      {category.skills.map((skill) => (
-                        <div key={skill.name} className="flex items-center justify-between p-2 rounded-md bg-muted/30">
-                          <span className="font-medium text-sm">{skill.name}</span>
-                          <div className="flex items-center gap-2">
-                            <Badge variant="secondary" className={`text-xs ${getLevelColor(skill.level)}`}>
-                              {skill.level}
-                            </Badge>
-                            <span className="text-xs text-muted-foreground">{skill.years}y</span>
+                    <div className="max-h-64 overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-muted scrollbar-track-transparent">
+                      <div className="grid grid-cols-1 gap-2">
+                        {category.skills.map((skill) => (
+                          <div
+                            key={skill.name}
+                            className="flex items-center justify-between p-2 rounded-md bg-muted/30"
+                          >
+                            <span className="font-medium text-sm">{skill.name}</span>
+                            <div className="flex items-center gap-2">
+                              <Badge variant="secondary" className={`text-xs ${getLevelColor(skill.level)}`}>
+                                {skill.level}
+                              </Badge>
+                              {skill.years && <span className="text-xs text-muted-foreground">{skill.years}y</span>}
+                            </div>
                           </div>
-                        </div>
-                      ))}
+                        ))}
+                      </div>
                     </div>
+                    {category.skills.length > 6 && (
+                      <p className="text-xs text-muted-foreground mt-2 text-center">
+                        Scroll to see all {category.skills.length} skills
+                      </p>
+                    )}
                   </div>
                 </TabsContent>
               ))}
@@ -188,37 +207,6 @@ export default function About() {
           )}
         </div>
       </div>
-
-      {/* Optional: Skills overview cards */}
-      {activeView === "detailed" && (
-        <div className="mt-8">
-          <h3 className="text-xl font-semibold mb-4">Skills Overview</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {Object.entries(skillCategories).map(([key, category]) => (
-              <Card key={key} className="hover:shadow-md transition-shadow">
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-lg">{category.title}</CardTitle>
-                  <CardDescription className="text-sm">{category.description}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex flex-wrap gap-1">
-                    {category.skills.slice(0, 6).map((skill) => (
-                      <Badge key={skill.name} variant="outline" className="text-xs">
-                        {skill.name}
-                      </Badge>
-                    ))}
-                    {category.skills.length > 6 && (
-                      <Badge variant="outline" className="text-xs text-muted-foreground">
-                        +{category.skills.length - 6}
-                      </Badge>
-                    )}
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      )}
     </section>
   )
 }

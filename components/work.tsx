@@ -350,18 +350,24 @@ const experiences: Experience[] = [
     id: 6,
     title: "MMU Game Jam 2025",
     organization: "GDC MMU",
-    role: "Logistics + Event Management Committee Member",
-    period: "23 May 2025 - 25 May 2025",
+    role: "Logistics & Event Management Committee Member",
+    period: "23 May 2025 – 25 May 2025",
     description: `
-    I'm just here for 2 days but I'll write what I have done.
-    
+    Contributed to the smooth operation of the MMU Game Jam 2025 through various logistical and support tasks over two days:
+
     Day 1:
-    Carried a few stand fans from FOE 1st floor to radio room
-    Took 5 VIP gifts from Chancellor & sent them to cinema
-    "Assisted" carrying lunch for committee from FAIE LG to cinema (walked there, look at people take food, go back)
-    Took 1 big mat from surau to radio room/store (out of 3)
+    - Transported stand fans from the FAIE building to the Radio Room.
+    - Delivered VIP gift packs from the Chancellor’s Office to the FAC Cinema.
+    - Supported meal distribution logistics for committee members.
+    - Moved large floor mats from the surau to the Radio Room for storage.
+    - Helped guide participants to their designated accommodation and activity areas.
+    - Procured supplies (e.g., air conditioning items) from the clinic to the venue.
+
+    Day 2:
+    - Handled breakfast and lunch delivery for the committee team.
+    - Served as a standby support member in the committee operation room to assist participants and fill in for backup roles as needed.
     `,
-    image: "/placeholder.svg?height=400&width=400",
+    image: "/Experience/GDC.png",
   },
 ]
 
