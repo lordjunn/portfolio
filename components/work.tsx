@@ -325,7 +325,7 @@ const experiences: Experience[] = [
 
     <b>Events managed:</b>
     Annual General Meeting (Just the setup & cleanup)
-    MMU Game Jam 2025 (Logistics + Event Management)
+    MMU Game Jam 2025 (Logistics + Event Management, 2 days)
     `,
     image: "/Experience/GDC.png",
   },
@@ -366,6 +366,10 @@ const experiences: Experience[] = [
     Day 2:
     - Handled breakfast and lunch delivery for the committee team.
     - Served as a standby support member in the committee operation room to assist participants and fill in for backup roles as needed.
+    - Patrolled the Team Rooms from time to time. 
+
+    All in all, it was a good experience, teaching me the importance of asynchronous communication and working as a team.
+    It also shows that I have areas to improve, and areas that I have qualities in.
     `,
     image: "/Experience/GDC.png",
   },
