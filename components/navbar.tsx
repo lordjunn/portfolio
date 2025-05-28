@@ -60,7 +60,7 @@ export default function Navbar() {
             Blog
           </Link>
           <Link
-            href="/resume.pdf"
+            href="/Resume.pdf"
             className="text-sm font-medium hover:text-primary"
             target="_blank"
             rel="noopener noreferrer"
@@ -136,7 +136,7 @@ export default function Navbar() {
                   Blog
                 </Link>
                 <Link
-                  href="/resume.pdf"
+                  href="/Resume.pdf"
                   className="text-lg font-medium py-3 px-2 hover:text-primary hover:bg-muted/50 rounded-md transition-colors"
                   onClick={closeMobileMenu}
                   target="_blank"

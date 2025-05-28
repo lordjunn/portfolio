@@ -313,15 +313,15 @@ const experiences: Experience[] = [
   {
     id: 4,
     title: "Event Management Member",
-    organization: "Game Development Club MMU Cyberjaya",
+    organization: "GDC MMU",
     period: "5 Jan 2025+",
     description: `
     Joined the Game Development Club MMU Cyberjaya, a dynamic community dedicated to fostering game development skills and creativity among students.
-    As an Event Management Member, I assist in organizing and executing various club events, one of which would be the AGM. My responsibilities encompass:
+    As an Event Management Member, I assist in organizing and executing various club events. My responsibilities encompass:
     - Coordinating logistics for events, ensuring smooth execution.
     - Collaborating with team members to plan engaging activities.
     - Assisting in setting up and overseeing event operations.
-    Through these experiences, I am honing my organizational and teamwork skills, contributing to the vibrant tech community at MMU.
+    Through these experiences, I am honing my organizational and teamwork skills, contributing to the vibrant game community at MMU.
 
     <b>Events managed:</b>
     Annual General Meeting (Just the setup & cleanup)
@@ -331,8 +331,9 @@ const experiences: Experience[] = [
   },
   {
     id: 5,
-    title: "Committee Member of Technical Division",
-    organization: "CodeNection 2025",
+    title: "CodeNection 2025",
+    organization: "MMU IT Society",
+    role: "Committee Member of Technical Division",
     period: "12 Apr 2025 - 9 Nov 2025",
     description: `
     Hackathon, no more Competitive Programming. 
@@ -355,7 +356,7 @@ const experiences: Experience[] = [
     description: `
     Contributed to the smooth operation of the MMU Game Jam 2025 through various logistical and support tasks over two days:
 
-    Day 1:
+    Day 1: Manpower
     - Transported stand fans from the FAIE building to the Radio Room.
     - Delivered VIP gift packs from the Chancellor’s Office to the FAC Cinema.
     - Supported meal distribution logistics for committee members.
@@ -363,7 +364,7 @@ const experiences: Experience[] = [
     - Helped guide participants to their designated accommodation and activity areas.
     - Procured supplies (e.g., air conditioning items) from the clinic to the venue.
 
-    Day 2:
+    Day 2: Backup
     - Handled breakfast and lunch delivery for the committee team.
     - Served as a standby support member in the committee operation room to assist participants and fill in for backup roles as needed.
     - Patrolled the Team Rooms from time to time. 
