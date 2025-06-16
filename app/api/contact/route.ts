@@ -10,102 +10,19 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Name, email, and message are required" }, { status: 400 })
     }
 
-    // Check if environment variables are set
-    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
-      console.error("Missing email environment variables")
-      console.error("EMAIL_USER exists:", !!process.env.EMAIL_USER)
-      console.error("EMAIL_PASS exists:", !!process.env.EMAIL_PASS)
-      return NextResponse.json({ error: "Email service not configured properly" }, { status: 500 })
-    }
-
-    console.log("Email configuration check:")
-    console.log("EMAIL_USER:", process.env.EMAIL_USER)
-    console.log("EMAIL_PASS length:", process.env.EMAIL_PASS?.length)
-
-    // Try multiple transporter configurations
-    let transporter
-    let transporterType = "unknown"
-
-    try {
-      // First try: Standard Gmail configuration
-      transporterType = "gmail-standard"
-      transporter = nodemailer.createTransporter({
-        service: "gmail",
-        auth: {
-          user: process.env.EMAIL_USER,
-          pass: process.env.EMAIL_PASS,
-        },
-      })
-
-      console.log(`Attempting with ${transporterType}`)
-      await transporter.verify()
-      console.log(`${transporterType} verification successful`)
-    } catch (error1) {
-      console.error(`${transporterType} failed:`, error1)
-
-      try {
-        // Second try: Explicit SMTP configuration
-        transporterType = "smtp-explicit"
-        transporter = nodemailer.createTransporter({
-          host: "smtp.gmail.com",
-          port: 587,
-          secure: false,
-          auth: {
-            user: process.env.EMAIL_USER,
-            pass: process.env.EMAIL_PASS,
-          },
-          tls: {
-            rejectUnauthorized: false,
-          },
-        })
-
-        console.log(`Attempting with ${transporterType}`)
-        await transporter.verify()
-        console.log(`${transporterType} verification successful`)
-      } catch (error2) {
-        console.error(`${transporterType} failed:`, error2)
-
-        try {
-          // Third try: Port 465 with SSL
-          transporterType = "smtp-ssl"
-          transporter = nodemailer.createTransporter({
-            host: "smtp.gmail.com",
-            port: 465,
-            secure: true,
-            auth: {
-              user: process.env.EMAIL_USER,
-              pass: process.env.EMAIL_PASS,
-            },
-          })
-
-          console.log(`Attempting with ${transporterType}`)
-          await transporter.verify()
-          console.log(`${transporterType} verification successful`)
-        } catch (error3) {
-          console.error(`${transporterType} failed:`, error3)
-
-          // All transporter attempts failed
-          return NextResponse.json(
-            {
-              error: "All email configurations failed",
-              details: {
-                gmail: error1 instanceof Error ? error1.message : "Unknown error",
-                smtp: error2 instanceof Error ? error2.message : "Unknown error",
-                ssl: error3 instanceof Error ? error3.message : "Unknown error",
-              },
-            },
-            { status: 500 },
-          )
-        }
-      }
-    }
-
-    console.log(`Using transporter: ${transporterType}`)
+    // Create a transporter with simple username/password auth
+    const transporter = nodemailer.createTransporter({
+      service: "gmail",
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+      },
+    })
 
     // Email to yourself (notification)
     const notificationMailOptions = {
       from: process.env.EMAIL_USER,
-      to: process.env.EMAIL_USER,
+      to: process.env.EMAIL_USER, // Send to yourself
       subject: `Portfolio Contact: ${name}`,
       replyTo: email,
       text: `
@@ -125,26 +42,17 @@ Confirmation Email Requested: ${sendConfirmation ? "Yes" : "No"}
   </div>
   <p><strong>Confirmation Email Requested:</strong> ${sendConfirmation ? "Yes" : "No"}</p>
   <p style="color: #777; margin-top: 20px; font-size: 12px;">
-    This email was sent from your portfolio contact form using ${transporterType}.
+    This email was sent from your portfolio contact form.
   </p>
 </div>
       `,
     }
 
-    console.log("Sending notification email...")
-    try {
-      const notificationResult = await transporter.sendMail(notificationMailOptions)
-      console.log("Notification email sent successfully:", notificationResult.messageId)
-    } catch (emailError) {
-      console.error("Failed to send notification email:", emailError)
-      throw new Error(
-        `Notification email failed: ${emailError instanceof Error ? emailError.message : "Unknown error"}`,
-      )
-    }
+    // Send notification email to yourself
+    await transporter.sendMail(notificationMailOptions)
 
     // Send confirmation email to sender if they opted in
     if (sendConfirmation) {
-      console.log("Sending confirmation email to sender...")
       const confirmationMailOptions = {
         from: process.env.EMAIL_USER,
         to: email,
@@ -189,62 +97,26 @@ Confirmation Email Requested: ${sendConfirmation ? "Yes" : "No"}
         `,
       }
 
-      try {
-        const confirmationResult = await transporter.sendMail(confirmationMailOptions)
-        console.log("Confirmation email sent successfully:", confirmationResult.messageId)
-      } catch (confirmationError) {
-        console.error("Failed to send confirmation email:", confirmationError)
-        // Don't fail the entire request if confirmation email fails
-        console.log("Continuing despite confirmation email failure...")
-      }
+      await transporter.sendMail(confirmationMailOptions)
     }
 
     return NextResponse.json({
       success: true,
       confirmationSent: sendConfirmation,
-      transporterUsed: transporterType,
     })
   } catch (error) {
-    console.error("=== DETAILED ERROR INFORMATION ===")
-    console.error("Error type:", typeof error)
-    console.error("Error constructor:", error?.constructor?.name)
-    console.error("Error message:", error instanceof Error ? error.message : String(error))
-    console.error("Error stack:", error instanceof Error ? error.stack : "No stack trace")
+    console.error("Error sending email:", error)
 
-    if (error && typeof error === "object") {
-      console.error("Error properties:", Object.keys(error))
-      console.error("Full error object:", JSON.stringify(error, null, 2))
-    }
-
-    // Return a more specific error message
-    let errorMessage = "Failed to send email"
-    let errorDetails = "Unknown error occurred"
-
+    // More detailed error logging
     if (error instanceof Error) {
-      errorDetails = error.message
-
-      // Check for common Gmail/SMTP errors
-      if (error.message.includes("Invalid login")) {
-        errorMessage = "Email authentication failed"
-        errorDetails =
-          "Please check your Gmail app password. Make sure you're using an App Password, not your regular Gmail password."
-      } else if (error.message.includes("Less secure app")) {
-        errorMessage = "Gmail security issue"
-        errorDetails = "Please enable 2-factor authentication and use an App Password."
-      } else if (error.message.includes("ECONNREFUSED")) {
-        errorMessage = "Connection refused"
-        errorDetails = "Unable to connect to Gmail SMTP server. Check your internet connection."
-      } else if (error.message.includes("ETIMEDOUT")) {
-        errorMessage = "Connection timeout"
-        errorDetails = "Connection to Gmail SMTP server timed out."
-      }
+      console.error("Error message:", error.message)
+      console.error("Error stack:", error.stack)
     }
 
     return NextResponse.json(
       {
-        error: errorMessage,
-        details: errorDetails,
-        timestamp: new Date().toISOString(),
+        error: "Failed to send email",
+        details: error instanceof Error ? error.message : "Unknown error",
       },
       { status: 500 },
     )
