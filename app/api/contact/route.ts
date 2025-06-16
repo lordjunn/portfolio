@@ -10,14 +10,43 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Name, email, and message are required" }, { status: 400 })
     }
 
-    // Create a transporter with simple username/password auth
+    // Check if environment variables are set
+    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+      console.error("Missing email environment variables")
+      return NextResponse.json({ error: "Email service not configured" }, { status: 500 })
+    }
+
+    console.log("Creating transporter with user:", process.env.EMAIL_USER)
+
+    // Create a transporter with more explicit configuration
     const transporter = nodemailer.createTransporter({
       service: "gmail",
+      host: "smtp.gmail.com",
+      port: 587,
+      secure: false, // true for 465, false for other ports
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
       },
+      tls: {
+        rejectUnauthorized: false,
+      },
     })
+
+    // Test the connection
+    try {
+      await transporter.verify()
+      console.log("SMTP connection verified successfully")
+    } catch (verifyError) {
+      console.error("SMTP verification failed:", verifyError)
+      return NextResponse.json(
+        {
+          error: "Email service connection failed",
+          details: verifyError instanceof Error ? verifyError.message : "Unknown verification error",
+        },
+        { status: 500 },
+      )
+    }
 
     // Email to yourself (notification)
     const notificationMailOptions = {
@@ -48,11 +77,14 @@ Confirmation Email Requested: ${sendConfirmation ? "Yes" : "No"}
       `,
     }
 
+    console.log("Sending notification email...")
     // Send notification email to yourself
     await transporter.sendMail(notificationMailOptions)
+    console.log("Notification email sent successfully")
 
     // Send confirmation email to sender if they opted in
     if (sendConfirmation) {
+      console.log("Sending confirmation email to sender...")
       const confirmationMailOptions = {
         from: process.env.EMAIL_USER,
         to: email,
@@ -98,6 +130,7 @@ Confirmation Email Requested: ${sendConfirmation ? "Yes" : "No"}
       }
 
       await transporter.sendMail(confirmationMailOptions)
+      console.log("Confirmation email sent successfully")
     }
 
     return NextResponse.json({
@@ -111,6 +144,25 @@ Confirmation Email Requested: ${sendConfirmation ? "Yes" : "No"}
     if (error instanceof Error) {
       console.error("Error message:", error.message)
       console.error("Error stack:", error.stack)
+
+      // Check for specific Gmail errors
+      if (error.message.includes("Invalid login")) {
+        return NextResponse.json(
+          {
+            error: "Email authentication failed. Please check your Gmail app password.",
+          },
+          { status: 500 },
+        )
+      }
+
+      if (error.message.includes("Less secure app")) {
+        return NextResponse.json(
+          {
+            error: "Gmail security settings issue. Please use an App Password instead of your regular password.",
+          },
+          { status: 500 },
+        )
+      }
     }
 
     return NextResponse.json(
