@@ -48,6 +48,7 @@ const skillCategories = {
       { name: "VS Code", level: "Proficient", years: 3 },
       { name: "Figma", level: "Beginner", years: 2 },
       { name: "Vercel", level: "Beginner", years: 1 },
+      { name: "Netlify", level: "Novice", years: 1 },      
       { name: "PythonAnywhere", level: "Novice", years: 1 },
       { name: "Cisco Packet Tracer", level: "Beginner", years: 1 },
     ],
@@ -64,7 +65,7 @@ const skillCategories = {
   },
   languages: {
     title: "Languages",
-    description: "Human languages I can speak and understand",
+    description: "Human languages that I can speak and understand",
     skills: [
       { name: "English", level: "Advanced" }, 
       { name: "Malay", level: "Proficient" }, 

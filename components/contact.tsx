@@ -6,6 +6,7 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
+import { Checkbox } from "@/components/ui/checkbox"
 import { useToast } from "@/components/ui/use-toast"
 
 export default function Contact() {
@@ -14,12 +15,17 @@ export default function Contact() {
     name: "",
     email: "",
     message: "",
+    sendConfirmation: true, // Default to checked
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
+  }
+
+  const handleCheckboxChange = (checked: boolean) => {
+    setFormData((prev) => ({ ...prev, sendConfirmation: checked }))
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -44,11 +50,13 @@ export default function Contact() {
 
       toast({
         title: "Message sent!",
-        description: "Thanks for reaching out. I'll get back to you soon.",
+        description: formData.sendConfirmation
+          ? "Thanks for reaching out. I'll get back to you soon. You'll also receive a confirmation email shortly."
+          : "Thanks for reaching out. I'll get back to you soon.",
       })
 
       // Reset form
-      setFormData({ name: "", email: "", message: "" })
+      setFormData({ name: "", email: "", message: "", sendConfirmation: true })
     } catch (error) {
       console.error("Error sending message:", error)
       toast({
@@ -104,6 +112,23 @@ export default function Contact() {
               disabled={isSubmitting}
             />
           </div>
+
+          {/* Confirmation Email Opt-in */}
+          <div className="flex items-center space-x-2">
+            <Checkbox
+              id="sendConfirmation"
+              checked={formData.sendConfirmation}
+              onCheckedChange={handleCheckboxChange}
+              disabled={isSubmitting}
+            />
+            <label
+              htmlFor="sendConfirmation"
+              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            >
+              Send me a confirmation email with a copy of my message
+            </label>
+          </div>
+
           <Button type="submit" className="w-full" disabled={isSubmitting}>
             {isSubmitting ? "Sending..." : "Send Message"}
           </Button>
@@ -112,4 +137,3 @@ export default function Contact() {
     </section>
   )
 }
-

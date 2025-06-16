@@ -32,6 +32,30 @@ Let's assume x, y, z as our variables.
 `setwd("your/folder/path")`: Sets working directory
 `list.files()`: Lists files in the current directory
 
+### R (Data Manipulation) Commands
+These functions are used to clean, filter, and reshape data using tidyverse syntax.
+`filter(data, condition)`: Keep rows that match a condition
+`select(data, column1, column2)`: Keep specific columns only
+`mutate(data, new_column = formula)`: Create or modify columns
+`arrange(data, column)`: Sort data by a column (use `desc()` for descending)
+
+`pivot_longer(cols = ..., names_to = ..., values_to = ...)`: Reshape data from wide to long
+`pivot_wider(names_from = ..., values_from = ...)`: Reshape data from long to wide
+
+### R (Statistical Test) Functions
+`t.test(x, mu = 100)`: One-sample t-test to compare mean of `x` to 100
+`t.test(x ~ group, data = data)`: Two-sample t-test comparing means between groups
+`aov(response ~ group, data = data)`: One-way ANOVA test to compare group means
+`shapiro.test(x)`: Test if data `x` is normally distributed
+`cor.test(x, y)`: Pearson correlation test between two variables
+
+### Installing Useful Packages
+`install.packages("tidyverse")`: Includes `ggplot2`, `dplyr`, `readr`, and more
+`install.packages("knitr")`: Useful for making neat reports and tables
+`install.packages("psych")`: Extra tools for descriptive stats
+`install.packages("lubridate")`: Simplifies working with dates
+`install.packages("car")`: Companion to `lm()` and `aov()`, useful for model diagnostics
+
 ### Built in R (Data) Functions
 `mean`: Calculates the average of a numeric vector.  
 `median`: Returns the middle value in a sorted numeric vector.  
@@ -57,7 +81,3 @@ Used as either `func(thing)`, `func(thing, col=colour)`, `func(thing, main="name
 ## Other Tips
 Remember to add another `/` should you wish to import files from other places.  
 Otherwise, it is preferable to put the `.csv` directly into the folder of your workplace to prevent potential errors (for the less technically savvy).
-
-
-
-
