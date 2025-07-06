@@ -16,6 +16,7 @@ export default function Contact() {
     email: "",
     message: "",
     sendConfirmation: true, // Default to checked
+    website: "", // Honeypot field - bots will fill this
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
 
@@ -56,7 +57,7 @@ export default function Contact() {
       })
 
       // Reset form
-      setFormData({ name: "", email: "", message: "", sendConfirmation: true })
+      setFormData({ name: "", email: "", message: "", sendConfirmation: true, website: "" })
     } catch (error) {
       console.error("Error sending message:", error)
       toast({
@@ -109,6 +110,21 @@ export default function Contact() {
               onChange={handleChange}
               rows={5}
               required
+              disabled={isSubmitting}
+            />
+          </div>
+
+          {/* Honeypot field - hidden from humans, visible to bots */}
+          <div className="honeypot">
+            <label htmlFor="website">Website (leave blank)</label>
+            <Input
+              type="text"
+              id="website"
+              name="website"
+              value={formData.website}
+              onChange={handleChange}
+              tabIndex={-1}
+              autoComplete="off"
               disabled={isSubmitting}
             />
           </div>

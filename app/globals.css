@@ -465,3 +465,15 @@
 .scrollbar-thin {
   scroll-behavior: smooth;
 }
+
+/* Honeypot spam protection - hide field from humans but not bots */
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+  visibility: hidden;
+  opacity: 0;
+  height: 0;
+  width: 0;
+  z-index: -1;
+}

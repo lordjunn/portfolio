@@ -3,11 +3,17 @@ import nodemailer from "nodemailer"
 
 export async function POST(request: Request) {
   try {
-    const { name, email, message, sendConfirmation } = await request.json()
+    const { name, email, message, sendConfirmation, website } = await request.json()
 
     // Validate input
     if (!name || !email || !message) {
       return NextResponse.json({ error: "Name, email, and message are required" }, { status: 400 })
+    }
+
+    // Honeypot spam protection
+    if (website && website.trim() !== "") {
+      console.log("Spam detected - honeypot field filled:", website)
+      return NextResponse.json({ error: "Spam detected" }, { status: 400 })
     }
 
     // Create a transporter with simple username/password auth
@@ -91,7 +97,8 @@ Confirmation Email Requested: ${sendConfirmation ? "Yes" : "No"}
   
   <p style="color: #666; font-size: 12px;">
     This is an automated confirmation email. Please do not reply to this email. 
-    If you need to send additional information, please use the contact form on my website again.
+    If you need to send additional information, please use the contact form on my website again.<br><br>
+    If you did not contact me, someone likely has used your email in my contact form.
   </p>
 </div>
         `,
