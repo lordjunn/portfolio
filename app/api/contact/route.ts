@@ -76,12 +76,13 @@ Confirmation Email Requested: ${sendConfirmation ? "Yes" : "No"}
     <p><strong>Name:</strong> ${name}</p>
     <p><strong>Email:</strong> ${email}</p>
     <p><strong>Date Sent:</strong> ${new Date().toLocaleDateString("en-US", {
+      timeZone: "Asia/Kuala_Lumpur",
       year: "numeric",
       month: "long",
       day: "numeric",
       hour: "2-digit",
       minute: "2-digit",
-    })}</p>
+    })} (My timezone, GMT +8)</p>
     <p><strong>Message:</strong></p>
     <div style="background-color: white; padding: 15px; border-radius: 5px; margin-top: 10px;">
       ${message.replace(/\n/g, "<br>")}

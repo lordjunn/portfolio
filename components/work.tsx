@@ -98,13 +98,14 @@ const projects: Project[] = [
       - (Easier) 2048 
       - Tower Defense (PvZ type) 
       - Memory Card game 
-      - Wordle (not API for now) 
+      - Wordle (not API for now)
+      - Snake game (adjustable settings from spawn, speed, colour, etc) 
 
       <b>Non-game projects:</b>
 
       - Scientific Calculator 
       - Music Player (Desktop version works well, mobile version less optimized)
-      - Quad Currency Exchange`,
+      - Quad Currency Exchange (Exchanges up to 5 currencies at once using API)`,
     image: "/Work/Trio.png",
     tags: ["HTML", "CSS", "JavaScript", "APIs"],
     projectType: ["Solo", "Personal"],
@@ -114,12 +115,20 @@ const projects: Project[] = [
   {
     id: 4,
     title: "Portfolio Website",
-    description:
-      `A modern portfolio website built with Next.js and TypeScript, featuring a responsive design, dark/light mode toggle, and an integrated blog system with Markdown support. 
-      The site showcases my projects, skills, and writing in a clean, accessible interface. 
-      It includes project filtering, smooth animations, and optimized performance across all devices.`,
+    description: `A modern, responsive portfolio website built with Next.js and TypeScript, designed to showcase my development work and personal blog. 
+    It features dark/light mode toggling, smooth animations, and optimized performance across all devices using Tailwind CSS and React.
+
+    The site includes:
+    - A blog system with Markdown support
+    - Project filtering and tags
+    - A fully functional contact form with Gmail integration using Nodemailer
+    - Honeypot spam prevention to protect against bots
+    - Accessibility-friendly components and semantic HTML for better UX
+
+    Deployed on borh Vercel and Netlify, the site is fast, secure, and fully mobile-friendly, demonstrating my attention to UI/UX and modern full-stack practices.
+    (Double deployment in case MCMC does the funny again)`,
     image: "https://i.pinimg.com/736x/27/8f/89/278f8911cd0bb929a45209f749096358.jpg",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "React", "Markdown"],
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "React", "Markdown", "Nodemailer"],
     projectType: ["Solo", "Personal"],
     github: "https://github.com/LordJunn/portfolio",
     website: "https://junn-portfolio.vercel.app/",
@@ -343,7 +352,10 @@ const experiences: Experience[] = [
     All technical aspects of the event (PA System, Speakers, controlling slides, etc.)
     Website UI/UX Design
     Website Frontend & Backend Development
-    Discord Bot Development
+    Discord Bot Development (none)
+
+    Things I've done:
+    Attempt to run Wordpress
     `,
     image: "/Experience/Codenection.png",
   },

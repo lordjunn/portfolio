@@ -51,7 +51,9 @@ const skillCategories = {
       { name: "Netlify", level: "Novice", years: 1 },      
       { name: "PythonAnywhere", level: "Novice", years: 1 },
       { name: "Cisco Packet Tracer", level: "Beginner", years: 1 },
-    ],
+      { name: "Jupyter Notebook", level: "Beginner", years: 1 },  
+      { name: "Anaconda", level: "Beginner", years: 1 },      
+    ],  
   },
   concepts: {
     title: "Concepts & Methodologies",
@@ -105,7 +107,7 @@ export default function About() {
         <div>
           <p className="text-lg mb-4">
             Hi there! I'm a passionate Computer Science student with expertise in building modern, responsive, and
-            user-friendly applications. Currently looking for internships from 28 July 2025 until 26 October 2025 as mandated by my University.
+            user-friendly applications. Eventually looking for a Full Time Job around October 2026.
           </p>
           <p className="text-lg mb-4">
             With several years of experience in the field, I've worked on a variety of projects ranging from University
