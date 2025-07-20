@@ -225,6 +225,23 @@ const projects: Project[] = [
     github: "https://github.com/Meiyp0817/CPU-SchedulingAlgorithm-Simulator",
     //website: "https://junn-portfolio.vercel.app/",
   },
+  {
+    id: 13,
+    title: "Song Tracker",
+    description: `Developed a web application that allows me to jot down songs and notes of what I had listened and shared to someone.
+
+    Includes functions such as:
+    - CRUD + Auth using Supabase
+    - Searching up songs
+    - Analytics 
+    - Exporting to Google Sheets with a button   
+    `,
+    image: "",
+    tags: ["Typescript", "TailWindCSS", "Javascript", "Supabase"],
+    projectType: ["Solo", "Personal"],
+    //github: "",
+    website: "https://song-tracker.vercel.app/",
+  },  
 ]
 
 // New certificates array

@@ -4,7 +4,7 @@ import { Github, Linkedin, Mail } from "lucide-react"
 export default function Footer() {
   const currentYear = new Date().getFullYear()
   // Manually set your last updated date here
-  const lastUpdated = "6th July, 2025" // Update this whenever you make changes
+  const lastUpdated = "21st July, 2025" // Update this whenever you make changes
 
   return (
     <footer className="border-t py-8">
