@@ -228,16 +228,19 @@ const projects: Project[] = [
   {
     id: 13,
     title: "Song Tracker",
-    description: `Developed a web application that allows me to jot down songs and notes of what I had listened and shared to someone.
+    description: `Developed a full-stack web application that allows me to jot down songs and notes of what I had listened and shared to someone.
 
     Includes functions such as:
-    - CRUD + Auth using Supabase
-    - Searching up songs
-    - Analytics 
-    - Exporting to Google Sheets with a button   
+    - Built with Supabase for authentication, CRUD operations, and user management
+    - Song search, notes, and filter features
+    - User interactions: like system, login tracking, and song engagement stats
+    - Admin dashboard with insights on song performance and user activity
+    - One-click export to Google Sheets
+
+    Dummy credentials (username, password): dummy_user portfolio
     `,
-    image: "",
-    tags: ["Typescript", "TailWindCSS", "Javascript", "Supabase"],
+    image: "https://upload.wikimedia.org/wikipedia/commons/5/5f/Apple_Music_icon.svg",
+    tags: ["Typescript", "TailWindCSS", "React", "Supabase"],
     projectType: ["Solo", "Personal"],
     //github: "",
     website: "https://song-tracker.vercel.app/",

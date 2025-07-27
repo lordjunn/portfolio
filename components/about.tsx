@@ -45,6 +45,7 @@ const skillCategories = {
     description: "Development tools and platforms",
     skills: [
       { name: "Git/GitHub", level: "Intermediate", years: 5 },
+      { name: "AutoHotkey (AHK)", level: "Intermediate", years: 4 },
       { name: "VS Code", level: "Proficient", years: 3 },
       { name: "Figma", level: "Beginner", years: 2 },
       { name: "Vercel", level: "Beginner", years: 1 },
