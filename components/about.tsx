@@ -54,6 +54,7 @@ const skillCategories = {
       { name: "Cisco Packet Tracer", level: "Beginner", years: 1 },
       { name: "Jupyter Notebook", level: "Beginner", years: 1 },  
       { name: "Anaconda", level: "Beginner", years: 1 },      
+      { name: "AutoCount", level: "Novice", years: 0.1 },
     ],  
   },
   concepts: {

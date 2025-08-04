@@ -375,7 +375,7 @@ const experiences: Experience[] = [
     Discord Bot Development (none)
 
     Things I've done:
-    Attempt to run Wordpress
+    Finished the WordPress site with 2+ others.
     `,
     image: "/Experience/Codenection.png",
   },
@@ -405,6 +405,17 @@ const experiences: Experience[] = [
     It also shows that I have areas to improve, and areas that I have qualities in.
     `,
     image: "/Experience/GDC.png",
+  },
+  {
+    id: 7,
+    title: "Intern",
+    organization: "Presoft (M) Sdn Bhd",
+    role: "System Support / Web Designer / Web Developer / Digital Marketing",
+    period: "28 Jul 2025 - 27 Oct 2025",
+    description: `
+    Interned here.
+    `,
+    image: "/placeholder.svg?height=400&width=400",
   },
 ]
 
