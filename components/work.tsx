@@ -67,6 +67,7 @@ const projects: Project[] = [
     id: 1,
     title: "Study with Junn ⭐",
     description: `Developed a website that stores educational materials that I have done, which has benefited my entire intake of 600+ students and others to score higher and better. 
+      Shared with other batches as well, which brings the total helped students to more than 1000+.
       
       Applicable to other universities as well.`,
     image: "/Work/Exams.jpg",
@@ -304,7 +305,7 @@ const experiences: Experience[] = [
     
     <b>Projects done:</b>
     MMU Clubs Site (Backend for admin, Design for SuperUser, not yet deployed)
-    MMU Hack Day (likely done a bit before codenection)
+    MMU Hack Day (created problem statements, FAQ, Programme Briefing, forgot what else)
     `,
     image: "/Experience/ITS.jpg",
   },
@@ -354,7 +355,7 @@ const experiences: Experience[] = [
 
     <b>Events managed:</b>
     Annual General Meeting (Just the setup & cleanup)
-    MMU Game Jam 2025 (Logistics + Event Management, 2 days)
+    MMU Game Jam 2025 (Logistics + Event Management, 2 out of 3 days)
     `,
     image: "/Experience/GDC.png",
   },
@@ -370,9 +371,8 @@ const experiences: Experience[] = [
 
     Things I'm told I'll be doing:
     All technical aspects of the event (PA System, Speakers, controlling slides, etc.)
-    Website UI/UX Design
-    Website Frontend & Backend Development
-    Discord Bot Development (none)
+    Website UI/UX Design 
+    Website Frontend & Backend Development ✅
 
     Things I've done:
     Finished the WordPress site with 2+ others.
@@ -413,9 +413,17 @@ const experiences: Experience[] = [
     role: "System Support / Web Designer / Web Developer / Digital Marketing",
     period: "28 Jul 2025 - 27 Oct 2025",
     description: `
-    Interned here.
+    Currently interning here. Bonus feat: Saturday work. 
+
+    Things I've done/learnt (likely chronological order):
+    - Autocounting Software + Plugins
+    - C#, WinForms: MySQL DB Copier
+    - Bug testing
+    - Python: Selenium Web Scrapping, Excel comparison
+
+    Cue Dr - I Keep Holding On.
     `,
-    image: "/placeholder.svg?height=400&width=400",
+    image: "/Experience/Presoft.png",
   },
 ]
 

@@ -27,6 +27,7 @@ const skillCategories = {
       { name: "Supabase", level: "Beginner", years: 1 },
       { name: "PostgreSQL", level: "Novice", years: 0.5 },
       { name: "SQLite", level: "Beginner", years: 2 },
+      { name: "MySQL", level: "Novice", years: 0.1 },
     ],
   },
   programming: {
@@ -38,6 +39,7 @@ const skillCategories = {
       { name: "Java", level: "Beginner", years: 2 },
       { name: "C++", level: "Beginner", years: 2 },
       { name: "R", level: "Novice", years: 1 },
+      { name: "C#", level: "Novice", years: 0.1 },
     ],
   },
   tools: {
@@ -46,7 +48,7 @@ const skillCategories = {
     skills: [
       { name: "Git/GitHub", level: "Intermediate", years: 5 },
       { name: "AutoHotkey (AHK)", level: "Intermediate", years: 4 },
-      { name: "VS Code", level: "Proficient", years: 3 },
+      { name: "Visual Studio Code", level: "Proficient", years: 3 },
       { name: "Figma", level: "Beginner", years: 2 },
       { name: "Vercel", level: "Beginner", years: 1 },
       { name: "Netlify", level: "Novice", years: 1 },      
@@ -55,6 +57,8 @@ const skillCategories = {
       { name: "Jupyter Notebook", level: "Beginner", years: 1 },  
       { name: "Anaconda", level: "Beginner", years: 1 },      
       { name: "AutoCount", level: "Novice", years: 0.1 },
+      { name: "MySQL Workbench", level: "Novice", years: 0.1 },
+      { name: "Visual Studio", level: "Novice", years: 0.1 },
     ],  
   },
   concepts: {
