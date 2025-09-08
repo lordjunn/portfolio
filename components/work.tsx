@@ -418,9 +418,10 @@ const experiences: Experience[] = [
     Things I've done/learnt (likely chronological order):
     - Autocounting Software + Plugins
     - C#, WinForms: MySQL DB Copier
-    - Bug testing
+    - Bug testing: Autocount Plugin
+    - Payment Gateway APIs: Stripe, BillPlz (basic)
     - Python: Selenium Web Scrapping, Excel comparison
-
+  
     Cue Dr - I Keep Holding On.
     `,
     image: "/Experience/Presoft.png",
@@ -444,7 +445,6 @@ export default function Work() {
       project.projectType.some((type) => type.toLowerCase().includes(searchQuery.toLowerCase())),
   )
 
-  // Filter certificates based on search query
   const filteredCertificates = certificates.filter(
     (cert) =>
       cert.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -452,7 +452,6 @@ export default function Work() {
       cert.description.toLowerCase().includes(searchQuery.toLowerCase()),
   )
 
-  // Filter experiences based on search query
   const filteredExperiences = experiences.filter(
     (exp) =>
       exp.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -461,14 +460,12 @@ export default function Work() {
       exp.description.toLowerCase().includes(searchQuery.toLowerCase()),
   )
 
-  // Ensure startIndex is valid when filtered projects change
   useEffect(() => {
     if (startIndex > filteredProjects.length - 1) {
       setStartIndex(Math.max(0, filteredProjects.length - 1))
     }
   }, [filteredProjects, startIndex])
 
-  // Ensure expStartIndex is valid when filtered experiences change
   useEffect(() => {
     if (expStartIndex > filteredExperiences.length - 1) {
       setExpStartIndex(Math.max(0, filteredExperiences.length - 1))
@@ -509,7 +506,6 @@ export default function Work() {
     setExpStartIndex(Math.min(filteredExperiences.length - 3, expStartIndex + 1))
   }
 
-  // Function to safely render HTML content
   const renderHTML = (html: string) => {
     return { __html: html.replace(/\n/g, "<br/>") }
   }
@@ -627,7 +623,6 @@ export default function Work() {
                       </div>
                       {expandedId === project.id && (
                         <div className="p-4 pt-0 bg-muted/20">
-                          {/* Show project type tags on mobile */}
                           <div className="flex md:hidden gap-2 flex-wrap mb-3">
                             {project.projectType.map((type) => (
                               <span key={type} className="bg-primary/10 text-primary px-2 py-1 rounded-full text-xs">
@@ -635,12 +630,10 @@ export default function Work() {
                               </span>
                             ))}
                           </div>
-                          {/* Use dangerouslySetInnerHTML to render HTML content */}
                           <div
                             className="text-sm text-muted-foreground mb-3"
                             dangerouslySetInnerHTML={renderHTML(project.description)}
                           />
-                          {/* Tech stack tags now appear below the description */}
                           <div className="flex flex-wrap gap-2 mt-2">
                             {project.tags.map((tag) => (
                               <span key={tag} className="bg-muted px-2 py-1 rounded-full text-xs">
@@ -654,7 +647,6 @@ export default function Work() {
                   ))}
                 </div>
 
-                {/* Navigation controls */}
                 {filteredProjects.length > 3 && (
                   <div className="flex justify-between items-center p-3 border-t bg-muted/20">
                     <div className="text-sm text-muted-foreground">
@@ -774,50 +766,33 @@ export default function Work() {
         {/* Experiences Tab */}
         <TabsContent value="experiences">
           <div className="border rounded-lg overflow-hidden">
-            <div className="bg-muted py-2 px-4 border-b flex items-center gap-4">
-              <span className="font-medium">Experiences</span>
-              <span className="font-medium ml-auto hidden md:block">Period</span>
-            </div>
-
             {filteredExperiences.length > 0 ? (
               <>
                 <div className="divide-y">
                   {visibleExperiences.map((exp) => (
                     <div key={exp.id} className="group">
                       <div
-                        className="flex items-center p-4 cursor-pointer hover:bg-muted/50 transition-colors"
+                        className="flex items-center gap-4 p-4 cursor-pointer hover:bg-muted/50 transition-colors"
                         onClick={() => toggleExpandExp(exp.id)}
                       >
-                        <div className="flex items-center gap-4 flex-1">
-                          <div className="relative w-16 h-16 rounded-md overflow-hidden flex-shrink-0 bg-muted flex items-center justify-center">
-                            {exp.image ? (
-                              <Image
-                                src={exp.image || "/placeholder.svg"}
-                                alt={exp.title}
-                                fill
-                                className="object-cover"
-                              />
-                            ) : (
-                              <Users className="h-8 w-8 text-muted-foreground" />
-                            )}
-                          </div>
-                          <div className="flex-1 min-w-0">
-                            <div className="flex items-center gap-2">
-                              <h3 className="font-medium text-lg">{exp.title}</h3>
-                              {/* Show organization next to title if both role and organization exist */}
-                              {exp.role && exp.organization && (
-                                <span className="text-sm text-muted-foreground">• {exp.organization}</span>
-                              )}
-                            </div>
-                            {/* Show role if it exists, otherwise show organization */}
-                            {exp.role ? (
-                              <p className="text-muted-foreground text-sm">{exp.role}</p>
-                            ) : exp.organization ? (
-                              <p className="text-muted-foreground text-sm">{exp.organization}</p>
-                            ) : null}
-                          </div>
+                        <div className="relative w-16 h-16 rounded-md overflow-hidden flex-shrink-0 bg-muted flex items-center justify-center">
+                          {exp.image ? (
+                            <Image
+                              src={exp.image || "/placeholder.svg"}
+                              alt={exp.title}
+                              fill
+                              className="object-cover"
+                            />
+                          ) : (
+                            <Users className="h-8 w-8 text-muted-foreground" />
+                          )}
                         </div>
-                        <div className="text-right text-sm text-muted-foreground pr-4">{exp.period}</div>
+                        <div className="flex-1 min-w-0">
+                          <h3 className="font-medium text-lg">{exp.title}</h3>
+                          {exp.organization && <p className="text-muted-foreground text-sm mt-1">{exp.organization}</p>}
+                          {exp.role && <p className="text-muted-foreground text-sm mt-1">{exp.role}</p>}
+                          <p className="text-muted-foreground text-sm mt-1">{exp.period}</p>
+                        </div>
                         <div className="flex items-center">
                           {expandedExpId === exp.id ? (
                             <ChevronDown className="h-4 w-4 text-muted-foreground" />
@@ -855,7 +830,6 @@ export default function Work() {
                     </div>
                   ))}
                 </div>
-                {/* Navigation controls for experiences */}
                 {filteredExperiences.length > 3 && (
                   <div className="flex justify-between items-center p-3 border-t bg-muted/20">
                     <div className="text-sm text-muted-foreground">
