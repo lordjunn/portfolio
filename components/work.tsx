@@ -413,16 +413,22 @@ const experiences: Experience[] = [
     role: "System Support / Web Designer / Web Developer / Digital Marketing",
     period: "28 Jul 2025 - 27 Oct 2025",
     description: `
-    Currently interning here. Bonus feat: Saturday work. 
+      Currently interning here. Bonus feat: Saturday work.
 
-    Things I've done/learnt (likely chronological order):
-    - Autocounting Software + Plugins
-    - C#, WinForms: MySQL DB Copier
-    - Bug testing: Autocount Plugin
-    - Payment Gateway APIs: Stripe, BillPlz (basic)
-    - Python: Selenium Web Scrapping, Excel comparison
-  
-    Cue Dr - I Keep Holding On.
+      Things I've done/learnt (roughly chronological order):
+      - Autocounting Software + Plugins
+      - C#, WinForms: MySQL DB Copier
+      - Bug testing: Autocount Plugin
+      - Payment Gateway APIs: Stripe, BillPlz (basic)
+      - Python: Selenium Web Scraping, Excel comparison
+      - EMAS to Autocount Integration improvements
+      - MDEC Report auto-filler tool (Python)
+      - Quote Status Report Generator (Python + Excel)
+      - Dynamic SQL scripting (SQL Server)
+      - Digital marketing tasks + promotional material edits
+      - Frontend edits (HTML, CSS, Jinja2 templates)
+    
+      Cue Dr - I Keep Holding On.
     `,
     image: "/Experience/Presoft.png",
   },

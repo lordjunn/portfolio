@@ -27,7 +27,8 @@ const skillCategories = {
       { name: "Supabase", level: "Beginner", years: 1 },
       { name: "PostgreSQL", level: "Novice", years: 0.5 },
       { name: "SQLite", level: "Beginner", years: 2 },
-      { name: "MySQL", level: "Novice", years: 0.1 },
+      { name: "MySQL", level: "Novice", years: 0.2 },
+      { name: "SQL Server", level: "Beginner", years: 0.1 },
     ],
   },
   programming: {
@@ -39,7 +40,7 @@ const skillCategories = {
       { name: "Java", level: "Beginner", years: 2 },
       { name: "C++", level: "Beginner", years: 2 },
       { name: "R", level: "Novice", years: 1 },
-      { name: "C#", level: "Novice", years: 0.1 },
+      { name: "C#", level: "Novice", years: 0.2 },
     ],
   },
   tools: {
@@ -58,7 +59,9 @@ const skillCategories = {
       { name: "Anaconda", level: "Beginner", years: 1 },      
       { name: "AutoCount", level: "Novice", years: 0.1 },
       { name: "MySQL Workbench", level: "Novice", years: 0.1 },
-      { name: "Visual Studio", level: "Novice", years: 0.1 },
+      { name: "Visual Studio", level: "Beginner", years: 0.3 },
+      { name: "SQL Server Management Studio", level: "Beginner", years: 0.1 },
+      { name: "GeckoDriver", level: "Novice", years: 0.1 },
     ],  
   },
   concepts: {
@@ -69,6 +72,10 @@ const skillCategories = {
       { name: "RESTful APIs", level: "Beginner", years: 1 },
       { name: "Object-Oriented Programming", level: "Beginner", years: 2 },
       { name: "Data Structures & Algorithms", level: "Beginner", years: 1 },
+      { name: "SQL Scripting", level: "Beginner", years: 1 },
+      { name: "Automation", level: "Beginner", years: 4 },
+      { name: "Software Testing", level: "Novice", years: 0.3 },
+      { name: "System Integration", level: "Novice", years: 0.3 },
     ],
   },
   languages: {

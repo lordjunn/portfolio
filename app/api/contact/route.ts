@@ -92,14 +92,14 @@ Confirmation Email Requested: ${sendConfirmation ? "Yes" : "No"}
   <p>I typically respond within 24-48 hours. If your inquiry is urgent, please feel free to reach out through my social media profiles.</p>
   
   <p>Best regards,<br>
-  <strong>Your Name</strong></p>
+  <strong>Lord Junn :)</strong></p>
   
   <hr style="border: none; border-top: 1px solid #eee; margin: 30px 0;">
   
   <p style="color: #666; font-size: 12px;">
-    This is an automated confirmation email. Please do not reply to this email. 
-    If you need to send additional information, please use the contact form on my website again.<br><br>
-    If you did not contact me, someone likely has used your email in my contact form.
+    This is an automated confirmation email.<br>
+    If you need to send additional information, please use the contact form on my website again, or this email.<br><br>
+    If you did not contact me, someone likely has used your email in my contact form. Feel free to ignore this message.
   </p>
 </div>
         `,
