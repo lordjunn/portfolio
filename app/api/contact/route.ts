@@ -99,7 +99,7 @@ Confirmation Email Requested: ${sendConfirmation ? "Yes" : "No"}
   <p style="color: #666; font-size: 12px;">
     This is an automated confirmation email.<br>
     If you need to send additional information, please use the contact form on my website again, or this email.<br><br>
-    If you did not contact me, someone likely has used your email in my contact form. Feel free to ignore this message.
+    If you did not contact me, someone likely has used your email in my contact form. Feel free to ignore this message if so.
   </p>
 </div>
         `,

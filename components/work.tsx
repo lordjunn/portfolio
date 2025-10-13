@@ -427,6 +427,7 @@ const experiences: Experience[] = [
       - Dynamic SQL scripting (SQL Server)
       - Digital marketing tasks + promotional material edits
       - Frontend edits (HTML, CSS, Jinja2 templates)
+      - CubeHous bug testing
     
       Cue Dr - I Keep Holding On.
     `,
