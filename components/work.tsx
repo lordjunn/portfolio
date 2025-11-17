@@ -238,14 +238,46 @@ const projects: Project[] = [
     - Admin dashboard with insights on song performance and user activity
     - One-click export to Google Sheets
 
-    Dummy credentials (username, password): dummy_user portfolio
     `,
     image: "https://upload.wikimedia.org/wikipedia/commons/5/5f/Apple_Music_icon.svg",
     tags: ["Typescript", "TailWindCSS", "React", "Supabase"],
     projectType: ["Solo", "Personal"],
     //github: "",
     website: "https://song-tracker.vercel.app/",
-  },  
+  },
+  {
+    id: 14,
+    title: "Personal Blog Site",
+    description: `Developed a full-stack web application that lets me share blog posts with a selected audience. 
+
+    For those who wish to connect, they are free to send a connection request there.
+    `,
+    image: "",
+    tags: ["Typescript", "TailWindCSS", "React", "Supabase", "NodeMailer"],
+    projectType: ["Solo", "Personal"],
+    //github: "",
+    website: "https://junn-personal-site.vercel.app/",
+  },
+  {
+    id: 15,
+    title: "Foodie Streamlit Site",
+    description: `Developed a full Streamlit web application that scrapes, cleans, and analyzes my food spending data.
+
+    Features include:
+    - Web scraper for extracting food logs across multiple months and years
+    - Interactive filtering by restaurant, meal type, and date
+    - Data cleaning, normalization, and CSV export
+    - Statistical summaries (mean, median, variance, etc.)
+    - Visualizations: box plots, histograms, QQ plots, LOWESS trends, and time-series charts
+    - Monthly trend comparisons with colour-coded deltas
+    - Forecasting module to predict future food prices using time-series modeling.
+    `,
+    image: "",
+    tags: ["Streamlit, Python"],
+    projectType: ["Solo", "Personal"],
+    github: "https://github.com/lordjunn/Foodie-Streamlit",
+    website: "https://junn-personal-site.vercel.app/",
+  },
 ]
 
 // New certificates array
@@ -411,28 +443,25 @@ const experiences: Experience[] = [
     title: "Intern",
     organization: "Presoft (M) Sdn Bhd",
     role: "System Support / Web Designer / Web Developer / Digital Marketing",
-    period: "28 Jul 2025 - 27 Oct 2025",
+    period: "28 Jul 2025 - 28 Oct 2025",
     description: `
-      Currently interning here. Bonus feat: Saturday work.
+    Completed a three-month internship at Presoft (M) Sdn Bhd, a company specializing in business solutions and accounting software integration.  
+    Despite what the appointment letter stated, my role turned out to be a versatile "do whatever needs doing" position — giving me exposure to both the technical and operational sides of an IT-driven organization.
 
-      Things I've done/learnt (roughly chronological order):
-      - Autocounting Software + Plugins
-      - C#, WinForms: MySQL DB Copier
-      - Bug testing: Autocount Plugin
-      - Payment Gateway APIs: Stripe, BillPlz (basic)
-      - Python: Selenium Web Scraping, Excel comparison
-      - EMAS to Autocount Integration improvements
-      - MDEC Report auto-filler tool (Python)
-      - Quote Status Report Generator (Python + Excel)
-      - Dynamic SQL scripting (SQL Server)
-      - Digital marketing tasks + promotional material edits
-      - Frontend edits (HTML, CSS, Jinja2 templates)
-      - CubeHous bug testing
-    
-      Cue Dr - I Keep Holding On.
+    Throughout the internship, I worked with a diverse range of technologies and tools. I began by exploring Autocount Software and its plugins, before developing a MySQL Database Copier using C# and WinForms. 
+    I participated in bug testing for Autocount plugins and implemented payment gateway integrations using Stripe and Billplz APIs.  
+    In addition, I created several Python-based automation tools, including a Selenium web scraper and an Excel comparison utility.  
+    Among my more impactful projects were enhancements to the EMAS-to-Autocount integration, an MDEC Report auto-filler tool, and a Quote + Maintenance Status Report Generator — built with Python, Excel, and a styled HTML interface using Jinja2 templates, HTML, and CSS (later integrated into Power BI).
+
+    On the data side, I gained hands-on experience with SQL Server through dynamic SQL scripting and learned how to connect and merge datasets in Power BI using both DirectQuery and Import modes.  
+    My role also extended into digital marketing, where I worked on promotional material design using Canva, and into system testing for internal tools such as CubeHous (a Warehouse Management System).  
+    Additionally, I implemented CRM data extraction via the Zoho Bigin API for internal reporting purposes.
+
+    Overall, the internship was an enriching experience that deepened my technical proficiency, improved my problem-solving capabilities, and gave me a real-world perspective on how different departments collaborate within a software company.  
+    (Also, yes — half-day Saturdays and the unpaid overtime were part of the package!)
     `,
     image: "/Experience/Presoft.png",
-  },
+    },
 ]
 
 export default function Work() {
