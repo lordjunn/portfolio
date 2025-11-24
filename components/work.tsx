@@ -249,6 +249,7 @@ const projects: Project[] = [
     id: 14,
     title: "Personal Blog Site",
     description: `Developed a full-stack web application that lets me share blog posts with a selected audience. 
+    Think of it as an "improvement" over my online-based note logging web app.
 
     For those who wish to connect, they are free to send a connection request there.
     `,
@@ -273,7 +274,7 @@ const projects: Project[] = [
     - Forecasting module to predict future food prices using time-series modeling.
     `,
     image: "",
-    tags: ["Streamlit, Python"],
+    tags: ["Streamlit", "Python"],
     projectType: ["Solo", "Personal"],
     github: "https://github.com/lordjunn/Foodie-Streamlit",
     website: "https://junn-personal-site.vercel.app/",
@@ -402,12 +403,14 @@ const experiences: Experience[] = [
     Not participant, am the one working on this now.
 
     Things I'm told I'll be doing:
-    All technical aspects of the event (PA System, Speakers, controlling slides, etc.)
+    All technical aspects of the event (PA System, Speakers, controlling slides, etc.) ✅
     Website UI/UX Design 
     Website Frontend & Backend Development ✅
 
     Things I've done:
     Finished the WordPress site with 2+ others.
+    Helped with setup of the overall venue, then cleaning once it ends.
+    Control the slides during the event day.
     `,
     image: "/Experience/Codenection.png",
   },
@@ -416,7 +419,7 @@ const experiences: Experience[] = [
     title: "MMU Game Jam 2025",
     organization: "GDC MMU",
     role: "Logistics & Event Management Committee Member",
-    period: "23 May 2025 – 25 May 2025",
+    period: "23 May 2025 - 25 May 2025",
     description: `
     Contributed to the smooth operation of the MMU Game Jam 2025 through various logistical and support tasks over two days:
 

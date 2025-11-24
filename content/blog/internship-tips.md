@@ -10,7 +10,7 @@ keywords: "Internship, Career Growth, Professional Development, Life Lessons"
 author:
   authorname: Lord Junn
   authorimage: >-
-    https://cdn.discordapp.com/avatars/294784896579403777/bd5cd47a4ccccd2cc2be20b260ec3237.png?size=4096
+    /ProfilePictures/HomuMado.png
 readingtime: 6
 ---
 
