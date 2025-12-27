@@ -273,11 +273,11 @@ const projects: Project[] = [
     - Monthly trend comparisons with colour-coded deltas
     - Forecasting module to predict future food prices using time-series modeling.
     `,
-    image: "",
+    image: "https://titipjepang.com/wp-content/uploads/2025/09/Understanding-Oguri-Cap-edited.jpg",
     tags: ["Streamlit", "Python"],
     projectType: ["Solo", "Personal"],
     github: "https://github.com/lordjunn/Foodie-Streamlit",
-    website: "https://junn-personal-site.vercel.app/",
+    website: "https://junn-foodie-data-science.streamlit.app/",
   },
 ]
 
