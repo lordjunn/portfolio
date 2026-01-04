@@ -31,7 +31,7 @@ Most of the photography used for blog headers and project thumbnails comes from 
   - Profile Avatar: [Homura x Madoka: Hanaseto_](https://www.weibo.com/7499704029/OC7MOhpmk)
 
 - **Project pics:**
-  - Streamlit Food site: [Titipjepang: Oguri Cap](https://titipjepang.com/animanga/mengenal-oguri-cap-uma-musume/)
+  - Streamlit Food site: [Netflix: Umamusume: Cinderella Gray](https://www.netflix.com/my-en/title/82030222)
 ---
 
 ## Tech Stack & Tools
@@ -57,3 +57,5 @@ Design and code structure were inspired by:
 ## Disclaimer
 
 All external assets are the property of their respective owners. If I have missed a specific credit or if you are the owner of an asset and wish for it to be removed or cited differently, please contact me.
+
+Last updated: 3 Jan 2026

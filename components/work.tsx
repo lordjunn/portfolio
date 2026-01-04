@@ -80,7 +80,7 @@ const projects: Project[] = [
     id: 2,
     title: "Dine with Junn",
     description: `One of my earliest websites. Displays food options on and off campus along with reviews of the meals I've had. 
-      It features an all-in-one site that loads data from a CSV file, showing the full list of food items I've tried with added search and sorting options. 
+      It also features an all-in-one site that loads data from a CSV file, showing the full list of food items I've tried with added search and sorting options. 
       Later versions include monthly graphs to visualize food pricing trends, focusing on the cost per meal.`,
     image: "/Work/Food.png",
     tags: ["HTML", "CSS", "JavaScript", "CSV"],
@@ -238,6 +238,7 @@ const projects: Project[] = [
     - Admin dashboard with insights on song performance and user activity
     - One-click export to Google Sheets
 
+    <i>Not really worked on now :( </i>
     `,
     image: "https://upload.wikimedia.org/wikipedia/commons/5/5f/Apple_Music_icon.svg",
     tags: ["Typescript", "TailWindCSS", "React", "Supabase"],
@@ -248,13 +249,13 @@ const projects: Project[] = [
   {
     id: 14,
     title: "Personal Blog Site",
-    description: `Developed a full-stack web application that lets me share blog posts with a selected audience. 
+    description: `Developed a full-stack web application that lets me share blog posts with a selected audience (based on tier list). 
     Think of it as an "improvement" over my online-based note logging web app.
 
     For those who wish to connect, they are free to send a connection request there.
     `,
     image: "",
-    tags: ["Typescript", "TailWindCSS", "React", "Supabase", "NodeMailer"],
+    tags: ["Markdown", "Typescript", "TailWindCSS", "React", "Supabase", "NodeMailer"],
     projectType: ["Solo", "Personal"],
     //github: "",
     website: "https://junn-personal-site.vercel.app/",
@@ -262,19 +263,18 @@ const projects: Project[] = [
   {
     id: 15,
     title: "Foodie Streamlit Site",
-    description: `Developed a full Streamlit web application that scrapes, cleans, and analyzes my food spending data.
+    description: `Built an end-to-end Streamlit application to scrape, clean, explore, visualize, and forecast personal food spending data.
 
     Features include:
-    - Web scraper for extracting food logs across multiple months and years
-    - Interactive filtering by restaurant, meal type, and date
-    - Data cleaning, normalization, and CSV export
-    - Statistical summaries (mean, median, variance, etc.)
-    - Visualizations: box plots, histograms, QQ plots, LOWESS trends, and time-series charts
-    - Monthly trend comparisons with colour-coded deltas
-    - Forecasting module to predict future food prices using time-series modeling.
+    - Robust web scraper with progress UI, error handling, and multi-month/year ingestion
+    - Interactive data explorer with filters (restaurant, meal type, date), dish search, and CSV export
+    - Data cleaning and normalization (price parsing, numeric_price, meal-type standardization)
+    - Statistical summaries and "KPIs" with monthly and category-based breakdowns
+    - Visualizations including box plots, histograms with normal overlays, QQ plots, LOWESS trends, calendar heatmaps, and time-series charts
+    - Forecasting module with Prophet, ARIMA, Exponential Smoothing, and Linear Regression; up to 24 months.
     `,
-    image: "https://titipjepang.com/wp-content/uploads/2025/09/Understanding-Oguri-Cap-edited.jpg",
-    tags: ["Streamlit", "Python"],
+    image: "/Work/Oguri.png",
+    tags: ["Streamlit", "Python", "Time Series", "Forecasting", "Data Viz"],
     projectType: ["Solo", "Personal"],
     github: "https://github.com/lordjunn/Foodie-Streamlit",
     website: "https://junn-foodie-data-science.streamlit.app/",
@@ -331,13 +331,13 @@ const experiences: Experience[] = [
     title: "Committee Member of Technical Division",
     organization: "MMU IT Society",
     // No role provided here
-    period: "30 Dec 2024+",
+    period: "30 Dec 2024 - 18 Dec 2025",
     description: `
     Collaborated with the technical team to develop and maintain projects for both the Society and the University.
     All the while honing my current skillset and gaining new skills out of the university syllabus.
     
     <b>Projects done:</b>
-    MMU Clubs Site (Backend for admin, Design for SuperUser, not yet deployed)
+    MMU Clubs Site (Backend for admin, Design for SuperUser, some other things) - Never deployed due to MMU moment
     MMU Hack Day (created problem statements, FAQ, Programme Briefing, forgot what else)
     `,
     image: "/Experience/ITS.jpg",
@@ -387,7 +387,7 @@ const experiences: Experience[] = [
     Through these experiences, I am honing my organizational and teamwork skills, contributing to the vibrant game community at MMU.
 
     <b>Events managed:</b>
-    Annual General Meeting (Just the setup & cleanup)
+    Annual General Meeting 2025 (Just the setup & cleanup)
     MMU Game Jam 2025 (Logistics + Event Management, 2 out of 3 days)
     `,
     image: "/Experience/GDC.png",
