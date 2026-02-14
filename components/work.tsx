@@ -279,6 +279,24 @@ const projects: Project[] = [
     github: "https://github.com/lordjunn/Foodie-Streamlit",
     website: "https://junn-foodie-data-science.streamlit.app/",
   },
+  {
+      id: 16,
+      title: "Technovation Ethical Hacking Lab",
+      description: `Developed a comprehensive vulnerable web application lab and associated tools for ethical hacking education and testing.
+
+      Features include:
+      - Vulnerable lab setup with Node.js backend (Express, PostgreSQL) and React frontend, including intentional flaws like SQL injection, plaintext passwords, and insecure APIs
+      - Database seeding with default admin/test users and products for testing authentication and authorization
+      - Penetration testing tools in Python: recon scripts for domain enumeration, vulnerability scanners for web apps, SQL injection exploits, and automated assessment runners
+      - Report generation for findings, with support for full assessments via shell scripts
+      - Docker-based deployment for easy setup, with non-Docker alternatives for local environments
+      - Phase-based vulnerability fixes documentation to demonstrate secure coding practices`,
+      image: "/Work/TechnovationLab.png",
+      tags: ["Ethical Hacking", "Python", "Node.js", "PostgreSQL", "Penetration Testing"],
+      projectType: ["Team", "University+"],
+      github: "",
+      website: "",
+  },
 ]
 
 // New certificates array
