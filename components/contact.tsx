@@ -19,10 +19,31 @@ export default function Contact() {
     website: "", // Honeypot field - bots will fill this
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [emailError, setEmailError] = useState("") // New: State for email validation error
+
+  // New: Simple email validation function using regex
+  const validateEmail = (email: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    return emailRegex.test(email)
+  }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
+
+    // New: Clear email error if user starts typing
+    if (name === "email") {
+      setEmailError("")
+    }
+  }
+
+  // New: Validate email on blur (when user leaves the field)
+  const handleEmailBlur = () => {
+    if (formData.email && !validateEmail(formData.email)) {
+      setEmailError("Please enter a valid email address.")
+    } else {
+      setEmailError("")
+    }
   }
 
   const handleCheckboxChange = (checked: boolean) => {
@@ -31,6 +52,12 @@ export default function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+
+    // New: Validate email before submitting
+    if (!validateEmail(formData.email)) {
+      setEmailError("Please enter a valid email address.")
+      return
+    }
 
     try {
       setIsSubmitting(true)
@@ -98,9 +125,12 @@ export default function Contact() {
               name="email"
               value={formData.email}
               onChange={handleChange}
+              onBlur={handleEmailBlur} // New: Validate on blur
               required
               disabled={isSubmitting}
+              className={emailError ? "border-red-500" : ""} // New: Highlight invalid field
             />
+            {emailError && <p className="text-red-500 text-sm mt-1">{emailError}</p>} {/* New: Error message */}
           </div>
           <div>
             <Textarea

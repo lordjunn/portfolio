@@ -297,6 +297,23 @@ const projects: Project[] = [
       github: "",
       website: "",
   },
+  {
+    id: 17,
+    title: "E-commerce Analytics Dashboard",
+    description: `Developed a comprehensive Streamlit dashboard for analyzing Olist Brazilian E-commerce data as part of a data mining project. 
+      Features include executive summaries with KPIs (revenue, orders, satisfaction rates), interactive filters by state and category, and visualizations like revenue by state and top product categories.
+      
+      Includes a Logistics & Risk Optimizer with delivery risk heatmaps, prediction tools for delivery time and late delivery risk using machine learning models, historical route data, and feature importance analysis.
+      
+      Also features a Customer Segments & Satisfaction section with satisfaction prediction based on order details, customer clustering (K-means) on features like order value and review scores, segment visualizations, and order history filtering.
+      
+      Utilizes pre-trained models (delivery time, risk assessment, satisfaction, clustering) loaded from pickle files, with data from a cleaned CSV dataset. Supports model validation, safe predictions, and export of filtered data.`,
+    image: "/Work/Dashboard.png",  // Replace with actual image path or URL
+    tags: ["Streamlit", "Python", "Data Mining", "Machine Learning", "Plotly", "Pandas", "Scikit-learn"],
+    projectType: ["Team", "University"],
+    github: "",  // Adjust if different
+    website: "",  // Leave empty if not deployed online
+  }
 ]
 
 // New certificates array
