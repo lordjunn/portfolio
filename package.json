@@ -63,8 +63,7 @@
     "gray-matter": "latest",
     "nodemailer": "^6.9.7",
     "marked": "^9.1.5",
-    "highlight.js": "^11.9.0",
-    "email-verifier": "^0.4.1"
+    "highlight.js": "^11.9.0"
   },
   "devDependencies": {
     "@types/node": "^22",
