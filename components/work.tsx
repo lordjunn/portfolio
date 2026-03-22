@@ -313,6 +313,25 @@ const projects: Project[] = [
     projectType: ["Team", "University"],
     github: "",  // Adjust if different
     website: "",  // Leave empty if not deployed online
+  },
+  {
+    id: 18,
+    title: "Discord Utility Bot",
+    description: `Developed a feature-rich Discord bot using Python and discord.py, focused on utility, automation, and data-driven insights.
+
+    Features include:
+    - 🏓 Ping command with WebSocket latency and round-trip time measurement
+    - 📊 Emote usage analytics with high-efficiency Supabase JSONB caching and ranked embed results
+    - 📝 Message scraper to fetch and display channel history directly in Discord
+    - 🔗 Real-time auto-scraping system to mirror messages across channels or servers with persistence
+    - ⏰ Reminder system with flexible time parsing, snooze options, and interactive controls
+
+    Built with a modular cog-based architecture and deployed on Railway, the bot integrates Supabase (PostgreSQL) for persistent storage and caching, ensuring scalability and reliability while avoiding rate limits.`,
+    image: "/", // change if you have a better image
+    tags: ["Python", "discord.py", "Supabase", "PostgreSQL", "Railway"],
+    projectType: ["Solo", "Personal"],
+    github: "", // replace with your actual repo
+    // website: "", // optional
   }
 ]
 
