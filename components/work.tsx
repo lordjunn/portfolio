@@ -254,7 +254,7 @@ const projects: Project[] = [
 
     For those who wish to connect, they are free to send a connection request there.
     `,
-    image: "",
+    image: "https://static.vecteezy.com/system/resources/thumbnails/026/306/533/small/stickman-icon-stick-figure-man-person-male-stand-standing-full-body-men-bathroom-sign-symbol-black-artwork-graphic-illustration-clipart-eps-vector.jpg",
     tags: ["Markdown", "Typescript", "TailWindCSS", "React", "Supabase", "NodeMailer"],
     projectType: ["Solo", "Personal"],
     //github: "",
@@ -291,7 +291,7 @@ const projects: Project[] = [
       - Report generation for findings, with support for full assessments via shell scripts
       - Docker-based deployment for easy setup, with non-Docker alternatives for local environments
       - Phase-based vulnerability fixes documentation to demonstrate secure coding practices`,
-      image: "/Work/TechnovationLab.png",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Hacker_behind_PC.svg/960px-Hacker_behind_PC.svg.png",
       tags: ["Ethical Hacking", "Python", "Node.js", "PostgreSQL", "Penetration Testing"],
       projectType: ["Team", "University+"],
       github: "",
@@ -308,7 +308,7 @@ const projects: Project[] = [
       Also features a Customer Segments & Satisfaction section with satisfaction prediction based on order details, customer clustering (K-means) on features like order value and review scores, segment visualizations, and order history filtering.
       
       Utilizes pre-trained models (delivery time, risk assessment, satisfaction, clustering) loaded from pickle files, with data from a cleaned CSV dataset. Supports model validation, safe predictions, and export of filtered data.`,
-    image: "/Work/Dashboard.png",  // Replace with actual image path or URL
+    image: "https://play-lh.googleusercontent.com/E88VHr_8R1dXih2RGG9dEaNn0fBiKolP-rfydYJMR1R6TdosntXQfragSfK7VgydtA1D",  
     tags: ["Streamlit", "Python", "Data Mining", "Machine Learning", "Plotly", "Pandas", "Scikit-learn"],
     projectType: ["Team", "University"],
     github: "",  // Adjust if different
@@ -327,7 +327,7 @@ const projects: Project[] = [
     - ⏰ Reminder system with flexible time parsing, snooze options, and interactive controls
 
     Built with a modular cog-based architecture and deployed on Railway, the bot integrates Supabase (PostgreSQL) for persistent storage and caching, ensuring scalability and reliability while avoiding rate limits.`,
-    image: "/", // change if you have a better image
+    image: "https://static.vecteezy.com/system/resources/previews/006/892/625/non_2x/discord-logo-icon-editorial-free-vector.jpg", // change if you have a better image
     tags: ["Python", "discord.py", "Supabase", "PostgreSQL", "Railway"],
     projectType: ["Solo", "Personal"],
     github: "", // replace with your actual repo
