@@ -64,17 +64,27 @@ interface Experience {
 
 const projects: Project[] = [
   {
-    id: 1,
-    title: "Study with Junn ⭐",
-    description: `Developed a website that stores educational materials that I have done, which has benefited my entire intake of 600+ students and others to score higher and better. 
-      Shared with other batches as well, which brings the total helped students to more than 1000+.
-      
-      Applicable to other universities as well.`,
-    image: "/Work/Exams.jpg",
-    tags: ["HTML", "CSS", "JavaScript"],
-    projectType: ["Solo", "Personal"],
-    github: "https://github.com/LordJunn/Study-With-Junn",
-    website: "https://lordjunn.github.io/Study-With-Junn/index.html",
+  id: 1,
+  title: "Study with Junn ⭐",
+  description: `Developed and maintained a centralized academic resource platform supporting 1,000+ students across multiple universities and intakes.
+
+  Designed a structured content architecture to organize course modules, notes, and exam formats into a scalable, easy-to-navigate system, significantly reducing time spent searching for revision materials.
+
+  Engineered a lightweight, mobile-friendly static site using HTML, CSS, and JavaScript, ensuring fast load times, high accessibility, and reliable performance across devices.
+
+  Continuously iterated on content and structure based on user needs, improving resource quality and platform usability over time.
+
+  Impact (Google Search Console, 25 Dec 2024 – 22 Apr 2026):
+  - 1.84K total clicks and 6.17K impressions
+  - 29.8% average CTR (strong engagement signal)
+  - 5.6 average search ranking across indexed pages
+  
+  Built to address a clear gap in student workflows: fragmented, hard-to-find revision resources at scale.`,
+  image: "/Work/Exams.jpg",
+  tags: ["HTML", "CSS", "JavaScript", "Education", "Content Architecture"],
+  projectType: ["Solo", "Personal"],
+  github: "https://github.com/LordJunn/Study-With-Junn",
+  website: "https://lordjunn.github.io/Study-With-Junn/index.html",
   },
   {
   id: 2,
