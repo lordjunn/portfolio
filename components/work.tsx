@@ -139,10 +139,10 @@ const projects: Project[] = [
     title: "Introduction to Italy",
     description:
       "One of my earliest group projects. Led a team of 4 to create a website introducing Italy’s attractions, transportation, gastronomy, and other key tourist info.",
-    image: "https://upload.wikimedia.org/wikipedia/en/thumb/0/03/Flag_of_Italy.svg/1200px-Flag_of_Italy.svg.png",
+    image: "/Work/Italy.png",
     tags: ["HTML", "CSS"],
     projectType: ["Team Lead", "University"],
-    github: "https://github.com/LordJunn/portfolio",
+    // github: "",
     website: "https://lordjunn.github.io/italy/",
   },
   {
@@ -154,7 +154,7 @@ const projects: Project[] = [
       "https://static.vecteezy.com/system/resources/previews/011/943/265/non_2x/pixel-art-wooden-table-with-chairs-and-food-tray-icon-for-8bit-game-on-white-background-vector.jpg",
     tags: ["Python", "CLI"],
     projectType: ["Team Lead", "University"],
-    //github: "https://github.com/LordJunn/portfolio",
+    //github: "",
     website: "https://colab.research.google.com/drive/1IQtX3yY3Qt8CK1lqRfYVT1SMnBd2p9zJ",
   },
   {
@@ -165,18 +165,18 @@ const projects: Project[] = [
     image: "https://www.shutterstock.com/image-vector/cafeteria-chair-table-coffee-pot-600nw-2063937668.jpg",
     tags: ["Python", "Flask"],
     projectType: ["Team", "University"],
-    //github: "https://github.com/LordJunn/portfolio",
-    //website: "https://junn-portfolio.vercel.app/",
+    //github: "",
+    //website: "",
   },
   {
     id: 8,
-    title: "Assembly code intepreter CLI",
+    title: "Assembly code interpreter CLI",
     description: "Contributed to a group of 4 to create an ASM code intepreter based on CLI.",
-    image: "https://static-00.iconduck.com/assets.00/assembly-icon-2048x2048-wspx42mf.png",
+    image: "/Work/C++ASM.png",
     tags: ["C++", "CLI"],
     projectType: ["Team", "University"],
-    //github: "https://github.com/LordJunn/portfolio",
-    //website: "https://junn-portfolio.vercel.app/",
+    //github: "",
+    //website: "",
   },
   {
     id: 9,
@@ -187,7 +187,7 @@ const projects: Project[] = [
     tags: ["C++", "CLI"],
     projectType: ["Team", "University"],
     github: "https://github.com/LordJunn/Robocop5000",
-    //website: "https://junn-portfolio.vercel.app/",
+    //website: "",
   },
   {
     id: 10,
@@ -198,7 +198,7 @@ const projects: Project[] = [
     tags: ["Java"],
     projectType: ["Team", "University"],
     github: "https://github.com/LordJunn/Kwazam-Chess",
-    //website: "https://junn-portfolio.vercel.app/",
+    //website: "",
   },
   {
     id: 11,
@@ -224,7 +224,7 @@ const projects: Project[] = [
     tags: ["Python", "GUI"],
     projectType: ["Team", "University"],
     github: "https://github.com/Meiyp0817/CPU-SchedulingAlgorithm-Simulator",
-    //website: "https://junn-portfolio.vercel.app/",
+    //website: "",
   },
   {
     id: 13,
@@ -280,58 +280,68 @@ const projects: Project[] = [
     website: "https://junn-foodie-data-science.streamlit.app/",
   },
   {
-      id: 16,
-      title: "Technovation Ethical Hacking Lab",
-      description: `Developed a comprehensive vulnerable web application lab and associated tools for ethical hacking education and testing.
+    id: 16,
+    title: "Technovation Ethical Hacking Lab",
+    description: `Developed a comprehensive vulnerable web application lab and associated tools for ethical hacking education and testing.
 
-      Features include:
-      - Vulnerable lab setup with Node.js backend (Express, PostgreSQL) and React frontend, including intentional flaws like SQL injection, plaintext passwords, and insecure APIs
-      - Database seeding with default admin/test users and products for testing authentication and authorization
-      - Penetration testing tools in Python: recon scripts for domain enumeration, vulnerability scanners for web apps, SQL injection exploits, and automated assessment runners
-      - Report generation for findings, with support for full assessments via shell scripts
-      - Docker-based deployment for easy setup, with non-Docker alternatives for local environments
-      - Phase-based vulnerability fixes documentation to demonstrate secure coding practices`,
-      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Hacker_behind_PC.svg/960px-Hacker_behind_PC.svg.png",
-      tags: ["Ethical Hacking", "Python", "Node.js", "PostgreSQL", "Penetration Testing"],
-      projectType: ["Team", "University+"],
-      github: "",
-      website: "",
+    Features include:
+    - Vulnerable lab setup with Node.js backend (Express, PostgreSQL) and React frontend, including intentional flaws like SQL injection, plaintext passwords, and insecure APIs
+    - Database seeding with default admin/test users and products for testing authentication and authorization
+    - Penetration testing tools in Python: recon scripts for domain enumeration, vulnerability scanners for web apps, SQL injection exploits, and automated assessment runners
+    - Report generation for findings, with support for full assessments via shell scripts
+    - Docker-based deployment for easy setup, with non-Docker alternatives for local environments
+    - Phase-based vulnerability fixes documentation to demonstrate secure coding practices`,
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Hacker_behind_PC.svg/960px-Hacker_behind_PC.svg.png",
+    tags: ["Ethical Hacking", "Python", "Node.js", "PostgreSQL", "Penetration Testing"],
+    projectType: ["Team", "University+"],
+    // github: "",
+    // website: "",
   },
   {
     id: 17,
     title: "E-commerce Analytics Dashboard",
-    description: `Developed a comprehensive Streamlit dashboard for analyzing Olist Brazilian E-commerce data as part of a data mining project. 
-      Features include executive summaries with KPIs (revenue, orders, satisfaction rates), interactive filters by state and category, and visualizations like revenue by state and top product categories.
-      
-      Includes a Logistics & Risk Optimizer with delivery risk heatmaps, prediction tools for delivery time and late delivery risk using machine learning models, historical route data, and feature importance analysis.
-      
-      Also features a Customer Segments & Satisfaction section with satisfaction prediction based on order details, customer clustering (K-means) on features like order value and review scores, segment visualizations, and order history filtering.
-      
-      Utilizes pre-trained models (delivery time, risk assessment, satisfaction, clustering) loaded from pickle files, with data from a cleaned CSV dataset. Supports model validation, safe predictions, and export of filtered data.`,
+    description: `Developed and deployed a full-featured Streamlit analytics dashboard for the Olist Brazilian E-commerce dataset.
+
+    Hosted on Render, the application provides:
+    - 📊 Executive KPI overview (revenue, orders, satisfaction rates)
+    - 🌍 Interactive filtering by state and product category
+    - 📈 Visual analytics (revenue distribution, top categories, trends)
+
+    Advanced modules include:
+    - 🚚 Logistics & Risk Optimizer with delivery delay prediction and risk heatmaps
+    - 🤖 Machine learning models for delivery time, late delivery risk, and customer satisfaction
+    - 👥 Customer segmentation using K-Means clustering with interactive visualizations
+    - 🔍 Historical order exploration and feature importance insights
+
+    Built with pre-trained models (Scikit-learn) and optimized data pipelines, the app supports real-time predictions, safe inference handling, and exportable datasets.
+
+    Deployed on Render for reliable access and scalability.`,
     image: "https://play-lh.googleusercontent.com/E88VHr_8R1dXih2RGG9dEaNn0fBiKolP-rfydYJMR1R6TdosntXQfragSfK7VgydtA1D",  
     tags: ["Streamlit", "Python", "Data Mining", "Machine Learning", "Plotly", "Pandas", "Scikit-learn"],
     projectType: ["Team", "University"],
-    github: "",  // Adjust if different
-    website: "",  // Leave empty if not deployed online
+    github: "https://github.com/lordjunn/Olist-Ecommerce-Analytics-Dashboard", 
+    website: "https://olist-ecommerce-analytics-dashboard.onrender.com/",  
   },
   {
     id: 18,
     title: "Discord Utility Bot",
-    description: `Developed a feature-rich Discord bot using Python and discord.py, focused on utility, automation, and data-driven insights.
+    description: `Developed and deployed a scalable Discord bot focused on automation, analytics, and real-time utilities.
 
-    Features include:
-    - 🏓 Ping command with WebSocket latency and round-trip time measurement
-    - 📊 Emote usage analytics with high-efficiency Supabase JSONB caching and ranked embed results
-    - 📝 Message scraper to fetch and display channel history directly in Discord
-    - 🔗 Real-time auto-scraping system to mirror messages across channels or servers with persistence
-    - ⏰ Reminder system with flexible time parsing, snooze options, and interactive controls
+    Key features:
+    - 🏓 Latency monitoring with WebSocket + round-trip timing
+    - 📊 Emote usage analytics with Supabase JSONB caching for high performance
+    - 📝 Channel message scraper with structured output
+    - 🔗 Real-time message mirroring across channels/servers
+    - ⏰ Advanced reminder system with parsing, snoozing, and interaction controls
 
-    Built with a modular cog-based architecture and deployed on Railway, the bot integrates Supabase (PostgreSQL) for persistent storage and caching, ensuring scalability and reliability while avoiding rate limits.`,
+    Built using a modular cog-based architecture with discord.py, and integrated with Supabase (PostgreSQL) for persistent storage and caching.
+
+    Deployed on Railway for reliability and uptime, with a dedicated documentation site for usage and command references.`,
     image: "https://static.vecteezy.com/system/resources/previews/006/892/625/non_2x/discord-logo-icon-editorial-free-vector.jpg", // change if you have a better image
     tags: ["Python", "discord.py", "Supabase", "PostgreSQL", "Railway"],
     projectType: ["Solo", "Personal"],
-    github: "", // replace with your actual repo
-    // website: "", // optional
+    // github: "", // replace with your actual repo
+    website: "https://lordjunn.github.io/Discord-Bots/", 
   }
 ]
 
@@ -443,6 +453,8 @@ const experiences: Experience[] = [
     <b>Events managed:</b>
     Annual General Meeting 2025 (Just the setup & cleanup)
     MMU Game Jam 2025 (Logistics + Event Management, 2 out of 3 days)
+    Annual General Meeting 2026
+    Welcoming Party 2026 (Feedback form creation)
     `,
     image: "/Experience/GDC.png",
   },
