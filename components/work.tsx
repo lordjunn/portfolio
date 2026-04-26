@@ -77,16 +77,18 @@ const projects: Project[] = [
     website: "https://lordjunn.github.io/Study-With-Junn/index.html",
   },
   {
-    id: 2,
-    title: "Dine with Junn",
-    description: `One of my earliest websites. Displays food options on and off campus along with reviews of the meals I've had. 
-      It also features an all-in-one site that loads data from a CSV file, showing the full list of food items I've tried with added search and sorting options. 
-      Later versions include monthly graphs to visualize food pricing trends, focusing on the cost per meal.`,
-    image: "/Work/Food.png",
-    tags: ["HTML", "CSS", "JavaScript", "CSV"],
-    projectType: ["Solo", "Personal"],
-    github: "https://github.com/LordJunn/Food-MMU",
-    website: "https://lordjunn.github.io/Food-MMU/",
+  id: 2,
+  title: "Dine with Junn",
+  description: `One of my earliest personal projects, Dine with Junn started as a place to log and review what I ate on and off campus, then evolved into a more structured platform.
+  
+  It includes a centralized CSV-powered food archive with search and sorting, plus monthly pricing visualizations to monitor meal cost trends.
+  
+  What began as a food journal became a data-backed project that showcases my ability to turn personal ideas into practical, user-friendly tools.`,
+  image: "/Work/Food.png",
+  tags: ["HTML", "CSS", "JavaScript", "CSV"],
+  projectType: ["Solo", "Personal"],
+  github: "https://github.com/LordJunn/Food-MMU",
+  website: "https://lordjunn.github.io/Food-MMU/",
   },
   {
     id: 3,
