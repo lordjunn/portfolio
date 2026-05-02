@@ -65,9 +65,29 @@ export default function Hero() {
           </span>{" "}
           <span className="inline-block animate-wave origin-bottom-right">👋</span>
         </h1>
-        <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl">
-          I'm a developer passionate about creating beautiful and functional web experiences.
+        <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl">
+          I build practical web products that solve real workflow problems, from high-traffic student platforms to
+          full-stack tools with analytics, automation, and clean UX.
         </p>
+        <p className="text-base md:text-lg text-muted-foreground max-w-3xl">
+          Computer Science student open to full-time Software Engineer / Data Scientist roles from Aug/Nov 2026.
+        </p>
+        <div className="flex flex-wrap items-center gap-3 mt-2">
+          <Link
+            href="/Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center rounded-md bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground hover:opacity-90 transition-opacity"
+          >
+            View Resume
+          </Link>
+          <Link
+            href="/#work"
+            className="inline-flex items-center justify-center rounded-md border px-5 py-2.5 text-sm font-medium hover:bg-muted transition-colors"
+          >
+            See Projects
+          </Link>
+        </div>
         <div className="flex items-center gap-4 mt-4">
           <Link href="https://github.com/LordJunn/" target="_blank" rel="noopener noreferrer">
             <Github className="h-5 w-5 hover:text-primary transition-colors" />

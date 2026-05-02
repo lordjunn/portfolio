@@ -4,6 +4,10 @@ export default function BlogLayout({
 }: {
   children: React.ReactNode
 }) {
-  return <main className="min-h-[calc(100vh-64px-80px)]">{children}</main>
+  return (
+    <main id="main-content" className="min-h-[calc(100vh-64px-80px)]" tabIndex={-1}>
+      {children}
+    </main>
+  )
 }
 

@@ -5,6 +5,8 @@ import { markdownToHtml } from "@/lib/markdown"
 import type { Metadata } from "next"
 import { Clock, Calendar } from "lucide-react"
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://junn-portfolio.vercel.app"
+
 interface BlogPostPageProps {
   params: {
     slug: string
@@ -20,10 +22,35 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     }
   }
 
+  const canonicalPath = `/blog/${post.slug}`
+  const postUrl = `${siteUrl}${canonicalPath}`
+
   return {
     title: post.title,
     description: post.preview,
     keywords: post.keywords,
+    alternates: {
+      canonical: canonicalPath,
+    },
+    openGraph: {
+      type: "article",
+      url: postUrl,
+      title: post.title,
+      description: post.preview,
+      publishedTime: post.date,
+      images: [
+        {
+          url: post.image || "/placeholder.svg?height=400&width=600",
+          alt: post.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.preview,
+      images: [post.image || "/placeholder.svg?height=400&width=600"],
+    },
   }
 }
 
@@ -44,9 +71,32 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   // Convert markdown to HTML
   const contentHtml = await markdownToHtml(post.content)
+  const postUrl = `${siteUrl}/blog/${post.slug}`
+  const articleStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.preview,
+    datePublished: post.date,
+    dateModified: post.date,
+    image: post.image ? [post.image] : undefined,
+    author: {
+      "@type": "Person",
+      name: post.author?.authorname || "Junn Kit",
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": postUrl,
+    },
+    url: postUrl,
+  }
 
   return (
     <div className="container mx-auto px-4 py-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleStructuredData) }}
+      />
       <article className="max-w-3xl mx-auto">
         <div className="mb-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">{post.title}</h1>

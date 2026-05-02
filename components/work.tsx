@@ -66,20 +66,16 @@ const projects: Project[] = [
   {
   id: 1,
   title: "Study with Junn ⭐",
-  description: `Developed and maintained a centralized academic resource platform supporting 1,000+ students across multiple universities and intakes.
+  description: `Built and maintain a centralized academic resource platform used by 1,000+ students across multiple universities.
 
-  Designed a structured content architecture to organize course modules, notes, and exam formats into a scalable, easy-to-navigate system, significantly reducing time spent searching for revision materials.
+  I designed the information architecture for notes, course modules, and exam formats so students can find revision materials quickly without jumping across fragmented channels.
 
-  Engineered a lightweight, mobile-friendly static site using HTML, CSS, and JavaScript, ensuring fast load times, high accessibility, and reliable performance across devices.
+  The site is a lightweight, mobile-friendly static build with fast load times and reliable cross-device performance.
 
-  Continuously iterated on content and structure based on user needs, improving resource quality and platform usability over time.
-
-  Impact (Google Search Console, 25 Dec 2024 – 22 Apr 2026):
-  - 1.84K total clicks and 6.17K impressions
-  - 29.8% average CTR (strong engagement signal)
-  - 5.6 average search ranking across indexed pages
-  
-  Built to address a clear gap in student workflows: fragmented, hard-to-find revision resources at scale.`,
+  Impact (Google Search Console, 25 Dec 2024 - 22 Apr 2026):
+  - 1.84K clicks and 6.17K impressions
+  - 29.8% average CTR
+  - 5.6 average ranking position`,
   image: "/Work/Exams.jpg",
   tags: ["HTML", "CSS", "JavaScript", "Education", "Content Architecture"],
   projectType: ["Solo", "Personal"],
@@ -89,11 +85,11 @@ const projects: Project[] = [
   {
   id: 2,
   title: "Dine with Junn",
-  description: `One of my earliest personal projects, Dine with Junn started as a place to log and review what I ate on and off campus, then evolved into a more structured platform.
-  
-  It includes a centralized CSV-powered food archive with search and sorting, plus monthly pricing visualizations to monitor meal cost trends.
-  
-  What began as a food journal became a data-backed project that showcases my ability to turn personal ideas into practical, user-friendly tools.`,
+  description: `Started as a personal food journal and evolved into a searchable, CSV-powered meal tracking platform.
+
+  Built features for filtering, sorting, and monthly price trend visualizations to turn daily logs into usable spending insights.
+
+  This project demonstrates how I turn a simple personal pain point into a practical product with data-backed utility.`,
   image: "/Work/Food.png",
   tags: ["HTML", "CSS", "JavaScript", "CSV"],
   projectType: ["Solo", "Personal"],
@@ -103,22 +99,11 @@ const projects: Project[] = [
   {
     id: 3,
     title: "Webstack Trio",
-    description: `A website that hosts all my other mini projects, including Tic Tac Toe, Maze, Tower Defense, Wordle, Calculator, Currency Exchanger, and other fun interactive games and useful utilities.
-      
-      <b>Game based projects:</b>
-      - Tic Tac Toe 
-      - Maze game 
-      - (Easier) 2048 
-      - Tower Defense (PvZ type) 
-      - Memory Card game 
-      - Wordle (not API for now)
-      - Snake game (adjustable settings from spawn, speed, colour, etc) 
+    description: `Built a mini-project hub that consolidates interactive games and utility tools in one place.
 
-      <b>Non-game projects:</b>
+      The platform includes browser games (Tic-Tac-Toe, Maze, 2048 variant, Tower Defense, Wordle-style game, Snake) and practical utilities (scientific calculator, music player, multi-currency converter).
 
-      - Scientific Calculator 
-      - Music Player (Desktop version works well, mobile version less optimized)
-      - Quad Currency Exchange (Exchanges up to 5 currencies at once using API)`,
+      This project highlights front-end experimentation, UI state handling, and rapid feature delivery across many small products.`,
     image: "/Work/Trio.png",
     tags: ["HTML", "CSS", "JavaScript", "APIs"],
     projectType: ["Solo", "Personal"],
@@ -128,18 +113,11 @@ const projects: Project[] = [
   {
     id: 4,
     title: "Portfolio Website",
-    description: `A modern, responsive portfolio website built with Next.js and TypeScript, designed to showcase my development work and personal blog. 
-    It features dark/light mode toggling, smooth animations, and optimized performance across all devices using Tailwind CSS and React.
+    description: `Built a production-ready portfolio and blog using Next.js, TypeScript, Tailwind CSS, and React.
 
-    The site includes:
-    - A blog system with Markdown support
-    - Project filtering and tags
-    - A fully functional contact form with Gmail integration using Nodemailer
-    - Honeypot spam prevention to protect against bots
-    - Accessibility-friendly components and semantic HTML for better UX
+    Core features include Markdown blogging, project search and filtering, dark/light mode, and a functional contact workflow with Nodemailer plus honeypot spam protection.
 
-    Deployed on borh Vercel and Netlify, the site is fast, secure, and fully mobile-friendly, demonstrating my attention to UI/UX and modern full-stack practices.
-    (Double deployment in case MCMC does the funny again)`,
+    The site is deployed on both Vercel and Netlify for availability, with responsive design and accessibility-focused components across desktop and mobile.`,
     image: "https://i.pinimg.com/736x/27/8f/89/278f8911cd0bb929a45209f749096358.jpg",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "React", "Markdown", "Nodemailer"],
     projectType: ["Solo", "Personal"],
@@ -150,7 +128,7 @@ const projects: Project[] = [
     id: 5,
     title: "Introduction to Italy",
     description:
-      "One of my earliest group projects. Led a team of 4 to create a website introducing Italy’s attractions, transportation, gastronomy, and other key tourist info.",
+      "Led a 4-person team to build an informational tourism website covering Italy's attractions, transportation, and food culture. This project strengthened my collaboration, planning, and delivery skills in a team setting.",
     image: "/Work/Italy.png",
     tags: ["HTML", "CSS"],
     projectType: ["Team Lead", "University"],
@@ -160,8 +138,8 @@ const projects: Project[] = [
   {
     id: 6,
     title: "Restaurant CRUD CLI App",
-    description: `Led a team of 4 to build a Python-based command-line app simulating a restaurant backend. 
-      Features include user login, menu CRUD operations, order handling, and checkout.`,
+    description: `Led a 4-person team to build a Python command-line application that simulates core restaurant backend operations.
+      Implemented authentication, menu CRUD workflows, order handling, and checkout logic to model an end-to-end service flow in a terminal environment.`,
     image:
       "https://static.vecteezy.com/system/resources/previews/011/943/265/non_2x/pixel-art-wooden-table-with-chairs-and-food-tray-icon-for-8bit-game-on-white-background-vector.jpg",
     tags: ["Python", "CLI"],
@@ -183,7 +161,7 @@ const projects: Project[] = [
   {
     id: 8,
     title: "Assembly code interpreter CLI",
-    description: "Contributed to a group of 4 to create an ASM code intepreter based on CLI.",
+    description: "Contributed to a group of 4 to create an ASM code interpreter based on CLI.",
     image: "/Work/C++ASM.png",
     tags: ["C++", "CLI"],
     projectType: ["Team", "University"],
@@ -216,7 +194,7 @@ const projects: Project[] = [
     id: 11,
     title: "iKun Music",
     description: `Contributed to a group of 3 to create a music sharing web app, includes roles such as User, Artist & Admin.
-      Currently being hosted on pythonanywhere.`,
+      Currently hosted on PythonAnywhere.`,
     image: "/Work/iKun.png",
     tags: ["Flask", "SQLite", "PythonAnywhere"],
     projectType: ["Team", "University"],
@@ -226,12 +204,8 @@ const projects: Project[] = [
   {
     id: 12,
     title: "CPU Scheduling Algorithm Simulator",
-    description: `Contributed to a group of 4 to create a CPU Scheduler Algorithm Simulator that simulates algorithms such as:
-      -Round Robin, 
-      -(Non) Preemptive Priority, both of them, and
-      -FCFS.
-      
-      Despite the Github says otherwise, I contributed to the Preemptive Priority.`,
+    description: `Contributed to a 4-person team building a CPU scheduling simulator for Round Robin, FCFS, and Priority scheduling (preemptive and non-preemptive).
+      I specifically implemented parts of the Preemptive Priority flow.`,
     image: "https://ih1.redbubble.net/image.1120540391.8213/st,small,507x507-pad,600x600,f8f8f8.jpg",
     tags: ["Python", "GUI"],
     projectType: ["Team", "University"],
@@ -241,19 +215,12 @@ const projects: Project[] = [
   {
     id: 13,
     title: "Song Tracker",
-    description: `Developed a full-stack web application that allows me to jot down songs and notes of what I had listened and shared to someone.
+    description: `Built a full-stack song logging app with Supabase authentication, CRUD, search, notes, engagement tracking, and a lightweight admin dashboard.
+    Added Google Sheets export for quick reporting and sharing.
 
-    Includes functions such as:
-    - Built with Supabase for authentication, CRUD operations, and user management
-    - Song search, notes, and filter features
-    - User interactions: like system, login tracking, and song engagement stats
-    - Admin dashboard with insights on song performance and user activity
-    - One-click export to Google Sheets
-
-    <i>Not really worked on now :( </i>
-    `,
+    <i>Currently on hold while I focus on newer projects.</i>`,
     image: "https://upload.wikimedia.org/wikipedia/commons/5/5f/Apple_Music_icon.svg",
-    tags: ["Typescript", "TailWindCSS", "React", "Supabase"],
+    tags: ["TypeScript", "Tailwind CSS", "React", "Supabase"],
     projectType: ["Solo", "Personal"],
     //github: "",
     website: "https://song-tracker.vercel.app/",
@@ -261,13 +228,13 @@ const projects: Project[] = [
   {
     id: 14,
     title: "Personal Blog Site",
-    description: `Developed a full-stack web application that lets me share blog posts with a selected audience (based on tier list). 
-    Think of it as an "improvement" over my online-based note logging web app.
+    description: `Developed a full-stack web application for publishing posts to selected audience tiers.
+    It evolved from my earlier web-based note logging project into a more structured content platform.
 
-    For those who wish to connect, they are free to send a connection request there.
+    Visitors can also send connection requests directly through the site.
     `,
     image: "https://static.vecteezy.com/system/resources/thumbnails/026/306/533/small/stickman-icon-stick-figure-man-person-male-stand-standing-full-body-men-bathroom-sign-symbol-black-artwork-graphic-illustration-clipart-eps-vector.jpg",
-    tags: ["Markdown", "Typescript", "TailWindCSS", "React", "Supabase", "NodeMailer"],
+    tags: ["Markdown", "TypeScript", "Tailwind CSS", "React", "Supabase", "Nodemailer"],
     projectType: ["Solo", "Personal"],
     //github: "",
     website: "https://junn-personal-site.vercel.app/",
@@ -275,16 +242,9 @@ const projects: Project[] = [
   {
     id: 15,
     title: "Foodie Streamlit Site",
-    description: `Built an end-to-end Streamlit application to scrape, clean, explore, visualize, and forecast personal food spending data.
-
-    Features include:
-    - Robust web scraper with progress UI, error handling, and multi-month/year ingestion
-    - Interactive data explorer with filters (restaurant, meal type, date), dish search, and CSV export
-    - Data cleaning and normalization (price parsing, numeric_price, meal-type standardization)
-    - Statistical summaries and "KPIs" with monthly and category-based breakdowns
-    - Visualizations including box plots, histograms with normal overlays, QQ plots, LOWESS trends, calendar heatmaps, and time-series charts
-    - Forecasting module with Prophet, ARIMA, Exponential Smoothing, and Linear Regression; up to 24 months.
-    `,
+    description: `Built an end-to-end Streamlit app to scrape, clean, visualize, and forecast personal food spending.
+    Includes filtering, CSV export, KPI dashboards, and time-series forecasting with Prophet, ARIMA, Exponential Smoothing, and Linear Regression.
+    Focused on turning raw logs into practical monthly budgeting insights.`,
     image: "/Work/Oguri.png",
     tags: ["Streamlit", "Python", "Time Series", "Forecasting", "Data Viz"],
     projectType: ["Solo", "Personal"],
@@ -294,15 +254,9 @@ const projects: Project[] = [
   {
     id: 16,
     title: "Technovation Ethical Hacking Lab",
-    description: `Developed a comprehensive vulnerable web application lab and associated tools for ethical hacking education and testing.
-
-    Features include:
-    - Vulnerable lab setup with Node.js backend (Express, PostgreSQL) and React frontend, including intentional flaws like SQL injection, plaintext passwords, and insecure APIs
-    - Database seeding with default admin/test users and products for testing authentication and authorization
-    - Penetration testing tools in Python: recon scripts for domain enumeration, vulnerability scanners for web apps, SQL injection exploits, and automated assessment runners
-    - Report generation for findings, with support for full assessments via shell scripts
-    - Docker-based deployment for easy setup, with non-Docker alternatives for local environments
-    - Phase-based vulnerability fixes documentation to demonstrate secure coding practices`,
+    description: `Built a vulnerable web lab for ethical hacking training with a React frontend, Express API, and PostgreSQL backend.
+    Added Python-based recon/scanning/exploit tools, automated reporting, and Docker setup for reproducible testing.
+    Documented phased remediations to demonstrate secure coding improvements after assessment.`,
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Hacker_behind_PC.svg/960px-Hacker_behind_PC.svg.png",
     tags: ["Ethical Hacking", "Python", "Node.js", "PostgreSQL", "Penetration Testing"],
     projectType: ["Team", "University+"],
@@ -312,22 +266,9 @@ const projects: Project[] = [
   {
     id: 17,
     title: "E-commerce Analytics Dashboard",
-    description: `Developed and deployed a full-featured Streamlit analytics dashboard for the Olist Brazilian E-commerce dataset.
-
-    Hosted on Render, the application provides:
-    - 📊 Executive KPI overview (revenue, orders, satisfaction rates)
-    - 🌍 Interactive filtering by state and product category
-    - 📈 Visual analytics (revenue distribution, top categories, trends)
-
-    Advanced modules include:
-    - 🚚 Logistics & Risk Optimizer with delivery delay prediction and risk heatmaps
-    - 🤖 Machine learning models for delivery time, late delivery risk, and customer satisfaction
-    - 👥 Customer segmentation using K-Means clustering with interactive visualizations
-    - 🔍 Historical order exploration and feature importance insights
-
-    Built with pre-trained models (Scikit-learn) and optimized data pipelines, the app supports real-time predictions, safe inference handling, and exportable datasets.
-
-    Deployed on Render for reliable access and scalability.`,
+    description: `Developed and deployed a Streamlit analytics dashboard for the Olist e-commerce dataset, hosted on Render.
+    Features executive KPIs, interactive filtering, revenue trend analysis, and advanced modules for logistics risk, delivery prediction, customer satisfaction, and segmentation.
+    Built with Scikit-learn models and optimized pipelines for reliable interactive inference.`,
     image: "https://play-lh.googleusercontent.com/E88VHr_8R1dXih2RGG9dEaNn0fBiKolP-rfydYJMR1R6TdosntXQfragSfK7VgydtA1D",  
     tags: ["Streamlit", "Python", "Data Mining", "Machine Learning", "Plotly", "Pandas", "Scikit-learn"],
     projectType: ["Team", "University"],
@@ -337,18 +278,9 @@ const projects: Project[] = [
   {
     id: 18,
     title: "Discord Utility Bot",
-    description: `Developed and deployed a scalable Discord bot focused on automation, analytics, and real-time utilities.
-
-    Key features:
-    - 🏓 Latency monitoring with WebSocket + round-trip timing
-    - 📊 Emote usage analytics with Supabase JSONB caching for high performance
-    - 📝 Channel message scraper with structured output
-    - 🔗 Real-time message mirroring across channels/servers
-    - ⏰ Advanced reminder system with parsing, snoozing, and interaction controls
-
-    Built using a modular cog-based architecture with discord.py, and integrated with Supabase (PostgreSQL) for persistent storage and caching.
-
-    Deployed on Railway for reliability and uptime, with a dedicated documentation site for usage and command references.`,
+    description: `Developed and deployed a modular Discord bot for automation, analytics, and real-time utility features.
+    Includes latency checks, emote analytics with Supabase JSONB caching, message mirroring, scraping tools, and a reminder system with snooze controls.
+    Built with discord.py and Supabase (PostgreSQL), then deployed on Railway with dedicated docs for usage.`,
     image: "https://static.vecteezy.com/system/resources/previews/006/892/625/non_2x/discord-logo-icon-editorial-free-vector.jpg", // change if you have a better image
     tags: ["Python", "discord.py", "Supabase", "PostgreSQL", "Railway"],
     projectType: ["Solo", "Personal"],
@@ -380,7 +312,7 @@ const certificates: Certificate[] = [
     From understanding network architectures and protocols to mastering IP addressing and Ethernet fundamentals, I developed foundational knowledge and built my networking basics. 
     Includes usage of Cisco Packet Tracer v6 & v8.
 
-    Basically the course "Computer Networks" in my uni.
+    This aligns closely with the "Computer Networks" course in my university curriculum.
     `,
     image: "https://1000logos.net/wp-content/uploads/2016/11/Cisco-logo.png",
     credential: "https://www.netacad.com/certificates?issuanceId=319adae7-9228-4d64-99b0-4870daa58b8b",
@@ -439,7 +371,7 @@ const experiences: Experience[] = [
     period: "16 Aug 2024+",
     description: `
     Joined Hackerspace MMU, a vibrant community of self-learners and tech enthusiasts at Multimedia University Cyberjaya.
-    At times engaged in weekly meetups every Tuesday evening, and presented ideas for new projects, and progress updates to peers for constructive feedback.
+    I joined three weekly meetups that happen every Tuesday evening and presented project ideas and progress updates for peer feedback, such as my Study site.
     Benefited from a supportive environment fostering continuous learning, where members share knowledge, discuss the latest tech trends, and provide assistance in overcoming coding challenges.
     Embraced the hackerspace philosophy: "I hear and I forget. I see and I remember. I do and I understand."
 
@@ -477,18 +409,18 @@ const experiences: Experience[] = [
     role: "Committee Member of Technical Division",
     period: "12 Apr 2025 - 9 Nov 2025",
     description: `
-    Hackathon, no more Competitive Programming. 
-    Not participant, am the one working on this now.
+    This edition shifted from competitive programming to a hackathon format.
+    I supported the organizing team as a committee member in the technical division.
 
-    Things I'm told I'll be doing:
+    Responsibilities:
     All technical aspects of the event (PA System, Speakers, controlling slides, etc.) ✅
     Website UI/UX Design 
     Website Frontend & Backend Development ✅
 
-    Things I've done:
-    Finished the WordPress site with 2+ others.
-    Helped with setup of the overall venue, then cleaning once it ends.
-    Control the slides during the event day.
+    Contributions delivered:
+    Completed the WordPress event website with two other committee members.
+    Supported venue setup and post-event cleanup.
+    Managed live presentation slides during the event day.
     `,
     image: "/Experience/Codenection.png",
   },
@@ -514,8 +446,8 @@ const experiences: Experience[] = [
     - Served as a standby support member in the committee operation room to assist participants and fill in for backup roles as needed.
     - Patrolled the Team Rooms from time to time. 
 
-    All in all, it was a good experience, teaching me the importance of asynchronous communication and working as a team.
-    It also shows that I have areas to improve, and areas that I have qualities in.
+    Overall, this experience strengthened my asynchronous communication and teamwork skills.
+    It also highlighted areas where I can continue improving as an event operations contributor.
     `,
     image: "/Experience/GDC.png",
   },
@@ -527,7 +459,7 @@ const experiences: Experience[] = [
     period: "28 Jul 2025 - 28 Oct 2025",
     description: `
     Completed a three-month internship at Presoft (M) Sdn Bhd, a company specializing in business solutions and accounting software integration.  
-    Despite what the appointment letter stated, my role turned out to be a versatile "do whatever needs doing" position — giving me exposure to both the technical and operational sides of an IT-driven organization.
+    While my appointment letter listed a narrow role, the internship evolved into a broad, cross-functional position that exposed me to both technical and operational workflows.
 
     Throughout the internship, I worked with a diverse range of technologies and tools. I began by exploring Autocount Software and its plugins, before developing a MySQL Database Copier using C# and WinForms. 
     I participated in bug testing for Autocount plugins and implemented payment gateway integrations using Stripe and Billplz APIs.  
@@ -538,7 +470,7 @@ const experiences: Experience[] = [
     My role also extended into digital marketing, where I worked on promotional material design using Canva, and into system testing for internal tools such as CubeHous (a Warehouse Management System).  
     Additionally, I implemented CRM data extraction via the Zoho Bigin API for internal reporting purposes.
 
-    Overall, the internship was an enriching experience that deepened my technical proficiency, improved my problem-solving capabilities, and gave me a real-world perspective on how different departments collaborate within a software company.  
+    Overall, the internship deepened my technical proficiency, strengthened my problem-solving ability, and gave me a practical view of cross-department collaboration in a software company.
     (Also, yes — half-day Saturdays and the unpaid overtime were part of the package!)
     `,
     image: "/Experience/Presoft.png",

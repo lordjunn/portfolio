@@ -1,20 +1,99 @@
 import { NextResponse } from "next/server"
 import nodemailer from "nodemailer"
 
+const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000
+const RATE_LIMIT_MAX_REQUESTS = 5
+const requestStore = new Map<string, { count: number; resetAt: number }>()
+
+function isValidEmail(email: string) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+  return emailRegex.test(email)
+}
+
+function escapeHtml(value: string) {
+  return value
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;")
+}
+
+function getClientIp(request: Request) {
+  const forwarded = request.headers.get("x-forwarded-for")
+  if (forwarded) {
+    return forwarded.split(",")[0]?.trim() || "unknown"
+  }
+
+  return request.headers.get("x-real-ip") || "unknown"
+}
+
+function isRateLimited(ip: string) {
+  const now = Date.now()
+  const current = requestStore.get(ip)
+
+  if (!current || now > current.resetAt) {
+    requestStore.set(ip, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS })
+    return false
+  }
+
+  if (current.count >= RATE_LIMIT_MAX_REQUESTS) {
+    return true
+  }
+
+  requestStore.set(ip, { ...current, count: current.count + 1 })
+  return false
+}
+
 export async function POST(request: Request) {
   try {
-    const { name, email, message, sendConfirmation, website } = await request.json()
+    const ip = getClientIp(request)
+
+    if (isRateLimited(ip)) {
+      return NextResponse.json(
+        { error: "Too many requests. Please try again in a few minutes." },
+        { status: 429 },
+      )
+    }
+
+    const payload = await request.json()
+    const name = typeof payload.name === "string" ? payload.name.trim() : ""
+    const email = typeof payload.email === "string" ? payload.email.trim() : ""
+    const message = typeof payload.message === "string" ? payload.message.trim() : ""
+    const website = typeof payload.website === "string" ? payload.website.trim() : ""
+    const sendConfirmation = Boolean(payload.sendConfirmation)
 
     // Validate input
     if (!name || !email || !message) {
       return NextResponse.json({ error: "Name, email, and message are required" }, { status: 400 })
     }
 
+    if (!isValidEmail(email)) {
+      return NextResponse.json({ error: "Please provide a valid email address" }, { status: 400 })
+    }
+
+    if (name.length > 100) {
+      return NextResponse.json({ error: "Name is too long" }, { status: 400 })
+    }
+
+    if (message.length < 10 || message.length > 5000) {
+      return NextResponse.json({ error: "Message must be between 10 and 5000 characters" }, { status: 400 })
+    }
+
     // Honeypot spam protection
-    if (website && website.trim() !== "") {
+    if (website !== "") {
       console.log("Spam detected - honeypot field filled:", website)
       return NextResponse.json({ error: "Spam detected" }, { status: 400 })
     }
+
+    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+      console.error("Missing EMAIL_USER or EMAIL_PASS environment variable")
+      return NextResponse.json({ error: "Email service is not configured" }, { status: 500 })
+    }
+
+    const safeName = escapeHtml(name)
+    const safeEmail = escapeHtml(email)
+    const safeMessage = escapeHtml(message).replace(/\n/g, "<br>")
 
     // Create a transporter with simple username/password auth
     const transporter = nodemailer.createTransport({
@@ -40,11 +119,11 @@ Confirmation Email Requested: ${sendConfirmation ? "Yes" : "No"}
       html: `
 <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
   <h2 style="color: #333;">New Contact Form Submission</h2>
-  <p><strong>Name:</strong> ${name}</p>
-  <p><strong>Email:</strong> ${email}</p>
+  <p><strong>Name:</strong> ${safeName}</p>
+  <p><strong>Email:</strong> ${safeEmail}</p>
   <p><strong>Message:</strong></p>
   <div style="background-color: #f5f5f5; padding: 15px; border-radius: 5px;">
-    ${message.replace(/\n/g, "<br>")}
+    ${safeMessage}
   </div>
   <p><strong>Confirmation Email Requested:</strong> ${sendConfirmation ? "Yes" : "No"}</p>
   <p style="color: #777; margin-top: 20px; font-size: 12px;">
@@ -67,14 +146,14 @@ Confirmation Email Requested: ${sendConfirmation ? "Yes" : "No"}
 <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
   <h2 style="color: #333;">Thank you for reaching out!</h2>
   
-  <p>Hi ${name},</p>
+  <p>Hi ${safeName},</p>
   
   <p>Thank you for contacting me through my portfolio website. I've received your message and will get back to you as soon as possible.</p>
   
   <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #007bff;">
     <h3 style="margin-top: 0; color: #333;">Your Message Details:</h3>
-    <p><strong>Name:</strong> ${name}</p>
-    <p><strong>Email:</strong> ${email}</p>
+    <p><strong>Name:</strong> ${safeName}</p>
+    <p><strong>Email:</strong> ${safeEmail}</p>
     <p><strong>Date Sent:</strong> ${new Date().toLocaleDateString("en-US", {
       timeZone: "Asia/Kuala_Lumpur",
       year: "numeric",
@@ -85,7 +164,7 @@ Confirmation Email Requested: ${sendConfirmation ? "Yes" : "No"}
     })} (My timezone, GMT +8)</p>
     <p><strong>Message:</strong></p>
     <div style="background-color: white; padding: 15px; border-radius: 5px; margin-top: 10px;">
-      ${message.replace(/\n/g, "<br>")}
+      ${safeMessage}
     </div>
   </div>
   
@@ -124,7 +203,6 @@ Confirmation Email Requested: ${sendConfirmation ? "Yes" : "No"}
     return NextResponse.json(
       {
         error: "Failed to send email",
-        details: error instanceof Error ? error.message : "Unknown error",
       },
       { status: 500 },
     )
