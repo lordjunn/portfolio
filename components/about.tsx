@@ -71,6 +71,7 @@ const skillCategories = {
       { name: "AutoCount", level: "Beginner", years: 0.5 },
       { name: "Zoho Bigin", level: "Novice", years: 0.3 },
       { name: "Railway", level: "Beginner", years: 0.3 },
+      { name: "Docker", level: "Beginner", years: 0.2 },
     ],
   },
 

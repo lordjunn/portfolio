@@ -609,7 +609,7 @@ export default function Work() {
                   {visibleProjects.map((project) => (
                     <div key={project.id} className="group">
                       <div
-                        className="flex items-center p-4 cursor-pointer hover:bg-muted/50 transition-colors"
+                        className="flex items-center p-4 cursor-pointer hover:bg-muted/50 transition-colors min-h-24"
                         onClick={() => toggleExpand(project.id)}
                       >
                         <div className="flex items-center gap-4 flex-1">
@@ -742,7 +742,7 @@ export default function Work() {
                 {filteredCertificates.map((cert) => (
                   <div key={cert.id} className="group">
                     <div
-                      className="flex items-center p-4 cursor-pointer hover:bg-muted/50 transition-colors"
+                      className="flex items-center p-4 cursor-pointer hover:bg-muted/50 transition-colors min-h-24"
                       onClick={() => toggleExpandCert(cert.id)}
                     >
                       <div className="flex items-center gap-4 flex-1">
@@ -821,7 +821,7 @@ export default function Work() {
                   {visibleExperiences.map((exp) => (
                     <div key={exp.id} className="group">
                       <div
-                        className="flex items-center gap-4 p-4 cursor-pointer hover:bg-muted/50 transition-colors"
+                        className="flex items-center gap-4 p-4 cursor-pointer hover:bg-muted/50 transition-colors min-h-24"
                         onClick={() => toggleExpandExp(exp.id)}
                       >
                         <div className="relative w-16 h-16 rounded-md overflow-hidden flex-shrink-0 bg-muted flex items-center justify-center">
