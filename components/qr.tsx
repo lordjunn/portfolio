@@ -20,12 +20,12 @@ export default function QR({
           rel="noopener noreferrer"
           className="flex flex-col items-center"
         >
+          <h3 className="text-sm font-medium mb-2">Portfolio</h3>
           <img
             src="/qr-portfolio.png"
             alt="QR code linking to portfolio"
             className="w-40 h-40 sm:w-48 sm:h-48 object-contain"
           />
-          <span className="text-sm mt-2">Portfolio</span>
         </a>
 
         <a
@@ -34,12 +34,12 @@ export default function QR({
           rel="noopener noreferrer"
           className="flex flex-col items-center"
         >
+          <h3 className="text-sm font-medium mb-2">Resume</h3>
           <img
             src="/qr-resume.png"
             alt="QR code linking to resume"
             className="w-40 h-40 sm:w-48 sm:h-48 object-contain"
           />
-          <span className="text-sm mt-2">Resume</span>
         </a>
       </div>
 
