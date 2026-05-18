@@ -11,7 +11,7 @@ export default function QR({
 }: Props) {
   return (
     <section className="max-w-4xl mx-auto p-6">
-      <h1 className="text-2xl font-semibold mb-4 text-center">Quick access — scan to open</h1>
+      <h1 className="text-2xl font-semibold mb-4 text-center text-foreground">Quick access — scan to open</h1>
 
       <div className="flex flex-col sm:flex-row gap-6 items-center justify-center">
         <a
@@ -20,7 +20,7 @@ export default function QR({
           rel="noopener noreferrer"
           className="flex flex-col items-center"
         >
-          <h3 className="text-sm font-medium mb-2">Portfolio</h3>
+          <h3 className="text-sm font-medium mb-2 text-foreground">Portfolio</h3>
           <img
             src="/qr-portfolio.png"
             alt="QR code linking to portfolio"
@@ -34,7 +34,7 @@ export default function QR({
           rel="noopener noreferrer"
           className="flex flex-col items-center"
         >
-          <h3 className="text-sm font-medium mb-2">Resume</h3>
+          <h3 className="text-sm font-medium mb-2 text-foreground">Resume</h3>
           <img
             src="/qr-resume.png"
             alt="QR code linking to resume"
@@ -43,7 +43,7 @@ export default function QR({
         </a>
       </div>
 
-      <p className="text-xs text-center mt-4">
+      <p className="text-sm text-center mt-4 text-muted-foreground">
         Tip: open this page on your device and let recruiters scan from your phone or tablet.
       </p>
     </section>

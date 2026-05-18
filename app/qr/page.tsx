@@ -3,7 +3,7 @@ import QR from '../../components/qr'
 
 export default function QRPage() {
   return (
-    <main className="min-h-screen flex items-center justify-center bg-white">
+    <main className="min-h-screen flex items-center justify-center">
       <QR portfolioUrl="https://junn-portfolio.vercel.app" resumeUrl="/resume.pdf" />
     </main>
   )
