@@ -4,6 +4,7 @@ import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import { Toaster } from "@/components/ui/toaster"
 import type { Metadata } from "next"
+import { socialLinks } from "@/lib/social-links"
 import "./globals.css"
 import "./highlight.css" // Import highlight.js CSS
 
@@ -64,7 +65,7 @@ const structuredData = {
       name: "Junn Kit",
       url: siteUrl,
       jobTitle: "Software Engineer",
-      sameAs: ["https://github.com/LordJunn/", "https://www.linkedin.com/in/junn-kit-735485245/"],
+      sameAs: [socialLinks.github, socialLinks.linkedin],
     },
     {
       "@type": "WebSite",
