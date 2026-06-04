@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { Github, Linkedin, Mail } from "lucide-react"
 import { useState, useEffect, useRef } from "react"
+import { socialLinks } from "@/lib/social-links"
 
 export default function Hero() {
   const [greeting, setGreeting] = useState("Hello")
@@ -89,15 +90,15 @@ export default function Hero() {
           </Link>
         </div>
         <div className="flex items-center gap-4 mt-4">
-          <Link href="https://github.com/LordJunn/" target="_blank" rel="noopener noreferrer">
+          <Link href={socialLinks.github} target="_blank" rel="noopener noreferrer">
             <Github className="h-5 w-5 hover:text-primary transition-colors" />
             <span className="sr-only">GitHub</span>
           </Link>
-          <Link href="https://www.linkedin.com/in/junn-kit-735485245/" target="_blank" rel="noopener noreferrer">
+          <Link href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer">
             <Linkedin className="h-5 w-5 hover:text-primary transition-colors" />
             <span className="sr-only">LinkedIn</span>
           </Link>
-          <Link href="mailto:ljunnkit5@gmail.com" target="_blank" rel="noopener noreferrer">
+          <Link href={socialLinks.email} target="_blank" rel="noopener noreferrer">
             <Mail className="h-5 w-5 hover:text-primary transition-colors" />
             <span className="sr-only">Email</span>
           </Link>
