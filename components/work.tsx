@@ -12,6 +12,7 @@ import {
   ChevronRightIcon,
   Award,
   Users,
+  PlayCircle,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
@@ -25,6 +26,7 @@ interface Project {
   projectType: string[] // Project type tags (solo, team, university, etc.)
   github?: string
   website?: string
+  youtubeDemo?: string
 }
 
 interface Certificate {
@@ -101,9 +103,9 @@ const projects: Project[] = [
     title: "Webstack Trio",
     description: `Built a mini-project hub that consolidates interactive games and utility tools in one place.
 
-      The platform includes browser games (Tic-Tac-Toe, Maze, 2048 variant, Tower Defense, Wordle-style game, Snake) and practical utilities (scientific calculator, music player, multi-currency converter).
+    The platform includes browser games (Tic-Tac-Toe, Maze, 2048 variant, Tower Defense, Wordle-style game, Snake) and practical utilities (scientific calculator, music player, multi-currency converter).
 
-      This project highlights front-end experimentation, UI state handling, and rapid feature delivery across many small products.`,
+    This project highlights front-end experimentation, UI state handling, and rapid feature delivery across many small products.`,
     image: "/Work/Trio.png",
     tags: ["HTML", "CSS", "JavaScript", "APIs"],
     projectType: ["Solo", "Personal"],
@@ -128,7 +130,8 @@ const projects: Project[] = [
     id: 5,
     title: "Introduction to Italy",
     description:
-      "Led a 4-person team to build an informational tourism website covering Italy's attractions, transportation, and food culture. This project strengthened my collaboration, planning, and delivery skills in a team setting.",
+    `Led a 4-person team to build an informational tourism website covering Italy's attractions, transportation, and food culture. 
+    This project strengthened my collaboration, planning, and delivery skills in a team setting.`,
     image: "/Work/Italy.png",
     tags: ["HTML", "CSS"],
     projectType: ["Team Lead", "University"],
@@ -286,7 +289,69 @@ const projects: Project[] = [
     projectType: ["Solo", "Personal"],
     // github: "", // replace with your actual repo
     website: "https://lordjunn.github.io/Discord-Bots/", 
-  }
+  },
+  {
+    id: 19,
+    title: "Maintenance Quote Status Report Generator",
+    description: `Developed a Python-based reporting platform that generated real-time quote status reports from SQL Server data through configurable filtering, grouping, and HTML/Excel rendering workflows.
+    Built a GUI-driven reporting interface using Tkinter, allowing non-technical users to generate customized operational reports without manually modifying SQL queries.
+    Designed dynamic SQL filtering pipelines supporting customer, agent, product, status, and date-based filtering with grouped summarization using pandas.
+    Implemented HTML report templating with Jinja2 and automated Excel generation workflows to produce structured, browser-friendly operational reports for internal stakeholders.
+    Extended the reporting workflow through Power BI DirectQuery integration, enabling live dashboards, KPI tracking, trend analysis, and interactive analytics without requiring scheduled exports.`,
+    image: "",
+    tags: ["Python", "SQL", "Pandas", "Jinja2", "Tkinter", "Power BI"],
+    projectType: ["Internship"],
+    github: "",
+    website: "",
+  },
+  {
+    id: 20,
+    title: "MDEC Digitalisation Automation Report",
+    description: `Developed a Python-based automation system for generating monthly digitalisation reports by replacing repetitive browser lookups and spreadsheet workflows with a configurable data processing pipeline.
+    Built Selenium-driven automation flows with retry handling, fallback lookup logic, structured logging, and reusable historical datasets to improve workflow reliability and reduce repetitive processing effort.
+    Implemented configurable JSON-driven workflows, enabling non-technical staff to generate standardized Excel reports without modifying source code.
+    Integrated supplemental API and SQL-based enrichment pipelines to improve customer data completeness and reduce manual validation effort.
+    Packaged the application into a standalone executable using PyInstaller and conducted onboarding sessions for operational staff to support cross-team adoption.`,
+    image: "https://www.mdec.my/static/logo/mdec-logo.png",
+    tags: ["Python", "Selenium", "Excel", "Automation", "Data Processing"],
+    projectType: ["Internship"],
+    github: "",
+    website: "",
+  },
+  {
+    id: 21,
+    title: "Bigin Zoho Exporter",
+    description: `Built a CRM data extraction and reporting utility integrating with the Zoho Bigin API to retrieve, filter, and transform deal records across pipelines, stages, agents, and date ranges.
+    Designed an interactive desktop interface for configurable CSV export workflows to support internal reporting and operational analysis tasks.`,
+    image: "https://flow-in-public.nimbuspop.com/flow-apps/bigin_by_zoho_crm.png",
+    tags: ["Python", "Zoho Bigin API", "CSV", "Tkinter", "Automation"],
+    projectType: ["Internship"],
+    github: "",
+    website: "",
+  },
+  {
+    id: 22,
+    title: "BillPlz",
+    description: `Developed a C# WinForms payment integration client for creating invoices, generating payment links, and monitoring transaction status through the Billplz API.
+    Implemented a lightweight local webhook listener with event logging to handle asynchronous payment callbacks and transaction status updates for operational tracking.`,
+    image: "https://make-cxp-documentation.ams3.digitaloceanspaces.com/apps-center-icons/billplz.png",
+    tags: ["C#", "WinForms", "Billplz API", "Payments", "Webhook"],
+    projectType: ["Internship"],
+    github: "",
+    website: "",
+  },
+  {
+    id: 23,
+    title: "Database Migration Utility",
+    description: `Developed a C# WinForms utility for synchronizing MySQL tables across database environments using configurable XML-based connection settings.
+    Implemented automatic table creation, row migration, duplicate-key update handling, and datetime normalization to support reliable cross-database synchronization workflows.
+    Reduced repetitive manual migration work and minimized common data transfer inconsistencies during operational database updates.`,
+    image: "",
+    tags: ["C#", "WinForms", "MySQL", "Data Migration"],
+    projectType: ["Internship"],
+    github: "",
+    website: "",
+  },
 ]
 
 // New certificates array
@@ -305,7 +370,7 @@ const projects: Project[] = [
 const certificates: Certificate[] = [
   {
     id: 1,
-    title: "CCNA: Introduction to Networks",
+    title: "Cisco Networking Academy — CCNA: Introduction to Networks (Course Completion)",
     issuer: "Cisco Networking Academy",
     date: "March 2025",
     description: `
@@ -316,6 +381,18 @@ const certificates: Certificate[] = [
     `,
     image: "https://1000logos.net/wp-content/uploads/2016/11/Cisco-logo.png",
     credential: "https://www.netacad.com/certificates?issuanceId=319adae7-9228-4d64-99b0-4870daa58b8b",
+  },
+  {
+    id: 2,
+    title: "Huawei ICT Academy — HCIA-AI V4.0 Course Completion",
+    issuer: "Huawei ICT Academy",
+    date: "January 2026",
+    description: `
+    Completed HCIA-AI V4.0 training under Huawei ICT Academy, covering foundational AI concepts and machine learning fundamentals as part of the structured ICT Academy program.
+    Part of "Machine Learning" course in my university curriculum (added in halfway).
+    `,
+    image: "",
+    credential: "",
   },
 ]
 
@@ -660,6 +737,24 @@ export default function Work() {
                               <a href={project.website} target="_blank" rel="noopener noreferrer">
                                 <ExternalLink className="h-4 w-4" />
                                 <span className="sr-only">Live website</span>
+                              </a>
+                            </Button>
+                          )}
+                          {project.youtubeDemo && (
+                            <Button
+                              variant="ghost"
+                              size="icon"
+                              asChild
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              <a
+                                href={project.youtubeDemo}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                title="Watch Demo"
+                              >
+                                <PlayCircle className="h-4 w-4 text-red-500" />
+                                <span className="sr-only">Watch Demo</span>
                               </a>
                             </Button>
                           )}

@@ -10,7 +10,7 @@ keywords: "Next.js, React, Web Development"
 author:
   authorname: Lord Junn
   authorimage: >-
-    https://cdn.discordapp.com/avatars/294784896579403777/fffbe8d9591126d66f8a3b57da81e26a.png?size=4096
+    /ProfilePictures/Ebisuzawa.png
 readingtime: 5
 ---
 
