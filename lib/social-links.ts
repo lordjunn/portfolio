@@ -5,9 +5,10 @@ export const socialLinks = {
   github: "https://github.com/LordJunn/",
   linkedin: "https://www.linkedin.com/in/junn-kit-735485245/",
   email: "mailto:ljunnkit5@gmail.com",
+  portfolio: "https://junn-portfolio.vercel.app",
 } as const
 
 export type SocialLinks = typeof socialLinks
 
 // Footer metadata - update this whenever making significant changes to the site
-export const lastUpdated = "8th June, 2026"
+export const lastUpdated = "11th June, 2026"
