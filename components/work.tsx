@@ -916,7 +916,7 @@ export default function Work() {
                   {visibleExperiences.map((exp) => (
                     <div key={exp.id} className="group">
                       <div
-                        className="flex items-center gap-4 p-4 cursor-pointer hover:bg-muted/50 transition-colors min-h-24 max-h-24 overflow-hidden"
+                        className="flex items-center gap-4 p-4 cursor-pointer hover:bg-muted/50 transition-colors min-h-[116px]"
                         onClick={() => toggleExpandExp(exp.id)}
                       >
                         <div className="relative w-16 h-16 rounded-md overflow-hidden flex-shrink-0 bg-muted flex items-center justify-center">
@@ -931,12 +931,25 @@ export default function Work() {
                             <Users className="h-8 w-8 text-muted-foreground" />
                           )}
                         </div>
+
                         <div className="flex-1 min-w-0">
-                          <h3 className="font-medium text-lg">{exp.title}</h3>
-                          {exp.organization && <p className="text-muted-foreground text-sm mt-1">{exp.organization}</p>}
-                          {exp.role && <p className="text-muted-foreground text-sm mt-1">{exp.role}</p>}
-                          <p className="text-muted-foreground text-sm mt-1">{exp.period}</p>
+                          <h3 className="font-medium text-lg line-clamp-1">
+                            {exp.title}
+                          </h3>
+
+                        <div className="text-sm text-muted-foreground space-y-0.5">
+                          {exp.organization && (
+                            <p className="line-clamp-1">{exp.organization}</p>
+                          )}
+
+                          {exp.role && (
+                            <p className="line-clamp-1">{exp.role}</p>
+                          )}
+
+                          <p className="line-clamp-1">{exp.period}</p>
                         </div>
+                        </div>
+
                         <div className="flex items-center">
                           {expandedExpId === exp.id ? (
                             <ChevronDown className="h-4 w-4 text-muted-foreground" />
