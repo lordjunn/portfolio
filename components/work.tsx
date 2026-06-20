@@ -916,7 +916,7 @@ export default function Work() {
                   {visibleExperiences.map((exp) => (
                     <div key={exp.id} className="group">
                       <div
-                        className="flex items-center gap-4 p-4 cursor-pointer hover:bg-muted/50 transition-colors min-h-[116px]"
+                        className="flex items-center gap-4 p-4 cursor-pointer hover:bg-muted/50 transition-colors h-[116px] overflow-hidden"
                         onClick={() => toggleExpandExp(exp.id)}
                       >
                         <div className="relative w-16 h-16 rounded-md overflow-hidden flex-shrink-0 bg-muted flex items-center justify-center">
@@ -933,11 +933,11 @@ export default function Work() {
                         </div>
 
                         <div className="flex-1 min-w-0">
-                          <h3 className="font-medium text-lg line-clamp-1">
-                            {exp.title}
-                          </h3>
+                        <h3 className="font-medium text-lg line-clamp-1">
+                          {exp.title}
+                        </h3>
 
-                        <div className="text-sm text-muted-foreground space-y-0.5">
+                        <div className="text-sm text-muted-foreground">
                           {exp.organization && (
                             <p className="line-clamp-1">{exp.organization}</p>
                           )}
