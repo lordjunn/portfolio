@@ -352,6 +352,30 @@ const projects: Project[] = [
     github: "",
     website: "",
   },
+  {
+    id: 24,
+    title: "Student Wellbeing Assessment App",
+    description: `Developed a machine learning-powered student wellbeing assessment platform as my Final Year Project (FYP) using clinically validated PHQ-9 and GAD-7 questionnaires.
+
+    Built and evaluated an ensemble of up to 12 classification models including Random Forest, XGBoost, LightGBM, CatBoost, SVM, Logistic Regression, and Stacking ensembles to predict student wellbeing outcomes.
+
+    Implemented SHAP explainability to visualize prediction factors, integrated Supabase-backed analytics and feedback systems, and developed an admin dashboard for aggregated reporting.
+
+    Added PDF/TXT report generation, assessment history tracking, counselling resources, Docker deployment support, and automated testing workflows to create a complete end-to-end application.`,
+    image: "/Work/Wellbeing.png",
+    tags: [
+      "Python",
+      "Streamlit",
+      "Machine Learning",
+      "SHAP",
+      "Supabase",
+      "Docker",
+      "Scikit-learn"
+    ],
+    projectType: ["Solo", "FYP"],
+    github: "",
+    website: "https://wellbeing-assessment-app.streamlit.app/"
+  },
 ]
 
 // New certificates array
