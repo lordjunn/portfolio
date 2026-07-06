@@ -7,7 +7,7 @@ preview: >-
     During my internship at Presoft, I expected to spend most of my time fixing bugs or writing small scripts.
     Instead, I ended up working on payment systems, reporting tools, database utilities, Power BI dashboards and automation projects.
 image: >-
-    https://images.unsplash.com/photo-1516321318423-f06f85e504b3
+    /Blogs/Presoft.png
 keywords: "Internship, Software Engineering, Python, C#, Automation, Power BI"
 author:
     authorname: Lord Junn
