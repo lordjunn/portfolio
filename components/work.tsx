@@ -281,14 +281,13 @@ const projects: Project[] = [
   {
     id: 18,
     title: "Discord Utility Bot",
-    description: `Developed and deployed a modular Discord bot for automation, analytics, and real-time utility features.
-    Includes latency checks, emote analytics with Supabase JSONB caching, message mirroring, scraping tools, and a reminder system with snooze controls.
-    Built with discord.py and Supabase (PostgreSQL), then deployed on Railway with dedicated docs for usage.`,
-    image: "https://static.vecteezy.com/system/resources/previews/006/892/625/non_2x/discord-logo-icon-editorial-free-vector.jpg", // change if you have a better image
-    tags: ["Python", "discord.py", "Supabase", "PostgreSQL", "Railway"],
+    description: `A modular Discord bot built with discord.py, featuring reminders, GitHub tracking, scraping utilities, emote analytics, connection monitoring, and configurable feature flags.
+    Includes latency checks, emote analytics with Supabase JSONB caching, message mirroring, scraping tools, and a reminder system with snooze controls. 
+    Powered by Supabase (PostgreSQL) for persistent storage and optimised to run comfortably within an 80 MB RAM footprint on low-resource hosts.`,
+    image: "https://static.vecteezy.com/system/resources/previews/006/892/625/non_2x/discord-logo-icon-editorial-free-vector.jpg",
+    tags: ["Python", "discord.py", "Supabase", "PostgreSQL", "Railway", "Bot Hosting"],
     projectType: ["Solo", "Personal"],
-    // github: "", // replace with your actual repo
-    website: "https://lordjunn.github.io/Discord-Bots/", 
+    website: "https://lordjunn.github.io/Discord-Bots/",
   },
   {
     id: 19,
@@ -363,15 +362,7 @@ const projects: Project[] = [
 
     Added PDF/TXT report generation, assessment history tracking, counselling resources, Docker deployment support, and automated testing workflows to create a complete end-to-end application.`,
     image: "/Work/Wellbeing.png",
-    tags: [
-      "Python",
-      "Streamlit",
-      "Machine Learning",
-      "SHAP",
-      "Supabase",
-      "Docker",
-      "Scikit-learn"
-    ],
+    tags: ["Python", "Streamlit", "Machine Learning", "SHAP", "Supabase", "Docker", "Scikit-learn"],
     projectType: ["Solo", "FYP"],
     github: "",
     website: "https://wellbeing-assessment-app.streamlit.app/"

@@ -11,4 +11,4 @@ export const socialLinks = {
 export type SocialLinks = typeof socialLinks
 
 // Footer metadata - update this whenever making significant changes to the site
-export const lastUpdated = "6th July, 2026"
+export const lastUpdated = "13th July, 2026"
