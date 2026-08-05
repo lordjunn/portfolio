@@ -171,7 +171,7 @@ Confirmation Email Requested: ${sendConfirmation ? "Yes" : "No"}
   <p>I typically respond within 24-48 hours. If your inquiry is urgent, please feel free to reach out through my social media profiles.</p>
   
   <p>Best regards,<br>
-  <strong>Lord Junn :)</strong></p>
+  <strong>Low Junn Kit</strong></p>
   
   <hr style="border: none; border-top: 1px solid #eee; margin: 30px 0;">
   

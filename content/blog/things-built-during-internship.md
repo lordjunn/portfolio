@@ -1,290 +1,457 @@
 ---
-
-date: '2026-06-21T10:35:00.000Z'
-title: Things I Built During My Software Engineering Internship
-tagline: From payment gateways to reporting systems and automation tools
+date: '2026-07-20T18:24:00.000Z'
+title: What I Actually Did During My Software Engineering Internship
+tagline: Three months of building internal tools, automating workflows, and learning how software gets made
 preview: >-
-    During my internship at Presoft, I expected to spend most of my time fixing bugs or writing small scripts.
-    Instead, I ended up working on payment systems, reporting tools, database utilities, Power BI dashboards and automation projects.
+    I expected to spend my internship fixing bugs and making small features.
+    Instead, I ended up building automation tools, report generators,
+    Power BI dashboards and integrations that are still used internally.
 image: >-
     /Blogs/Presoft.png
-keywords: "Internship, Software Engineering, Python, C#, Automation, Power BI"
+keywords: "Internship, Software Engineering, Python, C#, SQL, Power BI"
 author:
     authorname: Lord Junn
     authorimage: >-
         /ProfilePictures/Mutsumi.png
-readingtime: 10
----------------
+readingtime: 12
+---
 
-# Things I Built During My Software Engineering Internship
+# What I Actually Did During My Internship
 
-When most students imagine an internship, they think about shadowing employees, fixing minor bugs, or handling documentation.
+When I accepted my internship at Presoft, I expected something fairly typical.
+The offer letter listed my role as:
 
-My experience was quite different.
+- System Support
+- Web Designer
+- Web Developer
+- Digital Marketing
 
-During my three months at Presoft, I was given the opportunity to work on a variety of real-world projects ranging from payment gateway integrations to reporting systems and automation tools.
+Looking at that list, my first thought was...
 
-Some projects were small utilities.
+> "There's no way they're expecting the intern to do *all* of that..."
 
-Others became tools that were eventually used by internal staff.
+Turns out...
 
-Here are some of the projects I worked on and what I learned from them.
+...they kind of were.
+
+Going into the internship, I imagined it'd be something like this.
+
+Maybe I'd fix a few bugs.
+Maybe I'd implement a couple of small features.
+Maybe I'd spend three months reading someone else's code.
+Or, in the rare scenario...
+...become the office barista.
+
+Instead, every few weeks I was handed something completely different.
+
+By the end of the internship, I'd worked on payment gateways, reporting systems, automation software, database tools, Power BI dashboards, API integrations, and even trained staff to use software I'd written.
+
+Looking back, here's how the internship unfolded.
 
 ---
 
-## 1. Evaluating Payment Gateways
+## Week 1 — "Research Some Payment Gateways."
 
-One of my earliest tasks involved researching payment gateways for potential company integration.
+My very first task sounded simple.
 
-At first, I assumed this would simply involve comparing prices.
+> Compare some payment gateways.
 
-Instead, I quickly learned that selecting a payment gateway involves much more than transaction fees.
+I thought this meant comparing transaction fees.
 
-I evaluated providers such as:
+It wasn't.
 
-* Billplz
-* Stripe
-* iPay88
-* Fiuu
-* SenangPay
-* eGHL
+I spent the week researching APIs, settlement times, FPX support, documentation quality, sandbox environments, and plugin compatibility.
 
-The evaluation included:
+The list eventually grew to include:
 
-* FPX support
-* API quality
-* Documentation
-* Sandbox environments
-* Transaction costs
-* Ease of implementation
+- Stripe
+- Billplz
+- iPay88
+- eGHL
+- SenangPay
+- Fiuu
+- Razorpay
+- Curlec
+- Boost
+- PayEx
 
-To better understand each platform, I built test integrations using both Python Flask and C# WinForms.
+After presenting my findings, my supervisor simply said,
 
-This was my first exposure to how businesses evaluate third-party services before committing to them.
+> "Can you get more information?"
 
-The biggest lesson was that good documentation can save hundreds of development hours.
+So I started emailing payment providers directly. This was also my first time cold-emailing companies to ask for information directly. Prior to this I just took whatever I could gather from the internet.
 
----
+That was my first lesson:
 
-## 2. Testing an AutoCount Plugin
+> Sometimes Google doesn't have all the answers.
 
-Many students expect internships to focus entirely on development.
-
-One of my projects focused almost entirely on testing.
-
-I was tasked with creating test cases for an AutoCount plugin developed internally.
-
-Initially, there was almost no documentation available.
-
-This forced me to approach the software like an actual end user.
-
-I had to:
-
-* Understand expected behaviour
-* Create test plans
-* Identify bugs
-* Document reproduction steps
-* Communicate findings with developers
-
-One unexpected contribution was creating a README file for the project.
-
-While it seemed like a small task, it eventually became one of the most useful resources for future testing and maintenance.
-
-This project taught me that software quality is not only about writing code.
-
-Documentation and testing are equally important.
+With that in mind, this gave me more self confidence to do more cold emails.
 
 ---
 
-## 3. Building a MySQL Database Copier
+## Week 2 — My First Real Development Task
 
-One request from a client involved copying specific tables between databases.
+Next came something much more technical.
 
-The existing process required manual SQL operations and technical knowledge.
+I was asked to build a utility that copied MySQL tables between databases.
 
-To simplify this, I developed a C# WinForms utility that allowed users to:
+It sounded like a two-day task. It wasn't.
 
-* Connect to a MySQL server
-* Select source databases
-* Select destination databases
-* Clone selected tables
+I spent days learning:
 
-The first version required users to type table names manually.
+- MySQL Workbench
+- C#
+- WinForms
+- Database connections
+- Database schema differences
 
-After receiving feedback, I redesigned the interface using checkboxes.
+Eventually it worked.
 
-A small change, but it significantly improved usability.
+Then people started testing it.
 
-This project reinforced a lesson I would encounter repeatedly throughout the internship:
+Then I discovered something important.
 
-Users rarely care about how clever the code is.
+Making software work is only half the job.
 
-They care about how easy the software is to use.
-
----
-
-## 4. Improving a Legacy Integration System
-
-One of the more challenging projects involved improving an existing integration between EMAS and AutoCount.
-
-The integration connected a legacy FoxPro-based system with a modern SQL Server environment.
-
-Several issues already existed:
-
-* User inputs disappearing
-* Database switching problems
-* Unstable connections
-* Missing table handling
-
-Rather than building something from scratch, I had to understand existing code written by someone else.
-
-This was considerably harder.
-
-I added:
-
-* Better validation
-* Fallback logic
-* Improved connection handling
-* More stable configuration persistence
-
-The project taught me an important industry reality:
-
-Maintaining software is often harder than creating new software.
+Making it usable is the other half.
 
 ---
 
-## 5. Automating MDEC Reports
+## Week 3–4 — Reading Someone Else's Code
 
-One of the most impactful projects was building a report automation tool.
+I was then given an existing integration project between EMAS and AutoCount.
 
-Previously, staff manually searched for company information, copied data between websites and Excel files, and prepared monthly reports.
+Unlike university assignments...
 
-I developed a Python-based solution using:
+There wasn't a nice specification.
+There wasn't a clean architecture.
+There wasn't documentation.
+There wasn't even a README.
 
-* Selenium
-* Pandas
-* OpenPyXL
-* JSON configuration files
+There was just code.
+Lots of it.
 
-The tool automatically:
+Over the next two weeks I gradually improved:
 
-* Collected company information
-* Reused historical data
-* Filled report fields
-* Generated formatted Excel files
+- Connection handling
+- Input validation
+- Configuration persistence
+- Fallback database logic
+- User interface behaviour
 
-To make deployment easier, I packaged everything into a standalone executable.
+I also helped test an AutoCount plugin, wrote test plans, reported bugs, and learned how quality assurance fits into a software development cycle.
+As with the integration project, there wasn't much documentation.
 
-This project showed me how much time can be saved through automation.
+No README.
+No testing guide.
+No example workflows.
 
-A process that previously required hours of repetitive work could now be completed in minutes.
+So I did what every developer eventually has to do.
 
----
+Click around.
+Break things.
+Figure out how it was *supposed* to work.
 
-## 6. Building a Quote Status Reporting Platform
+By the end of the testing phase, I ended up writing documentation of my own so future developers (or interns) wouldn't have to start from zero.
 
-My largest project during the internship was a quote reporting platform.
+One thing quickly became obvious.
 
-The goal was to allow staff to generate reports without writing SQL queries.
-
-The application was built using:
-
-* Python
-* Tkinter
-* SQL Server
-* Pandas
-* Jinja2
-* Power BI
-
-Users could filter reports by:
-
-* Customer
-* Agent
-* Product
-* Status
-* Date range
-
-The system would then:
-
-* Execute SQL queries
-* Process the data
-* Generate HTML reports
-* Generate Excel reports
-* Feed data into Power BI dashboards
-
-One of the most interesting challenges was translating business requirements into technical solutions.
-
-The difficult part was not writing SQL.
-
-The difficult part was understanding what information users actually needed.
+Maintaining existing software is often harder than writing something from scratch, especially if it does not have any prior documentation.
 
 ---
 
-## 7. Working With APIs
+## Week 5 — "Can We Automate This Report?"
 
-Throughout the internship, I interacted with several APIs.
+This accidentally became my biggest project.
 
-Examples included:
+The company generated an MDEC digitalisation report every month.
 
-* Billplz
-* Stripe
-* Zoho Bigin
+The process involved:
 
-I learned how to:
+- Opening multiple Excel files
+- Searching company websites
+- Looking up information manually
+- Copying data into templates
+- Formatting everything before submission
 
-* Authenticate requests
-* Handle API responses
-* Process webhooks
-* Manage error conditions
-* Design data extraction workflows
+Naturally, my first thought was:
 
-Before this internship, most of my university projects focused on local data.
+> "Surely ChatGPT can just do this..."
 
-Working with real APIs exposed me to how modern software systems communicate with each other.
+So...
+
+I tried.
+
+It worked...
+
+...for about five minutes.
+
+Then reality kicked in.
+
+The report needed deterministic output.
+
+Every company had to end up in exactly the right column.
+
+Every month had to produce the same structure.
+
+Some companies were missed.
+
+Some fields were hallucinated.
+
+Some information simply couldn't be verified online, and messaging individual companies for their details is... "why are you asking me for these information" (proceeds to cut deals with my company).
+
+Great for brainstorming.
+
+Not so great when someone has to submit the report to MDEC.
+
+So I went back to doing what programmers do best.
+
+Automate it properly.
+
+Version 1 was basically:
+
+- Selenium
+- Pandas
+- Excel generation
+
+Nothing fancy.
+
+Just enough to prove the idea worked.
+
+Then every presentation went roughly like this.
+
+> "Looks good."
+
+*"...can we also make it do this?"*
+
+Which, translated into developer language, means:
+
+> "Congratulations. Version 2 starts tomorrow."
 
 ---
 
-## What Surprised Me Most
+## Week 6–8 — The Project Kept Growing
 
-Before starting my internship, I assumed software development was mostly about programming.
+Originally, every company was scraped from the web.
 
-In reality, programming was only one part of the job.
+Then someone handed me a folder containing several previous Excel reports.
 
-A significant amount of time was spent on:
+My immediate reaction was...
 
-* Research
-* Communication
-* Debugging
-* Testing
-* Documentation
-* Requirement gathering
+> "...why am I scraping the internet if we've literally done this before?"
 
-Many projects succeeded not because of complicated algorithms, but because the requirements were understood correctly.
+So Version 2 stopped assuming every company was brand new.
+
+Instead it worked like this:
+
+1. Search historical reports.
+2. Reuse existing information.
+3. Only scrape the web if the company couldn't be found.
+
+That single idea made the tool noticeably faster.
+
+After that I kept asking myself the same question.
+
+> "What's another repetitive thing the admin team has to do?"
+
+That led to:
+
+- Automatic state matching
+- Industry sector matching
+- Digitalisation area matching
+- Configuration files
+- Standalone executable packaging
+
+Every week I removed another small piece of manual work.
+
+By the end, the application wasn't just scraping websites anymore.
+
+It had become an actual reporting pipeline.
+
+---
+
+## Week 9–10 — Finally, Database Access
+
+Just when I thought I was done...
+
+I finally received access to the company's internal database.
+
+At that point I had one thought.
+
+> "Wait... I don't need to scrape this anymore."
+
+So Version 3 was born.
+
+Instead of hunting for missing contact information online, the program could retrieve it directly using SQL queries and APIs.
+
+The workflow eventually became:
+
+```text
+Raw Excel File
+      │
+      ▼
+Historical Reports
+      │
+      ▼
+Internal Database
+      │
+      ▼
+API Lookup
+      │
+      ▼
+Website Scraping (only if everything else failed)
+      │
+      ▼
+Formatted Excel Report
+```
+
+By this point, web scraping had become the exception instead of the default.
+
+Watching the "Website Scraping" box slowly move further and further down the pipeline was oddly satisfying.
+Every optimisation meant one less thing that could fail.
+Less scraping meant fewer CAPTCHAs, fewer broken websites, and faster report generation.
+
+Good software, in my opinion, is the software that does *less* work over time.
+
+Even better, before my internship ended, I got to demonstrate the software to the admin team and explain how everything worked.
+
+I may have gone into a little too much technical detail at times...
+
+Old habits die hard when you're a Computer Science student.
+
+---
+
+## Week 11–13 — Reports Everywhere
+
+Towards the end of my internship, I started another major project.
+
+This one focused on report generation rather than report automation.
+
+The goal was simple:
+
+> Allow staff to generate reports without writing SQL.
+
+I built a desktop application that could:
+
+- Connect to SQL Server
+- Execute parameterised queries
+- Apply user-selected filters
+- Generate HTML reports
+- Export Excel reports
+- Remember previous settings
+
+Later, I connected the same database to Power BI using DirectQuery so that management could access live dashboards without manually exporting data.
+
+One thing became increasingly clear.
+
+The SQL wasn't actually the hardest part.
+
+The meetings were.
+
+Every person seemed to have a slightly different idea of what a "useful report" looked like. Various higher ups asks for different versions of what they want from the report. Even putting everyone in the same meeting room didn't magically produce one agreed-upon report.
+Every meeting introduced another request.
+
+"Can we group it by agent?"
+"What about customer instead?"
+"Can we show totals?"
+"Can we hide totals?"
+At one point I realised I wasn't building one report.
+I was building a report generator.
+
+Writing the query was easy.
+
+Figuring out *which* query or style people actually wanted was the challenge.
+
+---
+
+## Along the Way...
+
+There were also plenty of smaller projects.
+
+During the internship I also:
+
+- Tested AutoCount plugins and documented bugs
+- Built API demonstrations for Stripe and Billplz
+- Worked with Zoho Bigin APIs
+- Developed Selenium automation tools
+- Generated Power BI dashboards
+- Compared Warehouse Management Systems
+- Participated in marketing meetings
+- Helped prepare presentation materials
+- Trained end users to use software I had developed
+
+No two weeks were ever the same.
+
+---
+
+## What Changed The Most
+
+Before starting the internship, I imagined software engineering looked something like this.
+
+```text
+Receive Task
+    │
+    ▼
+Write Code
+    │
+    ▼
+Finished
+```
+
+Three months later...
+
+It looked much more like this.
+
+```text
+Receive Vague Requirement
+          │
+          ▼
+Ask Questions
+          │
+          ▼
+Misunderstand Requirement
+          │
+          ▼
+Build Prototype
+          │
+          ▼
+Present Progress
+          │
+          ▼
+Requirement Changes
+          │
+          ▼
+Rewrite Half The Project
+          │
+          ▼
+Test Everything
+          │
+          ▼
+Fix Bugs
+          │
+          ▼
+Users Want Another Feature
+          │
+          ▼
+Repeat
+```
+
+And honestly...
+
+That's probably a much more accurate representation of real software engineering.
 
 ---
 
 ## Final Thoughts
 
-Looking back, the internship exposed me to far more technologies than I expected.
+Looking back, I didn't just learn C#, SQL Server, MySQL, Selenium, Power BI, REST APIs, or WinForms. Those are just tools.
 
-In three months, I worked with:
+I learned how software is actually developed inside a company, learning how requirements evolve.
 
-* Python
-* C#
-* WinForms
-* SQL Server
-* MySQL
-* Power BI
-* Selenium
-* REST APIs
-* HTML
-* CSS
-* Jinja2
+University teaches you how to build software.
 
-More importantly, I learned how software is actually developed inside a company.
+Industry teaches you why the software needs to exist in the first place.
 
-University teaches you how to write programs.
+Understanding the business problem turned out to be just as important as writing the code that solved it.
 
-Industry teaches you how to solve business problems.
-
-And those are often very different things.
+And that's probably the biggest lesson I took away from the internship.

@@ -367,7 +367,23 @@ const projects: Project[] = [
     github: "",
     website: "https://wellbeing-assessment-app.streamlit.app/"
   },
-]
+  {
+    id: 25,
+    title: "Food Expense Analytics Platform",
+    description: `Built a portfolio-grade internal business application with Laravel 12 to manage, import, and analyse several years of personal food spending data.
+
+    Designed a complete MVC architecture using Eloquent ORM, Blade, Bootstrap 5, MySQL, and Laravel Breeze authentication. Implemented CSV batch importing with transactional rollback, duplicate detection, search and filtering, executive KPI dashboards, Chart.js visualisations, and print-ready financial reports.
+
+    The project demonstrates production-oriented Laravel practices including Form Requests, Policies, Service classes, Eloquent relationships, soft deletes, file uploads, and clean controller architecture while solving a real-world data management problem.`,
+    image: "/Work/FoodExpenseAnalytics.png",
+    tags: [
+      "Laravel 12", "PHP", "MySQL", "Blade", "Bootstrap 5", "Eloquent ORM", "Chart.js"
+    ],
+    projectType: ["Solo", "Personal"],
+    // github: "https://github.com/LordJunn/food-expense-analytics",
+    website: "https://junnfoodanalytics.infinityfreeapp.com/"
+  }
+  ]
 
 // New certificates array
 /*
