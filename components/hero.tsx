@@ -5,6 +5,8 @@ import { Github, Linkedin, Mail } from "lucide-react"
 import { useState, useEffect, useRef } from "react"
 import { socialLinks } from "@/lib/social-links"
 
+import { ResumeModal } from "@/components/resume-modal"
+
 export default function Hero() {
   const [greeting, setGreeting] = useState("Hello")
   const greetings = ["Hello", "Halo", "哈喽"]
@@ -74,14 +76,14 @@ export default function Hero() {
           Computer Science student open to full-time Software Engineer / Data Scientist roles from Aug/Nov 2026.
         </p>
         <div className="flex flex-wrap items-center gap-3 mt-2">
-          <Link
-            href="/Resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground hover:opacity-90 transition-opacity"
-          >
-            View Resume
-          </Link>
+          <ResumeModal>
+            <button
+              type="button"
+              className="inline-flex items-center justify-center rounded-md bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground hover:opacity-90 transition-opacity"
+            >
+              View Resume
+            </button>
+          </ResumeModal>
           <Link
             href="/#work"
             className="inline-flex items-center justify-center rounded-md border px-5 py-2.5 text-sm font-medium hover:bg-muted transition-colors"

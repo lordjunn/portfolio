@@ -5,6 +5,7 @@ import { useState, useEffect } from "react"
 import { MoonIcon, SunIcon, Menu, X } from "lucide-react"
 import { useTheme } from "@/components/theme-provider"
 import { Button } from "@/components/ui/button"
+import { ResumeModal } from "@/components/resume-modal"
 
 export default function Navbar() {
   const { theme, setTheme } = useTheme()
@@ -59,14 +60,11 @@ export default function Navbar() {
           <Link href="/blog" className="text-sm font-medium hover:text-primary">
             Blog
           </Link>
-          <Link
-            href="/Resume.pdf"
-            className="text-sm font-medium hover:text-primary"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Resume
-          </Link>
+          <ResumeModal>
+            <button type="button" className="text-sm font-medium hover:text-primary transition-colors">
+              Resume
+            </button>
+          </ResumeModal>
           <Link href="/#contact" className="text-sm font-medium hover:text-primary">
             Contact
           </Link>
@@ -135,15 +133,15 @@ export default function Navbar() {
                 >
                   Blog
                 </Link>
-                <Link
-                  href="/Resume.pdf"
-                  className="text-lg font-medium py-3 px-2 hover:text-primary hover:bg-muted/50 rounded-md transition-colors"
-                  onClick={closeMobileMenu}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Resume
-                </Link>
+                <ResumeModal>
+                  <button
+                    type="button"
+                    className="text-lg font-medium py-3 px-2 text-left hover:text-primary hover:bg-muted/50 rounded-md transition-colors w-full"
+                    onClick={closeMobileMenu}
+                  >
+                    Resume
+                  </button>
+                </ResumeModal>
                 <Link
                   href="/#contact"
                   className="text-lg font-medium py-3 px-2 hover:text-primary hover:bg-muted/50 rounded-md transition-colors"

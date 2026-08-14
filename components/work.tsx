@@ -370,15 +370,13 @@ const projects: Project[] = [
   {
     id: 25,
     title: "Food Expense Analytics Platform",
-    description: `Built a portfolio-grade internal business application with Laravel 12 to manage, import, and analyse several years of personal food spending data.
+    description: `Engineered a production-grade personal financial analytics platform in Laravel 12 to process, visualize, and audit 4+ years of real-world food expenditure data (800+ transactions from 2022 to 2026).
 
-    Designed a complete MVC architecture using Eloquent ORM, Blade, Bootstrap 5, MySQL, and Laravel Breeze authentication. Implemented CSV batch importing with transactional rollback, duplicate detection, search and filtering, executive KPI dashboards, Chart.js visualisations, and print-ready financial reports.
+    Built an enterprise-level MVC & Service-Layer architecture featuring a Rolling 365-Day Continuous Gradient Heatmap Calendar with double-click transaction drill-downs, dynamic Chart.js dashboards, and an automated CSV batch import engine with 5-point duplicate resolution and DB::transaction() rollback safety. 
 
-    The project demonstrates production-oriented Laravel practices including Form Requests, Policies, Service classes, Eloquent relationships, soft deletes, file uploads, and clean controller architecture while solving a real-world data management problem.`,
+    Integrated a GitHub Actions CI/CD pipeline for automated zero-downtime FTP deployments, smart GitHub Pages raw CDN media resolution, MariaDB SQL optimization, and a role-based authorization model separating guest read-only portfolio views from administrative dataset management.`,
     image: "/Work/FoodExpenseAnalytics.png",
-    tags: [
-      "Laravel 12", "PHP", "MySQL", "Blade", "Bootstrap 5", "Eloquent ORM", "Chart.js"
-    ],
+    tags: ["Laravel 12", "PHP 8.3", "MySQL / MariaDB", "GitHub Actions", "CI/CD", "Blade", "Bootstrap 5", "Chart.js", "Eloquent ORM", "REST Architecture"],
     projectType: ["Solo", "Personal"],
     // github: "https://github.com/LordJunn/food-expense-analytics",
     website: "https://junnfoodanalytics.infinityfreeapp.com/"
