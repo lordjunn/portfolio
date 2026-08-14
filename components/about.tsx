@@ -152,7 +152,7 @@ export default function About() {
       <div className="grid md:grid-cols-2 gap-8 mb-8">
         <div>
           <p className="text-lg mb-4">
-            I am a Computer Science student who enjoys turning messy real-world workflows into clear, usable digital
+            I am a Computer Science graduate who enjoys turning messy real-world workflows into clear, usable digital
             products. My focus is building responsive, accessible applications that are fast, maintainable, and useful
             to actual users.
           </p>
@@ -162,7 +162,7 @@ export default function About() {
             design to APIs, data pipelines, and automation.
           </p>
           <p className="text-lg">
-            I am currently looking for full-time Software Engineer / Data Scientist opportunities starting Aug/Nov 2026, where I can
+            I am currently looking for full-time Software Engineer / Data Scientist opportunities (available immediately), where I can
             contribute quickly, learn from strong teams, and keep building products that create measurable impact.
           </p>
         </div>

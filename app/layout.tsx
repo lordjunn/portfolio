@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     template: "%s | Junn Kit",
   },
   description:
-    "Portfolio of Junn Kit, a Computer Science student building practical full-stack web products with Next.js, TypeScript, Python, and SQL.",
+    "Portfolio of Junn Kit, a Computer Science graduate building practical full-stack web products with Next.js, TypeScript, Python, and SQL.",
   keywords: [
     "Junn Kit",
     "Software Engineer",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     url: siteUrl,
     title: "Junn Kit | Software Engineer Portfolio",
     description:
-      "Computer Science student building practical products with modern web technologies and measurable impact.",
+      "Computer Science graduate building practical products with modern web technologies and measurable impact.",
     siteName: "Junn Kit Portfolio",
     images: [
       {
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Junn Kit | Software Engineer Portfolio",
     description:
-      "Computer Science student building practical products with modern web technologies and measurable impact.",
+      "Computer Science graduate building practical products with modern web technologies and measurable impact.",
     images: ["/ProfilePictures/ProfilePicture.jpg"],
   },
 }

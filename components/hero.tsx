@@ -73,7 +73,7 @@ export default function Hero() {
           full-stack tools with analytics, automation, and clean UX.
         </p>
         <p className="text-base md:text-lg text-muted-foreground max-w-3xl">
-          Computer Science student open to full-time Software Engineer / Data Scientist roles from Aug/Nov 2026.
+          Computer Science graduate open to full-time Software Engineer / Data Scientist roles (available immediately).
         </p>
         <div className="flex flex-wrap items-center gap-3 mt-2">
           <ResumeModal>
