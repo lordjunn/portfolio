@@ -1,0 +1,36 @@
+name: Auto-generate Resume PNG from PDF
+
+on:
+  push:
+    branches:
+      - main
+      - master
+    paths:
+      - 'public/Resume.pdf'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  convert-pdf-to-png:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install poppler-utils
+        run: sudo apt-get update && sudo apt-get install -y poppler-utils
+
+      - name: Convert Resume.pdf to Resume.png
+        run: |
+          pdftoppm -png -r 200 -singlefile public/Resume.pdf public/Resume
+
+      - name: Commit and push generated Resume.png
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore(resume): auto-generate Resume.png from Resume.pdf [skip ci]"
+          file_pattern: "public/Resume.png"

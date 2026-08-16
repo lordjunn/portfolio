@@ -2,7 +2,7 @@
 
 import React from "react"
 import Image from "next/image"
-import { Download, FileText } from "lucide-react"
+import { ExternalLink, FileText } from "lucide-react"
 import {
   Dialog,
   DialogContent,
@@ -31,14 +31,13 @@ export function ResumeModal({ children, open, onOpenChange }: ResumeModalProps) 
             <div>
               <DialogTitle className="text-base sm:text-lg font-semibold">Resume Preview</DialogTitle>
               <DialogDescription className="text-xs text-muted-foreground hidden sm:block">
-                View inline without forcing a download.
+                View inline or open PDF in a new tab.
               </DialogDescription>
             </div>
           </div>
           <div className="flex items-center gap-2 mr-2">
             <a
               href="/Resume.pdf"
-              download="Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className={cn(
@@ -46,8 +45,8 @@ export function ResumeModal({ children, open, onOpenChange }: ResumeModalProps) 
                 "gap-1.5 text-xs sm:text-sm font-medium"
               )}
             >
-              <Download className="h-4 w-4" />
-              <span>Download PDF</span>
+              <ExternalLink className="h-4 w-4" />
+              <span>Open PDF</span>
             </a>
           </div>
         </DialogHeader>
