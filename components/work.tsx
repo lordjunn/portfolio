@@ -64,10 +64,18 @@ interface Experience {
   },
 */
 
+// Featured project IDs in exact priority order:
+// 1 = Study with Junn, 24 = Student Wellbeing Assessment App, 25 = Food Expense Analytics Platform
+// 18 = Discord Utility Bot, 20 = MDEC Digitalisation Automation Report
+const FEATURED_PROJECT_IDS: number[] = [1, 24, 25, 18, 20]
+
+// Top 3 featured projects that display the star emoji
+const STARRED_PROJECT_IDS: number[] = [1, 24, 25]
+
 const projects: Project[] = [
   {
   id: 1,
-  title: "Study with Junn ⭐",
+  title: "Study with Junn",
   description: `Built and maintain a centralized academic resource platform used by 1,000+ students across multiple universities.
 
   I designed the information architecture for notes, course modules, and exam formats so students can find revision materials quickly without jumping across fragmented channels.
@@ -592,7 +600,17 @@ export default function Work() {
   const [expStartIndex, setExpStartIndex] = useState(0)
   const [activeTab, setActiveTab] = useState("projects")
 
-  const filteredProjects = projects.filter(
+  const sortedProjects = [...projects].sort((a, b) => {
+    const indexA = FEATURED_PROJECT_IDS.indexOf(a.id)
+    const indexB = FEATURED_PROJECT_IDS.indexOf(b.id)
+
+    if (indexA !== -1 && indexB !== -1) return indexA - indexB
+    if (indexA !== -1) return -1
+    if (indexB !== -1) return 1
+    return a.id - b.id
+  })
+
+  const filteredProjects = sortedProjects.filter(
     (project) =>
       project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       project.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -728,7 +746,10 @@ export default function Work() {
                             />
                           </div>
                           <div className="flex-1 min-w-0">
-                            <h3 className="font-medium text-lg">{project.title}</h3>
+                            <h3 className="font-medium text-lg">
+                              {project.title}
+                              {STARRED_PROJECT_IDS.includes(project.id) && " ⭐"}
+                            </h3>
                             <p className="text-muted-foreground text-sm line-clamp-1">
                               {project.description.replace(/<[^>]*>/g, "")}
                               {!expandedId && project.description.length > 1000 && (

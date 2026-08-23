@@ -11,6 +11,7 @@ export default function Navbar() {
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [resumeModalOpen, setResumeModalOpen] = useState(false)
 
   useEffect(() => {
     setMounted(true)
@@ -60,11 +61,13 @@ export default function Navbar() {
           <Link href="/blog" className="text-sm font-medium hover:text-primary">
             Blog
           </Link>
-          <ResumeModal>
-            <button type="button" className="text-sm font-medium hover:text-primary transition-colors">
-              Resume
-            </button>
-          </ResumeModal>
+          <button
+            type="button"
+            onClick={() => setResumeModalOpen(true)}
+            className="text-sm font-medium hover:text-primary transition-colors"
+          >
+            Resume
+          </button>
           <Link href="/#contact" className="text-sm font-medium hover:text-primary">
             Contact
           </Link>
@@ -133,15 +136,16 @@ export default function Navbar() {
                 >
                   Blog
                 </Link>
-                <ResumeModal>
-                  <button
-                    type="button"
-                    className="text-lg font-medium py-3 px-2 text-left hover:text-primary hover:bg-muted/50 rounded-md transition-colors w-full"
-                    onClick={closeMobileMenu}
-                  >
-                    Resume
-                  </button>
-                </ResumeModal>
+                <button
+                  type="button"
+                  className="text-lg font-medium py-3 px-2 text-left hover:text-primary hover:bg-muted/50 rounded-md transition-colors w-full"
+                  onClick={() => {
+                    closeMobileMenu()
+                    setResumeModalOpen(true)
+                  }}
+                >
+                  Resume
+                </button>
                 <Link
                   href="/#contact"
                   className="text-lg font-medium py-3 px-2 hover:text-primary hover:bg-muted/50 rounded-md transition-colors"
@@ -157,6 +161,9 @@ export default function Navbar() {
           </div>
         </div>
       )}
+
+      {/* Global Resume Modal controlled by state */}
+      <ResumeModal open={resumeModalOpen} onOpenChange={setResumeModalOpen} />
     </header>
   )
 }
