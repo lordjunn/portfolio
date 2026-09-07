@@ -76,16 +76,17 @@ const projects: Project[] = [
   {
   id: 1,
   title: "Study with Junn",
-  description: `Built and maintain a centralized academic resource platform used by 1,000+ students across multiple universities.
+  description: `Built and maintain a centralized academic resource platform to solve the problem of fragmented course notes and exam resources across student channels.
 
-  I designed the information architecture for notes, course modules, and exam formats so students can find revision materials quickly without jumping across fragmented channels.
+  Designed the information architecture around courses, modules, notes, and exam formats, then built a lightweight mobile-first static site for fast navigation and cross-device access.
 
-  The site is a lightweight, mobile-friendly static build with fast load times and reliable cross-device performance.
+  The platform has grown to 1,000+ students across multiple universities.
 
-  Impact (Google Search Console, 25 Dec 2024 - 22 Apr 2026):
-  - 1.84K clicks and 6.17K impressions
-  - 29.8% average CTR
-  - 5.6 average ranking position`,
+  Google Search Console (25 Dec 2024 – 22 Apr 2026):
+  • 1.84K clicks
+  • 6.17K impressions
+  • 29.8% average CTR
+  • 5.6 average search position`,
   image: "/Work/Exams.jpg",
   tags: ["HTML", "CSS", "JavaScript", "Education", "Content Architecture"],
   projectType: ["Solo", "Personal"],
@@ -226,10 +227,9 @@ const projects: Project[] = [
   {
     id: 13,
     title: "Song Tracker",
-    description: `Built a full-stack song logging app with Supabase authentication, CRUD, search, notes, engagement tracking, and a lightweight admin dashboard.
-    Added Google Sheets export for quick reporting and sharing.
-
-    <i>Currently on hold while I focus on newer projects.</i>`,
+    description: `Built a full-stack song logging platform with React, TypeScript, Tailwind CSS, and Supabase. 
+    Implemented authentication, CRUD workflows, search, notes, engagement tracking, Google Sheets export, and an administrative dashboard. 
+    The project is currently on hold while development focus shifted to newer systems.`,
     image: "https://upload.wikimedia.org/wikipedia/commons/5/5f/Apple_Music_icon.svg",
     tags: ["TypeScript", "Tailwind CSS", "React", "Supabase"],
     projectType: ["Solo", "Personal"],
@@ -239,11 +239,8 @@ const projects: Project[] = [
   {
     id: 14,
     title: "Personal Blog Site",
-    description: `Developed a full-stack web application for publishing posts to selected audience tiers.
-    It evolved from my earlier web-based note logging project into a more structured content platform.
-
-    Visitors can also send connection requests directly through the site.
-    `,
+    description: `Built a full-stack publishing platform using React, TypeScript, Tailwind CSS, and Supabase, evolving an earlier note-taking system into a structured content application. 
+    Implemented audience-based post visibility and direct connection requests through the platform, with Nodemailer handling outbound communication.`,
     image: "https://static.vecteezy.com/system/resources/thumbnails/026/306/533/small/stickman-icon-stick-figure-man-person-male-stand-standing-full-body-men-bathroom-sign-symbol-black-artwork-graphic-illustration-clipart-eps-vector.jpg",
     tags: ["Markdown", "TypeScript", "Tailwind CSS", "React", "Supabase", "Nodemailer"],
     projectType: ["Solo", "Personal"],
@@ -289,9 +286,9 @@ const projects: Project[] = [
   {
     id: 18,
     title: "Discord Utility Bot",
-    description: `A modular Discord bot built with discord.py, featuring reminders, GitHub tracking, scraping utilities, emote analytics, connection monitoring, and configurable feature flags.
-    Includes latency checks, emote analytics with Supabase JSONB caching, message mirroring, scraping tools, and a reminder system with snooze controls. 
-    Powered by Supabase (PostgreSQL) for persistent storage and optimised to run comfortably within an 80 MB RAM footprint on low-resource hosts.`,
+    description: `Built and operate a modular Discord automation platform combining a Python bot, Next.js admin dashboard, Supabase PostgreSQL backend, and Railway deployment. 
+    Designed the bot around independently configurable cogs covering moderation, reminders, scraping, GitHub tracking, emote analytics, connection monitoring, diagnostics, and utility services. 
+    Added JSONB caching, health checks, webhook synchronization, automated tests, and feature flags while keeping the production deployment within an ~80 MB RAM footprint.`,
     image: "https://static.vecteezy.com/system/resources/previews/006/892/625/non_2x/discord-logo-icon-editorial-free-vector.jpg",
     tags: ["Python", "discord.py", "Supabase", "PostgreSQL", "Railway", "Bot Hosting"],
     projectType: ["Solo", "Personal"],
@@ -314,11 +311,13 @@ const projects: Project[] = [
   {
     id: 20,
     title: "MDEC Digitalisation Automation Report",
-    description: `Developed a Python-based automation system for generating monthly digitalisation reports by replacing repetitive browser lookups and spreadsheet workflows with a configurable data processing pipeline.
-    Built Selenium-driven automation flows with retry handling, fallback lookup logic, structured logging, and reusable historical datasets to improve workflow reliability and reduce repetitive processing effort.
-    Implemented configurable JSON-driven workflows, enabling non-technical staff to generate standardized Excel reports without modifying source code.
-    Integrated supplemental API and SQL-based enrichment pipelines to improve customer data completeness and reduce manual validation effort.
-    Packaged the application into a standalone executable using PyInstaller and conducted onboarding sessions for operational staff to support cross-team adoption.`,
+    description: `Replaced a repetitive monthly reporting workflow involving browser lookups and spreadsheet manipulation with a configurable Python automation pipeline.
+
+    Built Selenium workflows with retry handling, fallback lookup logic, structured logging, and reusable historical datasets to improve reliability during automated processing.
+
+    Added JSON-driven configuration and API/SQL enrichment so non-technical staff could generate standardized Excel reports without modifying source code.
+
+    Packaged the application as a standalone executable with PyInstaller and conducted onboarding sessions to support adoption by operational staff.`,
     image: "https://www.mdec.my/static/logo/mdec-logo.png",
     tags: ["Python", "Selenium", "Excel", "Automation", "Data Processing"],
     projectType: ["Internship"],
@@ -353,7 +352,7 @@ const projects: Project[] = [
     description: `Developed a C# WinForms utility for synchronizing MySQL tables across database environments using configurable XML-based connection settings.
     Implemented automatic table creation, row migration, duplicate-key update handling, and datetime normalization to support reliable cross-database synchronization workflows.
     Reduced repetitive manual migration work and minimized common data transfer inconsistencies during operational database updates.`,
-    image: "",
+    image: "/Work/C#.png",
     tags: ["C#", "WinForms", "MySQL", "Data Migration"],
     projectType: ["Internship"],
     github: "",
@@ -362,13 +361,13 @@ const projects: Project[] = [
   {
     id: 24,
     title: "Student Wellbeing Assessment App",
-    description: `Developed a machine learning-powered student wellbeing assessment platform as my Final Year Project (FYP) using clinically validated PHQ-9 and GAD-7 questionnaires.
+    description: `Developed my Final Year Project around automated student wellbeing assessment using clinically validated PHQ-9 and GAD-7 questionnaires.
 
-    Built and evaluated an ensemble of up to 12 classification models including Random Forest, XGBoost, LightGBM, CatBoost, SVM, Logistic Regression, and Stacking ensembles to predict student wellbeing outcomes.
+    Built and evaluated an ensemble of 12 classification models, including Random Forest, XGBoost, LightGBM, CatBoost, SVM, Logistic Regression, and stacking ensembles.
 
-    Implemented SHAP explainability to visualize prediction factors, integrated Supabase-backed analytics and feedback systems, and developed an admin dashboard for aggregated reporting.
+    Added SHAP-based explainability to make model predictions interpretable, then integrated Supabase analytics, assessment history, feedback collection, and an administrative reporting dashboard.
 
-    Added PDF/TXT report generation, assessment history tracking, counselling resources, Docker deployment support, and automated testing workflows to create a complete end-to-end application.`,
+    Extended the application with PDF/TXT reporting, counselling resources, Docker deployment, and automated testing to deliver an end-to-end assessment platform.`,
     image: "/Work/Wellbeing.png",
     tags: ["Python", "Streamlit", "Machine Learning", "SHAP", "Supabase", "Docker", "Scikit-learn"],
     projectType: ["Solo", "FYP"],
@@ -378,11 +377,11 @@ const projects: Project[] = [
   {
     id: 25,
     title: "Food Expense Analytics Platform",
-    description: `Engineered a production-grade personal financial analytics platform in Laravel 12 to process, visualize, and audit 4+ years of real-world food expenditure data (800+ transactions from 2022 to 2026).
+    description: `Engineered a Laravel-based analytics platform for processing, visualizing, and auditing 4+ years of personal food expenditure data across 1,000+ transactions.
 
-    Built an enterprise-level MVC & Service-Layer architecture featuring a Rolling 365-Day Continuous Gradient Heatmap Calendar with double-click transaction drill-downs, dynamic Chart.js dashboards, and an automated CSV batch import engine with 5-point duplicate resolution and DB::transaction() rollback safety. 
+    Built an MVC/service-layer architecture with a rolling 365-day heatmap, transaction drill-downs, Chart.js dashboards, and a CSV import workflow with duplicate detection and database transaction safeguards.
 
-    Integrated a GitHub Actions CI/CD pipeline for automated zero-downtime FTP deployments, smart GitHub Pages raw CDN media resolution, MariaDB SQL optimization, and a role-based authorization model separating guest read-only portfolio views from administrative dataset management.`,
+    Added GitHub Actions CI/CD, MariaDB query optimization, CDN-based media handling, and role-based access control separating public portfolio views from administrative dataset management.`,
     image: "/Work/FoodExpenseAnalytics.png",
     tags: ["Laravel 12", "PHP 8.3", "MySQL / MariaDB", "GitHub Actions", "CI/CD", "Blade", "Bootstrap 5", "Chart.js", "Eloquent ORM", "REST Architecture"],
     projectType: ["Solo", "Personal"],
@@ -428,7 +427,7 @@ const certificates: Certificate[] = [
     Completed HCIA-AI V4.0 training under Huawei ICT Academy, covering foundational AI concepts and machine learning fundamentals as part of the structured ICT Academy program.
     Part of "Machine Learning" course in my university curriculum (added in halfway).
     `,
-    image: "",
+    image: "/Work/Huawei.png",
     credential: "",
   },
 ]
