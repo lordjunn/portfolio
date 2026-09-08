@@ -1,14 +1,10 @@
 import { NextResponse } from "next/server"
 import nodemailer from "nodemailer"
+import { contactFormSchema } from "@/lib/contact-schema"
 
 const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000
 const RATE_LIMIT_MAX_REQUESTS = 5
 const requestStore = new Map<string, { count: number; resetAt: number }>()
-
-function isValidEmail(email: string) {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-  return emailRegex.test(email)
-}
 
 function escapeHtml(value: string) {
   return value
@@ -57,31 +53,17 @@ export async function POST(request: Request) {
     }
 
     const payload = await request.json()
-    const name = typeof payload.name === "string" ? payload.name.trim() : ""
-    const email = typeof payload.email === "string" ? payload.email.trim() : ""
-    const message = typeof payload.message === "string" ? payload.message.trim() : ""
-    const website = typeof payload.website === "string" ? payload.website.trim() : ""
-    const sendConfirmation = Boolean(payload.sendConfirmation)
+    const parseResult = contactFormSchema.safeParse(payload)
 
-    // Validate input
-    if (!name || !email || !message) {
-      return NextResponse.json({ error: "Name, email, and message are required" }, { status: 400 })
+    if (!parseResult.success) {
+      const firstError = parseResult.error.errors[0]?.message || "Invalid form data"
+      return NextResponse.json({ error: firstError }, { status: 400 })
     }
 
-    if (!isValidEmail(email)) {
-      return NextResponse.json({ error: "Please provide a valid email address" }, { status: 400 })
-    }
-
-    if (name.length > 100) {
-      return NextResponse.json({ error: "Name is too long" }, { status: 400 })
-    }
-
-    if (message.length < 10 || message.length > 5000) {
-      return NextResponse.json({ error: "Message must be between 10 and 5000 characters" }, { status: 400 })
-    }
+    const { name, email, message, sendConfirmation, website } = parseResult.data
 
     // Honeypot spam protection
-    if (website !== "") {
+    if (website && website.trim() !== "") {
       console.log("Spam detected - honeypot field filled:", website)
       return NextResponse.json({ error: "Spam detected" }, { status: 400 })
     }

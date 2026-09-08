@@ -1,90 +1,62 @@
 "use client"
 
-import type React from "react"
-
-import { useState } from "react"
+import { useForm } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Checkbox } from "@/components/ui/checkbox"
 import { useToast } from "@/components/ui/use-toast"
+import { contactFormSchema, type ContactFormData } from "@/lib/contact-schema"
 
 export default function Contact() {
   const { toast } = useToast()
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-    sendConfirmation: true, // Default to checked
-    website: "", // Honeypot field - bots will fill this
+
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    watch,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm<ContactFormData>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      message: "",
+      sendConfirmation: true,
+      website: "",
+    },
+    mode: "onBlur",
   })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [emailError, setEmailError] = useState("") // New: State for email validation error
 
-  // New: Simple email validation function using regex
-  const validateEmail = (email: string) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    return emailRegex.test(email)
-  }
+  const sendConfirmation = watch("sendConfirmation")
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-
-    // New: Clear email error if user starts typing
-    if (name === "email") {
-      setEmailError("")
-    }
-  }
-
-  // New: Validate email on blur (when user leaves the field)
-  const handleEmailBlur = () => {
-    if (formData.email && !validateEmail(formData.email)) {
-      setEmailError("Please enter a valid email address.")
-    } else {
-      setEmailError("")
-    }
-  }
-
-  const handleCheckboxChange = (checked: boolean) => {
-    setFormData((prev) => ({ ...prev, sendConfirmation: checked }))
-  }
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-
-    // New: Validate email before submitting
-    if (!validateEmail(formData.email)) {
-      setEmailError("Please enter a valid email address.")
-      return
-    }
-
+  const onSubmit = async (data: ContactFormData) => {
     try {
-      setIsSubmitting(true)
-
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(data),
       })
 
-      const data = await response.json()
+      const resData = await response.json()
 
       if (!response.ok) {
-        throw new Error(data.error || "Failed to send message")
+        throw new Error(resData.error || "Failed to send message")
       }
 
       toast({
         title: "Message sent!",
-        description: formData.sendConfirmation
+        description: data.sendConfirmation
           ? "Thanks for reaching out. I'll get back to you soon. You'll also receive a confirmation email shortly."
           : "Thanks for reaching out. I'll get back to you soon.",
       })
 
-      // Reset form
-      setFormData({ name: "", email: "", message: "", sendConfirmation: true, website: "" })
+      reset()
     } catch (error) {
       console.error("Error sending message:", error)
       toast({
@@ -92,8 +64,6 @@ export default function Contact() {
         description: error instanceof Error ? error.message : "Failed to send message. Please try again.",
         variant: "destructive",
       })
-    } finally {
-      setIsSubmitting(false)
     }
   }
 
@@ -107,52 +77,44 @@ export default function Contact() {
           </p>
           <p className="text-lg">Feel free to reach out using the contact form or through my social media profiles.</p>
         </div>
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4" noValidate>
           <div>
             <Input
               placeholder="Your Name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              required
+              {...register("name")}
               disabled={isSubmitting}
+              className={errors.name ? "border-red-500 focus-visible:ring-red-500" : ""}
             />
+            {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>}
           </div>
           <div>
             <Input
               type="email"
               placeholder="Your Email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              onBlur={handleEmailBlur} // New: Validate on blur
-              required
+              {...register("email")}
               disabled={isSubmitting}
-              className={emailError ? "border-red-500" : ""} // New: Highlight invalid field
+              className={errors.email ? "border-red-500 focus-visible:ring-red-500" : ""}
             />
-            {emailError && <p className="text-red-500 text-sm mt-1">{emailError}</p>} {/* New: Error message */}
+            {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>}
           </div>
           <div>
             <Textarea
               placeholder="Your Message"
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
+              {...register("message")}
               rows={5}
-              required
               disabled={isSubmitting}
+              className={errors.message ? "border-red-500 focus-visible:ring-red-500" : ""}
             />
+            {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message.message}</p>}
           </div>
 
           {/* Honeypot field - hidden from humans, visible to bots */}
-          <div className="honeypot">
+          <div className="honeypot" style={{ display: "none" }}>
             <label htmlFor="website">Website (leave blank)</label>
             <Input
               type="text"
               id="website"
-              name="website"
-              value={formData.website}
-              onChange={handleChange}
+              {...register("website")}
               tabIndex={-1}
               autoComplete="off"
               disabled={isSubmitting}
@@ -163,13 +125,13 @@ export default function Contact() {
           <div className="flex items-center space-x-2">
             <Checkbox
               id="sendConfirmation"
-              checked={formData.sendConfirmation}
-              onCheckedChange={handleCheckboxChange}
+              checked={sendConfirmation}
+              onCheckedChange={(checked) => setValue("sendConfirmation", Boolean(checked))}
               disabled={isSubmitting}
             />
             <label
               htmlFor="sendConfirmation"
-              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
             >
               Send me a confirmation email with a copy of my message
             </label>
