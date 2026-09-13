@@ -1,5 +1,6 @@
 "use client"
 
+import { useState, useEffect } from "react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Button } from "@/components/ui/button"
@@ -11,6 +12,23 @@ import { contactFormSchema, type ContactFormData } from "@/lib/contact-schema"
 
 export default function Contact() {
   const { toast } = useToast()
+  const [formToken, setFormToken] = useState<string>("")
+
+  const fetchSecurityToken = async () => {
+    try {
+      const res = await fetch("/api/contact")
+      const data = await res.json()
+      if (data.token) {
+        setFormToken(data.token)
+      }
+    } catch (err) {
+      console.error("Failed to load security token", err)
+    }
+  }
+
+  useEffect(() => {
+    fetchSecurityToken()
+  }, [])
 
   const {
     register,
@@ -40,7 +58,7 @@ export default function Contact() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, formToken }),
       })
 
       const resData = await response.json()
@@ -57,6 +75,7 @@ export default function Contact() {
       })
 
       reset()
+      fetchSecurityToken() // Refresh token for subsequent submissions
     } catch (error) {
       console.error("Error sending message:", error)
       toast({

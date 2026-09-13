@@ -16,6 +16,7 @@ import {
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { socialLinks } from "@/lib/social-links"
 
 interface Project {
   id: number
@@ -133,7 +134,7 @@ const projects: Project[] = [
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "React", "Markdown", "Nodemailer"],
     projectType: ["Solo", "Personal"],
     github: "https://github.com/LordJunn/portfolio",
-    website: "https://junn-portfolio.vercel.app/",
+    website: socialLinks.portfolio,
   },
   {
     id: 5,
@@ -490,7 +491,9 @@ const experiences: Experience[] = [
 
     <b>Projects presented:</b>
     Study site (Study with Junn)
-    Tic Tac Toe (Webstack Trio)
+    Tic Tac Toe (Webstack Trio)<br><br>
+
+    <i>Only made it to three (or four) meetups, but apparently my Discord activity is enough to keep me off the inactive list.</i>
     `,
     image: "/Experience/Hackerspace.png",
   },
@@ -511,7 +514,9 @@ const experiences: Experience[] = [
     Annual General Meeting 2025 (Just the setup & cleanup)
     MMU Game Jam 2025 (Logistics + Event Management, 2 out of 3 days)
     Annual General Meeting 2026
-    Welcoming Party 2026 (Feedback form creation)
+    Welcoming Party 2026 (Feedback form creation)</b></b>
+
+    <i>Still technically here. Just significantly less active after getting a real job.</i>
     `,
     image: "/Experience/GDC.png",
   },
@@ -587,6 +592,20 @@ const experiences: Experience[] = [
     (Also, yes — half-day Saturdays and the unpaid overtime were part of the package!)
     `,
     image: "/Experience/Presoft.png",
+    },
+    {
+    id: 8,
+    title: "Junior AI Engineer",
+    organization: "Catalyst Edge AI",
+    period: "2 Sep 2026+",
+    description: `
+    Joined Catalyst Edge AI as a Junior AI Engineer, contributing to the development and delivery of Data & AI solutions for business applications.
+
+    Working in an AI consultancy environment focused on helping businesses unlock actionable insights, improve operational efficiency, and enhance customer experiences through data and AI.
+
+    Currently gaining hands-on experience across AI solution development, implementation, and integration while working alongside an experienced technical team.
+    `,
+    image: "/Experience/CEAI.png",
     },
 ]
 

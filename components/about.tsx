@@ -162,8 +162,7 @@ export default function About() {
             design to APIs, data pipelines, and automation.
           </p>
           <p className="text-lg">
-            I am currently looking for full-time Software Engineer / Data Scientist opportunities (available immediately), where I can
-            contribute quickly, learn from strong teams, and keep building products that create measurable impact.
+            I am focused on building scalable web solutions and data pipelines, learning with strong teams, and continuing to ship products that create measurable impact.
           </p>
         </div>
         <div>

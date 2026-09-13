@@ -4,8 +4,7 @@ import { getAllPosts, getPostBySlug } from "@/lib/blog"
 import { markdownToHtml } from "@/lib/markdown"
 import type { Metadata } from "next"
 import { Clock, Calendar } from "lucide-react"
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://junn-portfolio.vercel.app"
+import { siteUrl } from "@/lib/social-links"
 
 interface BlogPostPageProps {
   params: {

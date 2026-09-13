@@ -1,6 +1,12 @@
 import { NextResponse } from "next/server"
 import nodemailer from "nodemailer"
 import { contactFormSchema } from "@/lib/contact-schema"
+import { generateFormToken, verifyFormToken } from "@/lib/form-token"
+
+export async function GET() {
+  const token = generateFormToken()
+  return NextResponse.json({ token })
+}
 
 const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000
 const RATE_LIMIT_MAX_REQUESTS = 5
@@ -43,6 +49,12 @@ function isRateLimited(ip: string) {
 
 export async function POST(request: Request) {
   try {
+    // 1. Cross-site request check: reject requests triggered from external origins
+    const secFetchSite = request.headers.get("sec-fetch-site")
+    if (secFetchSite === "cross-site") {
+      return NextResponse.json({ error: "Cross-site requests not allowed" }, { status: 403 })
+    }
+
     const ip = getClientIp(request)
 
     if (isRateLimited(ip)) {
@@ -53,6 +65,13 @@ export async function POST(request: Request) {
     }
 
     const payload = await request.json()
+
+    // 2. Anti-speedrun and security token verification
+    const tokenResult = verifyFormToken(payload.formToken)
+    if (!tokenResult.valid) {
+      return NextResponse.json({ error: tokenResult.error }, { status: 400 })
+    }
+
     const parseResult = contactFormSchema.safeParse(payload)
 
     if (!parseResult.success) {

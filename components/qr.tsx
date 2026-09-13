@@ -1,4 +1,5 @@
 import React from 'react'
+import { socialLinks } from '@/lib/social-links'
 
 type Props = {
   portfolioUrl?: string
@@ -6,8 +7,8 @@ type Props = {
 }
 
 export default function QR({
-  portfolioUrl = 'https://junn-portfolio.vercel.app',
-  resumeUrl = '/resume.pdf',
+  portfolioUrl = socialLinks.portfolio,
+  resumeUrl = socialLinks.resume,
 }: Props) {
   return (
     <section className="max-w-4xl mx-auto p-6">
@@ -44,7 +45,7 @@ export default function QR({
       </div>
 
       <p className="text-sm text-center mt-4 text-muted-foreground">
-        Tip: open this page on your device and let recruiters scan from your phone or tablet.
+        Tip: open this page on your device and let others scan from your phone or tablet.
       </p>
     </section>
   )

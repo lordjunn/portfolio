@@ -4,11 +4,9 @@ import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import { Toaster } from "@/components/ui/toaster"
 import type { Metadata } from "next"
-import { socialLinks } from "@/lib/social-links"
+import { socialLinks, siteUrl } from "@/lib/social-links"
 import "./globals.css"
 import "./highlight.css" // Import highlight.js CSS
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://junn-portfolio.vercel.app"
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
