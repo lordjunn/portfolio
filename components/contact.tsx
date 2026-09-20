@@ -159,6 +159,14 @@ export default function Contact() {
           <Button type="submit" className="w-full" disabled={isSubmitting}>
             {isSubmitting ? "Sending..." : "Send Message"}
           </Button>
+
+          {/* PDPA consent notice */}
+          <p className="text-xs text-muted-foreground text-center">
+            By submitting this form, your name and email will be used solely to respond to your message.{" "}
+            <a href="/privacy" className="underline underline-offset-2 hover:text-foreground transition-colors">
+              Privacy Policy
+            </a>
+          </p>
         </form>
       </div>
     </section>

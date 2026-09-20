@@ -21,6 +21,9 @@ export default function Footer() {
                 <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-popover"></div>
               </div>
             </div>
+            <Link href="/privacy" className="text-xs text-muted-foreground hover:text-foreground transition-colors underline underline-offset-2">
+              Privacy Policy
+            </Link>
           </div>
           <div className="flex items-center gap-4">
             <Link href={socialLinks.github} target="_blank" rel="noopener noreferrer">

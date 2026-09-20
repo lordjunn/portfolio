@@ -303,7 +303,7 @@ const projects: Project[] = [
     Designed dynamic SQL filtering pipelines supporting customer, agent, product, status, and date-based filtering with grouped summarization using pandas.
     Implemented HTML report templating with Jinja2 and automated Excel generation workflows to produce structured, browser-friendly operational reports for internal stakeholders.
     Extended the reporting workflow through Power BI DirectQuery integration, enabling live dashboards, KPI tracking, trend analysis, and interactive analytics without requiring scheduled exports.`,
-    image: "",
+    image: "https://www.svgrepo.com/show/519775/tk.svg",
     tags: ["Python", "SQL", "Pandas", "Jinja2", "Tkinter", "Power BI"],
     projectType: ["Internship"],
     github: "",
@@ -330,7 +330,7 @@ const projects: Project[] = [
     title: "Bigin Zoho Exporter",
     description: `Built a CRM data extraction and reporting utility integrating with the Zoho Bigin API to retrieve, filter, and transform deal records across pipelines, stages, agents, and date ranges.
     Designed an interactive desktop interface for configurable CSV export workflows to support internal reporting and operational analysis tasks.`,
-    image: "https://flow-in-public.nimbuspop.com/flow-apps/bigin_by_zoho_crm.png",
+    image: "/Work/Bigin.png",
     tags: ["Python", "Zoho Bigin API", "CSV", "Tkinter", "Automation"],
     projectType: ["Internship"],
     github: "",
@@ -353,7 +353,7 @@ const projects: Project[] = [
     description: `Developed a C# WinForms utility for synchronizing MySQL tables across database environments using configurable XML-based connection settings.
     Implemented automatic table creation, row migration, duplicate-key update handling, and datetime normalization to support reliable cross-database synchronization workflows.
     Reduced repetitive manual migration work and minimized common data transfer inconsistencies during operational database updates.`,
-    image: "/Work/C#.png",
+    image: "/Work/MySql.png",
     tags: ["C#", "WinForms", "MySQL", "Data Migration"],
     projectType: ["Internship"],
     github: "",
@@ -369,7 +369,7 @@ const projects: Project[] = [
     Added SHAP-based explainability to make model predictions interpretable, then integrated Supabase analytics, assessment history, feedback collection, and an administrative reporting dashboard.
 
     Extended the application with PDF/TXT reporting, counselling resources, Docker deployment, and automated testing to deliver an end-to-end assessment platform.`,
-    image: "/Work/Wellbeing.png",
+    image: "https://cdn-icons-png.flaticon.com/512/5405/5405403.png",
     tags: ["Python", "Streamlit", "Machine Learning", "SHAP", "Supabase", "Docker", "Scikit-learn"],
     projectType: ["Solo", "FYP"],
     github: "",
@@ -383,7 +383,7 @@ const projects: Project[] = [
     Built an MVC/service-layer architecture with a rolling 365-day heatmap, transaction drill-downs, Chart.js dashboards, and a CSV import workflow with duplicate detection and database transaction safeguards.
 
     Added GitHub Actions CI/CD, MariaDB query optimization, CDN-based media handling, and role-based access control separating public portfolio views from administrative dataset management.`,
-    image: "/Work/FoodExpenseAnalytics.png",
+    image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/Laravel.svg/1280px-Laravel.svg.png",
     tags: ["Laravel 12", "PHP 8.3", "MySQL / MariaDB", "GitHub Actions", "CI/CD", "Blade", "Bootstrap 5", "Chart.js", "Eloquent ORM", "REST Architecture"],
     projectType: ["Solo", "Personal"],
     // github: "https://github.com/LordJunn/food-expense-analytics",

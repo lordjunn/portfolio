@@ -6,7 +6,7 @@ tagline: Running out of credits led to a much leaner bot
 preview: >-
     My Discord bot had been happily running on Railway until it suddenly stopped.
     What started as a scramble to find a new host eventually became an exercise
-in reducing RAM usage, removing unnecessary services, and making every feature optional.
+    in reducing RAM usage, removing unnecessary services, and making every feature optional.
 image: >-
     https://railway.com/brand/logo-dark.svg
 keywords: "Discord Bot, Python, discord.py, Railway, VPS, Optimisation, Hosting"
@@ -15,7 +15,7 @@ author:
     authorimage: >-
         /ProfilePictures/Mutsumi.png
 readingtime: 8
---------------
+---
 
 # Railway Went Down (For Real), So I Downsized My Discord Bot
 
