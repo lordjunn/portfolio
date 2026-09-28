@@ -388,6 +388,29 @@ const projects: Project[] = [
     projectType: ["Solo", "Personal"],
     // github: "https://github.com/LordJunn/food-expense-analytics",
     website: "https://junnfoodanalytics.infinityfreeapp.com/"
+  },
+  {
+    id: 26,
+    title: "Dine with Junn V2",
+    description: `The next-generation evolution of my personal food & expense log, completely rebuilt from the ground up as a custom Python Static Site Generator (SSG).
+
+  Features a streamlined Markdown-based logging workflow, Jinja2 templating engine, dynamic retrospective statistics, and interactive Chart.js spending visualisations with smooth click-to-day jumps and keyboard navigation.
+
+  Includes an automated GitHub Actions CI/CD pipeline that compiles production builds on every commit and exports structured CSV/JSON datasets directly consumed by BiteAnalytics (Project #25).`,
+    image: "/Work/Food.png", // Update to /Work/Food-V2.png if you have a dedicated screenshot
+    tags: [
+      "Python",
+      "Static Site Generator",
+      "Jinja2",
+      "Markdown",
+      "Chart.js",
+      "GitHub Actions",
+      "CI/CD",
+      "JavaScript",
+    ],
+    projectType: ["Solo", "Personal"],
+    github: "https://github.com/LordJunn/Dine-With-Junn",
+    website: "https://lordjunn.github.io/Dine-With-Junn/",
   }
   ]
 
