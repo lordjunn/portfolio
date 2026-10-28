@@ -1,7 +1,8 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useMemo } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import {
   ChevronDown,
   ChevronRight,
@@ -13,6 +14,7 @@ import {
   Award,
   Users,
   PlayCircle,
+  BookOpen,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
@@ -28,6 +30,7 @@ interface Project {
   github?: string
   website?: string
   youtubeDemo?: string
+  writeupSlug?: string
 }
 
 interface Certificate {
@@ -93,6 +96,7 @@ const projects: Project[] = [
   projectType: ["Solo", "Personal"],
   github: "https://github.com/LordJunn/Study-With-Junn",
   website: "https://lordjunn.github.io/Study-With-Junn/index.html",
+  // writeupSlug: "study-with-junn-seo",
   },
   {
   id: 2,
@@ -107,6 +111,7 @@ const projects: Project[] = [
   projectType: ["Solo", "Personal"],
   github: "https://github.com/LordJunn/Food-MMU",
   website: "https://lordjunn.github.io/Food-MMU/",
+  // writeupSlug: "food-data-ecosystem#v1",
   },
   {
     id: 3,
@@ -261,6 +266,7 @@ const projects: Project[] = [
     projectType: ["Solo", "Personal"],
     github: "https://github.com/lordjunn/Foodie-Streamlit",
     website: "https://junn-foodie-data-science.streamlit.app/",
+    // writeupSlug: "food-data-ecosystem#streamlit",
   },
   {
     id: 16,
@@ -326,6 +332,7 @@ const projects: Project[] = [
     projectType: ["Internship"],
     github: "",
     website: "",
+    // writeupSlug: "mdec-automation-report",
   },
   {
     id: 21,
@@ -375,7 +382,8 @@ const projects: Project[] = [
     tags: ["Python", "Streamlit", "Machine Learning", "SHAP", "Supabase", "Docker", "Scikit-learn"],
     projectType: ["Solo", "FYP"],
     github: "",
-    website: "https://wellbeing-assessment-app.streamlit.app/"
+    website: "https://wellbeing-assessment-app.streamlit.app/",
+    // writeupSlug: "student-wellbeing-ml",
   },
   {
     id: 25,
@@ -389,7 +397,8 @@ const projects: Project[] = [
     tags: ["Laravel 12", "PHP 8.3", "MySQL / MariaDB", "GitHub Actions", "CI/CD", "Blade", "Bootstrap 5", "Chart.js", "Eloquent ORM", "REST Architecture"],
     projectType: ["Solo", "Personal"],
     // github: "https://github.com/LordJunn/food-expense-analytics",
-    website: "https://junnfoodanalytics.infinityfreeapp.com/"
+    website: "https://junnfoodanalytics.infinityfreeapp.com/",
+    // writeupSlug: "food-data-ecosystem#laravel",
   },
   {
     id: 26,
@@ -413,6 +422,7 @@ const projects: Project[] = [
     projectType: ["Solo", "Personal"],
     github: "https://github.com/LordJunn/Dine-With-Junn",
     website: "https://lordjunn.github.io/Dine-With-Junn/",
+    // writeupSlug: "food-data-ecosystem#v2",
   }
   ]
 
@@ -634,6 +644,8 @@ const experiences: Experience[] = [
     },
 ]
 
+const ITEMS_PER_PAGE = 3
+
 export default function Work() {
   const [expandedId, setExpandedId] = useState<number | null>(null)
   const [expandedCertId, setExpandedCertId] = useState<number | null>(null)
@@ -643,55 +655,83 @@ export default function Work() {
   const [expStartIndex, setExpStartIndex] = useState(0)
   const [activeTab, setActiveTab] = useState("projects")
 
-  const sortedProjects = [...projects].sort((a, b) => {
-    const indexA = FEATURED_PROJECT_IDS.indexOf(a.id)
-    const indexB = FEATURED_PROJECT_IDS.indexOf(b.id)
+  const normalizedQuery = searchQuery.trim().toLowerCase()
 
-    if (indexA !== -1 && indexB !== -1) return indexA - indexB
-    if (indexA !== -1) return -1
-    if (indexB !== -1) return 1
-    return a.id - b.id
-  })
+  const sortedProjects = useMemo(() => {
+    return [...projects].sort((a, b) => {
+      const indexA = FEATURED_PROJECT_IDS.indexOf(a.id)
+      const indexB = FEATURED_PROJECT_IDS.indexOf(b.id)
 
-  const filteredProjects = sortedProjects.filter(
-    (project) =>
-      project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      project.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      project.tags.some((tag) => tag.toLowerCase().includes(searchQuery.toLowerCase())) ||
-      project.projectType.some((type) => type.toLowerCase().includes(searchQuery.toLowerCase())),
-  )
+      if (indexA !== -1 && indexB !== -1) return indexA - indexB
+      if (indexA !== -1) return -1
+      if (indexB !== -1) return 1
+      return a.id - b.id
+    })
+  }, [])
 
-  const filteredCertificates = certificates.filter(
-    (cert) =>
-      cert.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      cert.issuer.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      cert.description.toLowerCase().includes(searchQuery.toLowerCase()),
-  )
+  const filteredProjects = useMemo(() => {
+    if (!normalizedQuery) return sortedProjects
+    return sortedProjects.filter(
+      (project) =>
+        project.title.toLowerCase().includes(normalizedQuery) ||
+        project.description.toLowerCase().includes(normalizedQuery) ||
+        project.tags.some((tag) => tag.toLowerCase().includes(normalizedQuery)) ||
+        project.projectType.some((type) => type.toLowerCase().includes(normalizedQuery)),
+    )
+  }, [sortedProjects, normalizedQuery])
 
-  const filteredExperiences = experiences.filter(
-    (exp) =>
-      exp.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      (exp.organization && exp.organization.toLowerCase().includes(searchQuery.toLowerCase())) ||
-      (exp.role && exp.role.toLowerCase().includes(searchQuery.toLowerCase())) ||
-      exp.description.toLowerCase().includes(searchQuery.toLowerCase()),
-  )
+  const filteredCertificates = useMemo(() => {
+    if (!normalizedQuery) return certificates
+    return certificates.filter(
+      (cert) =>
+        cert.title.toLowerCase().includes(normalizedQuery) ||
+        cert.issuer.toLowerCase().includes(normalizedQuery) ||
+        cert.description.toLowerCase().includes(normalizedQuery),
+    )
+  }, [normalizedQuery])
+
+  const filteredExperiences = useMemo(() => {
+    if (!normalizedQuery) return experiences
+    return experiences.filter(
+      (exp) =>
+        exp.title.toLowerCase().includes(normalizedQuery) ||
+        (exp.organization && exp.organization.toLowerCase().includes(normalizedQuery)) ||
+        (exp.role && exp.role.toLowerCase().includes(normalizedQuery)) ||
+        exp.description.toLowerCase().includes(normalizedQuery),
+    )
+  }, [normalizedQuery])
+
+  // Reset pagination and active accordions whenever search query or active tab changes
+  useEffect(() => {
+    setStartIndex(0)
+    setExpStartIndex(0)
+    setExpandedId(null)
+    setExpandedCertId(null)
+    setExpandedExpId(null)
+  }, [searchQuery, activeTab])
+
+  // Clamp pagination index safely whenever results change
+  useEffect(() => {
+    const maxProjectStart = Math.max(0, filteredProjects.length - ITEMS_PER_PAGE)
+    if (startIndex > maxProjectStart) {
+      setStartIndex(maxProjectStart)
+    }
+  }, [filteredProjects.length, startIndex])
 
   useEffect(() => {
-    if (startIndex > filteredProjects.length - 1) {
-      setStartIndex(Math.max(0, filteredProjects.length - 1))
+    const maxExpStart = Math.max(0, filteredExperiences.length - ITEMS_PER_PAGE)
+    if (expStartIndex > maxExpStart) {
+      setExpStartIndex(maxExpStart)
     }
-  }, [filteredProjects, startIndex])
+  }, [filteredExperiences.length, expStartIndex])
 
-  useEffect(() => {
-    if (expStartIndex > filteredExperiences.length - 1) {
-      setExpStartIndex(Math.max(0, filteredExperiences.length - 1))
-    }
-  }, [filteredExperiences, expStartIndex])
-
-  const visibleProjects = filteredProjects.slice(startIndex, Math.min(startIndex + 3, filteredProjects.length))
+  const visibleProjects = filteredProjects.slice(
+    startIndex,
+    Math.min(startIndex + ITEMS_PER_PAGE, filteredProjects.length),
+  )
   const visibleExperiences = filteredExperiences.slice(
     expStartIndex,
-    Math.min(expStartIndex + 3, filteredExperiences.length),
+    Math.min(expStartIndex + ITEMS_PER_PAGE, filteredExperiences.length),
   )
 
   const toggleExpand = (id: number) => {
@@ -707,19 +747,21 @@ export default function Work() {
   }
 
   const handlePrevious = () => {
-    setStartIndex(Math.max(0, startIndex - 1))
+    setStartIndex((prev) => Math.max(0, prev - 1))
   }
 
   const handleNext = () => {
-    setStartIndex(Math.min(filteredProjects.length - 3, startIndex + 1))
+    const maxStart = Math.max(0, filteredProjects.length - ITEMS_PER_PAGE)
+    setStartIndex((prev) => Math.min(maxStart, prev + 1))
   }
 
   const handlePreviousExp = () => {
-    setExpStartIndex(Math.max(0, expStartIndex - 1))
+    setExpStartIndex((prev) => Math.max(0, prev - 1))
   }
 
   const handleNextExp = () => {
-    setExpStartIndex(Math.min(filteredExperiences.length - 3, expStartIndex + 1))
+    const maxStart = Math.max(0, filteredExperiences.length - ITEMS_PER_PAGE)
+    setExpStartIndex((prev) => Math.min(maxStart, prev + 1))
   }
 
   const renderHTML = (html: string) => {
@@ -795,7 +837,7 @@ export default function Work() {
                             </h3>
                             <p className="text-muted-foreground text-sm line-clamp-1">
                               {project.description.replace(/<[^>]*>/g, "")}
-                              {!expandedId && project.description.length > 1000 && (
+                              {expandedId !== project.id && project.description.length > 1000 && (
                                 <button
                                   className="text-primary font-medium ml-1"
                                   onClick={(e) => {
@@ -817,6 +859,20 @@ export default function Work() {
                           ))}
                         </div>
                         <div className="flex items-center gap-2 ml-4">
+                          {project.writeupSlug && (
+                            <Button
+                              variant="outline"
+                              size="sm"
+                              asChild
+                              onClick={(e) => e.stopPropagation()}
+                              className="h-8 gap-1.5 px-2.5 text-xs font-medium border-primary/30 hover:bg-primary/10 hover:text-primary transition-all"
+                            >
+                              <Link href={`/blog/${project.writeupSlug}`}>
+                                <BookOpen className="h-3.5 w-3.5 text-primary" />
+                                <span className="hidden sm:inline">Case Study</span>
+                              </Link>
+                            </Button>
+                          )}
                           {project.github && (
                             <Button variant="ghost" size="icon" asChild onClick={(e) => e.stopPropagation()}>
                               <a href={project.github} target="_blank" rel="noopener noreferrer">
@@ -878,16 +934,26 @@ export default function Work() {
                               </span>
                             ))}
                           </div>
+                          {project.writeupSlug && (
+                            <div className="mt-4 pt-3 border-t flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                              <span className="text-xs text-muted-foreground">Interested in the deep architecture & implementation decisions?</span>
+                              <Button variant="link" size="sm" asChild className="p-0 h-auto gap-1 text-xs text-primary font-medium justify-start sm:justify-end">
+                                <Link href={`/blog/${project.writeupSlug}`}>
+                                  Read technical case study →
+                                </Link>
+                              </Button>
+                            </div>
+                          )}
                         </div>
                       )}
                     </div>
                   ))}
                 </div>
 
-                {filteredProjects.length > 3 && (
+                {filteredProjects.length > ITEMS_PER_PAGE && (
                   <div className="flex justify-between items-center p-3 border-t bg-muted/20">
                     <div className="text-sm text-muted-foreground">
-                      Showing {startIndex + 1}-{Math.min(startIndex + 3, filteredProjects.length)} of{" "}
+                      Showing {startIndex + 1}-{Math.min(startIndex + ITEMS_PER_PAGE, filteredProjects.length)} of{" "}
                       {filteredProjects.length}
                     </div>
                     <div className="flex gap-2">
@@ -899,7 +965,7 @@ export default function Work() {
                         variant="outline"
                         size="sm"
                         onClick={handleNext}
-                        disabled={startIndex >= filteredProjects.length - 3}
+                        disabled={startIndex >= filteredProjects.length - ITEMS_PER_PAGE}
                       >
                         <ChevronRightIcon className="h-4 w-4" />
                         <span className="sr-only">Next</span>
@@ -1080,10 +1146,10 @@ export default function Work() {
                     </div>
                   ))}
                 </div>
-                {filteredExperiences.length > 3 && (
+                {filteredExperiences.length > ITEMS_PER_PAGE && (
                   <div className="flex justify-between items-center p-3 border-t bg-muted/20">
                     <div className="text-sm text-muted-foreground">
-                      Showing {expStartIndex + 1}-{Math.min(expStartIndex + 3, filteredExperiences.length)} of{" "}
+                      Showing {expStartIndex + 1}-{Math.min(expStartIndex + ITEMS_PER_PAGE, filteredExperiences.length)} of{" "}
                       {filteredExperiences.length}
                     </div>
                     <div className="flex gap-2">
@@ -1095,7 +1161,7 @@ export default function Work() {
                         variant="outline"
                         size="sm"
                         onClick={handleNextExp}
-                        disabled={expStartIndex >= filteredExperiences.length - 3}
+                        disabled={expStartIndex >= filteredExperiences.length - ITEMS_PER_PAGE}
                       >
                         <ChevronRightIcon className="h-4 w-4" />
                         <span className="sr-only">Next</span>

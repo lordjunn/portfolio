@@ -30,26 +30,74 @@ export default function BlogPage() {
     fetchPosts()
   }, [])
 
-  useEffect(() => {
-    if (searchQuery.trim() === "") {
-      setFilteredPosts(posts)
-      return
-    }
+  const [activeCategory, setActiveCategory] = useState<"all" | "blog" | "writeup">("blog")
 
-    const query = searchQuery.toLowerCase()
-    const filtered = posts.filter(
-      (post) =>
+  useEffect(() => {
+    const query = searchQuery.toLowerCase().trim()
+    
+    const filtered = posts.filter((post) => {
+      const postCategory = post.category || "blog"
+      const matchesCategory =
+        activeCategory === "all" ||
+        (activeCategory === "writeup" && postCategory === "writeup") ||
+        (activeCategory === "blog" && postCategory === "blog")
+
+      if (!matchesCategory) return false
+
+      if (!query) return true
+
+      return (
         post.title.toLowerCase().includes(query) ||
         post.preview.toLowerCase().includes(query) ||
-        post.content.toLowerCase().includes(query),
-    )
+        post.content.toLowerCase().includes(query)
+      )
+    })
 
     setFilteredPosts(filtered)
-  }, [searchQuery, posts])
+  }, [searchQuery, activeCategory, posts])
+
+  const blogCount = posts.filter((p) => (p.category || "blog") === "blog").length
+  const writeupCount = posts.filter((p) => p.category === "writeup").length
+  const allCount = posts.length
 
   return (
     <div className="container mx-auto px-4 py-16">
-      <h1 className="text-6xl font-bold mb-8">Blog.</h1>
+      <h1 className="text-6xl font-bold mb-4">Blog.</h1>
+      <p className="text-muted-foreground mb-8 text-lg">Engineering case studies, technical deep-dives, and personal articles.</p>
+
+      {/* Category Filter Pills */}
+      <div className="flex gap-2 mb-8 flex-wrap">
+        <button
+          onClick={() => setActiveCategory("blog")}
+          className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all ${
+            activeCategory === "blog"
+              ? "bg-primary text-primary-foreground shadow-sm"
+              : "bg-muted text-muted-foreground hover:bg-muted/80"
+          }`}
+        >
+          Articles ({blogCount})
+        </button>
+        <button
+          onClick={() => setActiveCategory("writeup")}
+          className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all ${
+            activeCategory === "writeup"
+              ? "bg-primary text-primary-foreground shadow-sm"
+              : "bg-muted text-muted-foreground hover:bg-muted/80"
+          }`}
+        >
+          Case Studies ({writeupCount})
+        </button>
+        <button
+          onClick={() => setActiveCategory("all")}
+          className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all ${
+            activeCategory === "all"
+              ? "bg-primary text-primary-foreground shadow-sm"
+              : "bg-muted text-muted-foreground hover:bg-muted/80"
+          }`}
+        >
+          All ({allCount})
+        </button>
+      </div>
 
       <div className="relative mb-12">
         <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -93,6 +141,15 @@ export default function BlogPage() {
                   />
                 </div>
                 <div className="p-6">
+                  {post.category === "writeup" ? (
+                    <span className="inline-block bg-primary/10 text-primary text-xs font-semibold px-2.5 py-0.5 rounded-full mb-2">
+                      🛠️ Case Study
+                    </span>
+                  ) : (
+                    <span className="inline-block bg-muted text-muted-foreground text-xs font-medium px-2.5 py-0.5 rounded-full mb-2">
+                      ✍️ Article
+                    </span>
+                  )}
                   <h2 className="text-2xl font-bold mb-2">{post.title}</h2>
                   <p className="text-muted-foreground mb-4 line-clamp-3">{post.preview}</p>
                   <p className="text-sm text-muted-foreground">

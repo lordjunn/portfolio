@@ -98,6 +98,15 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       />
       <article className="max-w-3xl mx-auto">
         <div className="mb-8">
+          {post.category === "writeup" ? (
+            <div className="mb-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+              🛠️ Technical Case Study
+            </div>
+          ) : (
+            <div className="mb-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20">
+              ✍️ Article
+            </div>
+          )}
           <h1 className="text-4xl md:text-5xl font-bold mb-4">{post.title}</h1>
           {post.tagline && <p className="text-xl text-muted-foreground mb-6">{post.tagline}</p>}
           <div className="flex flex-wrap items-center gap-6 text-sm text-muted-foreground mb-8">

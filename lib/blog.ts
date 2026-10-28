@@ -18,6 +18,8 @@ export interface BlogPost {
   author?: Author
   readingtime?: number
   content: string
+  category?: "blog" | "writeup"
+  projectId?: number
 }
 
 const postsDirectory = path.join(process.cwd(), "content/blog")
@@ -100,6 +102,8 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
       author: data.author,
       readingtime: data.readingtime || Math.ceil(content.split(/\s+/).length / 200), // Estimate reading time if not provided
       content,
+      category: data.category === "writeup" ? "writeup" : "blog",
+      projectId: data.projectId ? Number(data.projectId) : undefined,
     }
   } catch (error) {
     console.error(`Error getting post by slug ${slug}:`, error)
