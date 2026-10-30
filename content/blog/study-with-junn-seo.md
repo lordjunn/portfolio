@@ -1,8 +1,8 @@
 ---
 date: '2026-10-17T18:55:00.000Z'
-title: "Zero-Budget SEO Engineering: Scaling an Academic Knowledge Base to 1,000+ Students with 29.8% CTR"
+title: "Zero-Budget SEO Engineering: Scaling an Academic Knowledge Base to 1,950+ Clicks with 27.2% CTR"
 tagline: "How hyper-specific long-tail intent, dual-course taxonomy, and an automated Python sitemap crawler dominated Google search results for university coursework without spending a cent"
-preview: "A deep dive into building Study with Junn: structuring a zero-framework static knowledge base, weaponizing semantic HTML and dual-course taxonomy for search engines, automating XML sitemaps with Python, and achieving a 29.8% Google CTR across 1,000+ students."
+preview: "A deep dive into building Study with Junn: structuring a zero-framework static knowledge base, weaponizing semantic HTML and dual-course taxonomy for search engines, automating XML sitemaps with Python, and achieving a 27.2% Google CTR with 98.8% of traffic from Malaysia."
 image: "/Work/Exams.jpg"
 keywords: "SEO, Web Performance, Python, Static Sites, Information Architecture, Google Search Console, HTML, Content Engineering, Automation"
 category: "writeup"
@@ -10,10 +10,10 @@ projectId: 1
 author:
     authorname: Lord Junn
     authorimage: "/ProfilePictures/Mutsumi.png"
-    readingtime: 13
+    readingtime: 16
 ---
 
-# Zero-Budget SEO Engineering: Scaling an Academic Knowledge Base to 1,000+ Students with 29.8% CTR
+# Zero-Budget SEO Engineering: Scaling an Academic Knowledge Base to 1,950+ Clicks with 27.2% CTR
 
 Ask any modern software engineer how to build an academic content library, and you will almost certainly receive an over-engineered blueprint: a Next.js 15 App Router with Server-Side Rendering (SSR), a PostgreSQL database on Supabase, an Algolia search integration, Tailwind CSS, Redis caching, and continuous deployment via Vercel.
 
@@ -42,13 +42,13 @@ No bundlers. No Node.js runtime. No client-side framework hydration delays. No d
                                       ▼
        ┌──────────────────────────────────────────────────────────────┐
        │               Google Search Console Outcomes                 │
-       │  • 1.84K Clicks               • 6.17K Impressions            │
-       │  • 29.8% Organic CTR          • 5.6 Average Search Position  │
-       │  • 1,000+ Active Students across Multiple Intakes            │
+       │  • 1.95K Clicks               • 7.14K Impressions            │
+       │  • 27.2% Organic CTR          • 5.8 Average Search Position  │
+       │  • 98.8% of clicks from Malaysia (MMU students)              │
        └──────────────────────────────────────────────────────────────┘
 ```
 
-The result? Over **1,000 active university students**, **6.17K Google impressions**, and an organic **Click-Through Rate (CTR) of 29.8%**—nearly ten times the standard web average of 3–5%.
+The result? **1,950+ organic clicks**, **7.14K Google impressions**, and an organic **Click-Through Rate (CTR) of 27.2%**—nearly ten times the standard web average of 3–5%. **98.8% of all clicks** originated from Malaysia.
 
 As I wrote in the site's update logs when grinding through exam season:
 
@@ -136,24 +136,62 @@ Because both `TMA 1201` and `CDS 6224` exist as explicit text strings within the
 
 ---
 
-## 3. Deconstructing the 29.8% CTR: Zero-Budget SEO Mechanics
+## 3. Deconstructing the 27.2% CTR: Zero-Budget SEO Mechanics
 
-Google Search Console metrics for **Study with Junn** (tracking from December 2024 to April 2026) revealed numbers that look like an anomaly:
+Google Search Console metrics for **Study with Junn** (tracking across 16 months, ~487 active days) revealed numbers that look like an anomaly:
 
 | Metric | Recorded Value | Industry Benchmark (Education / Web Search) |
 | :--- | :---: | :---: |
-| **Total Organic Clicks** | **1.84K** | — |
-| **Total Impressions** | **6.17K** | — |
-| **Average Click-Through Rate (CTR)** | **29.8%** | **2.5% – 4.5%** |
-| **Average Search Position** | **5.6** | Top 10 |
+| **Total Organic Clicks** | **1.95K** | — |
+| **Total Impressions** | **7.14K** | — |
+| **Average Click-Through Rate (CTR)** | **27.2%** | **2.5% – 4.5%** |
+| **Average Search Position** | **5.8** | Top 10 |
 
 ```text
-Impressions:  ████████████████████████████████████████ 6.17K
-Clicks:       ████████████ 1.84K (29.8% CTR)
-Avg Position: [ 5.6 ] — Consistently Page 1, Top 3-5
+Impressions:  ████████████████████████████████████████ 7.14K
+Clicks:       ████████████ 1.95K (27.2% CTR)
+Avg Position: [ 5.8 ] — Consistently Page 1, Top 3-6
 ```
 
-Why was the organic CTR nearly **10x higher** than typical search traffic?
+### The Receipts: Google Search Console Evidence
+
+The following screenshots are taken directly from Google Search Console (16-month window). No fabrication, no vanity metrics—just raw data from Google's own product.
+
+<!-- GSC_PERFORMANCE: Replace this image if you want an updated screenshot -->
+<!-- Source: GSC → Performance → 16 months, Total clicks + Total impressions checked -->
+![GSC Performance Overview — 1.95K clicks, 7.14K impressions, 27.2% CTR over 16 months](/blog/study-with-junn/gsc-performance.png)
+
+The traffic spikes visually correlate with MMU's trimester calendar (Trimester 1: Nov–Feb/Mar, Trimester 2: Mar–Jun, Trimester 3: Jul–Oct): the Nov–Dec 2025 cluster maps to Trimester 1 midterms, the Jan–Feb 2026 surge to Trimester 1 finals, and the June 2026 spike to Trimester 2 finals.
+
+<!-- GSC_QUERIES: Replace this image if you want an updated screenshot -->
+<!-- Source: GSC → Performance → Queries tab, sorted by clicks -->
+![GSC Top Queries — branded searches dominate, proving word-of-mouth adoption](/blog/study-with-junn/gsc-queries.png)
+
+The top queries are **branded searches**: `"study with junn"` (534 clicks), `"lordjunn"` (214), `"lord junn"` (155). This proves organic word-of-mouth adoption — students heard about the site from peers and searched for it by name. Academic long-tail queries like `"pmt polar coordinates"` also appear across the 37 total indexed queries.
+
+<!-- GSC_COUNTRIES: Replace this image if you want an updated screenshot -->
+<!-- Source: GSC → Performance → Countries tab, sorted by clicks -->
+![GSC Countries — 1,922 out of 1,945 clicks (98.8%) from Malaysia](/blog/study-with-junn/gsc-countries.png)
+
+The kill shot: **1,922 out of 1,945 total clicks (98.8%) originated from Malaysia.** Nobody outside Malaysia is Googling `"study with junn"` or MMU course codes. This is overwhelmingly Cyberjaya campus students.
+
+<!-- GSC_PAGES: Replace this image if you want an updated screenshot -->
+<!-- Source: GSC → Performance → Pages tab, sorted by clicks -->
+![GSC Top Pages — landing page dominates with 1,938 clicks](/blog/study-with-junn/gsc-pages.png)
+
+<!-- GSC_DEVICES: Replace this image if you want an updated screenshot -->
+<!-- Source: GSC → Performance → Devices tab -->
+![GSC Devices — 1,211 desktop clicks vs 666 mobile clicks](/blog/study-with-junn/gsc-devices.png)
+
+Desktop (1,211 clicks) slightly edges out mobile (666 clicks), consistent with students studying on laptops in dorms and lecture halls, while mobile catches the 2 AM cramming crowd.
+
+<!-- GSC_DAYS_CLICKS: Replace this image if you want an updated screenshot -->
+<!-- Source: GSC → Performance → Days tab, sorted by clicks -->
+![GSC Top Days by Clicks — peak at 30 clicks on Dec 1, 2025](/blog/study-with-junn/gsc-days-clicks.png)
+
+Peak single-day traffic: **30 clicks on December 1, 2025** — aligning with Trimester 1 midterm tests (or early course tests) just a month after the November term kickoff. Meanwhile, the top 10 busiest days overall cluster around November 2025 (test 1 / early syllabus crunch), January–February 2026 (Trimester 1 finals), and June 2026 (Trimester 2 finals), cleanly reflecting MMU's trimester evaluation rhythms.
+
+Why was the organic CTR nearly **7x higher** than typical search traffic?
 
 ### 1. The Long-Tail Intent Monopoly
 Students do not search broad, competitive queries like *"How does calculus work?"* or *"Computer science lecture notes."*
