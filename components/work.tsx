@@ -96,7 +96,7 @@ const projects: Project[] = [
   projectType: ["Solo", "Personal"],
   github: "https://github.com/LordJunn/Study-With-Junn",
   website: "https://lordjunn.github.io/Study-With-Junn/index.html",
-  // writeupSlug: "study-with-junn-seo",
+  writeupSlug: "study-with-junn-seo",
   },
   {
   id: 2,
