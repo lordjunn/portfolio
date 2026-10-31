@@ -145,7 +145,7 @@ const projects: Project[] = [
     id: 5,
     title: "Introduction to Italy",
     description:
-    `Led a 4-person team to build an informational tourism website covering Italy's attractions, transportation, and food culture. 
+    `Led a 4-person team to build an informational tourism website covering Italy's attractions, transportation, and food culture.
     This project strengthened my collaboration, planning, and delivery skills in a team setting.`,
     image: "/Work/Italy.png",
     tags: ["HTML", "CSS"],
@@ -233,8 +233,8 @@ const projects: Project[] = [
   {
     id: 13,
     title: "Song Tracker",
-    description: `Built a full-stack song logging platform with React, TypeScript, Tailwind CSS, and Supabase. 
-    Implemented authentication, CRUD workflows, search, notes, engagement tracking, Google Sheets export, and an administrative dashboard. 
+    description: `Built a full-stack song logging platform with React, TypeScript, Tailwind CSS, and Supabase.
+    Implemented authentication, CRUD workflows, search, notes, engagement tracking, Google Sheets export, and an administrative dashboard.
     The project is currently on hold while development focus shifted to newer systems.`,
     image: "https://upload.wikimedia.org/wikipedia/commons/5/5f/Apple_Music_icon.svg",
     tags: ["TypeScript", "Tailwind CSS", "React", "Supabase"],
@@ -245,7 +245,7 @@ const projects: Project[] = [
   {
     id: 14,
     title: "Personal Blog Site",
-    description: `Built a full-stack publishing platform using React, TypeScript, Tailwind CSS, and Supabase, evolving an earlier note-taking system into a structured content application. 
+    description: `Built a full-stack publishing platform using React, TypeScript, Tailwind CSS, and Supabase, evolving an earlier note-taking system into a structured content application.
     Implemented audience-based post visibility and direct connection requests through the platform, with Nodemailer handling outbound communication.`,
     image: "https://static.vecteezy.com/system/resources/thumbnails/026/306/533/small/stickman-icon-stick-figure-man-person-male-stand-standing-full-body-men-bathroom-sign-symbol-black-artwork-graphic-illustration-clipart-eps-vector.jpg",
     tags: ["Markdown", "TypeScript", "Tailwind CSS", "React", "Supabase", "Nodemailer"],
@@ -286,17 +286,17 @@ const projects: Project[] = [
     description: `Developed and deployed a Streamlit analytics dashboard for the Olist e-commerce dataset, hosted on Render.
     Features executive KPIs, interactive filtering, revenue trend analysis, and advanced modules for logistics risk, delivery prediction, customer satisfaction, and segmentation.
     Built with Scikit-learn models and optimized pipelines for reliable interactive inference.`,
-    image: "https://play-lh.googleusercontent.com/E88VHr_8R1dXih2RGG9dEaNn0fBiKolP-rfydYJMR1R6TdosntXQfragSfK7VgydtA1D",  
+    image: "https://play-lh.googleusercontent.com/E88VHr_8R1dXih2RGG9dEaNn0fBiKolP-rfydYJMR1R6TdosntXQfragSfK7VgydtA1D",
     tags: ["Streamlit", "Python", "Data Mining", "Machine Learning", "Plotly", "Pandas", "Scikit-learn"],
     projectType: ["Team", "University"],
-    github: "https://github.com/lordjunn/Olist-Ecommerce-Analytics-Dashboard", 
-    website: "https://olist-ecommerce-analytics-dashboard.onrender.com/",  
+    github: "https://github.com/lordjunn/Olist-Ecommerce-Analytics-Dashboard",
+    website: "https://olist-ecommerce-analytics-dashboard.onrender.com/",
   },
   {
     id: 18,
     title: "Discord Utility Bot",
-    description: `Built and operate a modular Discord automation platform combining a Python bot, Next.js admin dashboard, Supabase PostgreSQL backend, and Railway deployment. 
-    Designed the bot around independently configurable cogs covering moderation, reminders, scraping, GitHub tracking, emote analytics, connection monitoring, diagnostics, and utility services. 
+    description: `Built and operate a modular Discord automation platform combining a Python bot, Next.js admin dashboard, Supabase PostgreSQL backend, and Railway deployment.
+    Designed the bot around independently configurable cogs covering moderation, reminders, scraping, GitHub tracking, emote analytics, connection monitoring, diagnostics, and utility services.
     Added JSONB caching, health checks, webhook synchronization, automated tests, and feature flags while keeping the production deployment within an ~80 MB RAM footprint.`,
     image: "https://static.vecteezy.com/system/resources/previews/006/892/625/non_2x/discord-logo-icon-editorial-free-vector.jpg",
     tags: ["Python", "discord.py", "Supabase", "PostgreSQL", "Railway", "Bot Hosting"],
@@ -446,7 +446,7 @@ const certificates: Certificate[] = [
     issuer: "Cisco Networking Academy",
     date: "March 2025",
     description: `
-    From understanding network architectures and protocols to mastering IP addressing and Ethernet fundamentals, I developed foundational knowledge and built my networking basics. 
+    From understanding network architectures and protocols to mastering IP addressing and Ethernet fundamentals, I developed foundational knowledge and built my networking basics.
     Includes usage of Cisco Packet Tracer v6 & v8.
 
     This aligns closely with the "Computer Networks" course in my university curriculum.
@@ -477,7 +477,7 @@ const certificates: Certificate[] = [
     role: "",
     period: "",
     description: `
-    
+
     `,
     image: "/placeholder.svg?height=400&width=400",
   },
@@ -492,7 +492,7 @@ const experiences: Experience[] = [
     description: `
     Collaborated with the technical team to develop and maintain projects for both the Society and the University.
     All the while honing my current skillset and gaining new skills out of the university syllabus.
-    
+
     <b>Projects done:</b>
     MMU Clubs Site (Backend for admin, Design for SuperUser, some other things) - Never deployed due to MMU moment
     MMU Hack Day (created problem statements, FAQ, Programme Briefing, forgot what else)
@@ -567,7 +567,7 @@ const experiences: Experience[] = [
 
     Responsibilities:
     All technical aspects of the event (PA System, Speakers, controlling slides, etc.) ✅
-    Website UI/UX Design 
+    Website UI/UX Design
     Website Frontend & Backend Development ✅
 
     Contributions delivered:
@@ -597,7 +597,7 @@ const experiences: Experience[] = [
     Day 2: Backup
     - Handled breakfast and lunch delivery for the committee team.
     - Served as a standby support member in the committee operation room to assist participants and fill in for backup roles as needed.
-    - Patrolled the Team Rooms from time to time. 
+    - Patrolled the Team Rooms from time to time.
 
     Overall, this experience strengthened my asynchronous communication and teamwork skills.
     It also highlighted areas where I can continue improving as an event operations contributor.
@@ -611,16 +611,16 @@ const experiences: Experience[] = [
     role: "System Support / Web Designer / Web Developer / Digital Marketing",
     period: "28 Jul 2025 - 28 Oct 2025",
     description: `
-    Completed a three-month internship at Presoft (M) Sdn Bhd, a company specializing in business solutions and accounting software integration.  
+    Completed a three-month internship at Presoft (M) Sdn Bhd, a company specializing in business solutions and accounting software integration.
     While my appointment letter listed a narrow role, the internship evolved into a broad, cross-functional position that exposed me to both technical and operational workflows.
 
-    Throughout the internship, I worked with a diverse range of technologies and tools. I began by exploring Autocount Software and its plugins, before developing a MySQL Database Copier using C# and WinForms. 
-    I participated in bug testing for Autocount plugins and implemented payment gateway integrations using Stripe and Billplz APIs.  
-    In addition, I created several Python-based automation tools, including a Selenium web scraper and an Excel comparison utility.  
+    Throughout the internship, I worked with a diverse range of technologies and tools. I began by exploring Autocount Software and its plugins, before developing a MySQL Database Copier using C# and WinForms.
+    I participated in bug testing for Autocount plugins and implemented payment gateway integrations using Stripe and Billplz APIs.
+    In addition, I created several Python-based automation tools, including a Selenium web scraper and an Excel comparison utility.
     Among my more impactful projects were enhancements to the EMAS-to-Autocount integration, an MDEC Report auto-filler tool, and a Quote + Maintenance Status Report Generator — built with Python, Excel, and a styled HTML interface using Jinja2 templates, HTML, and CSS (later integrated into Power BI).
 
-    On the data side, I gained hands-on experience with SQL Server through dynamic SQL scripting and learned how to connect and merge datasets in Power BI using both DirectQuery and Import modes.  
-    My role also extended into digital marketing, where I worked on promotional material design using Canva, and into system testing for internal tools such as CubeHous (a Warehouse Management System).  
+    On the data side, I gained hands-on experience with SQL Server through dynamic SQL scripting and learned how to connect and merge datasets in Power BI using both DirectQuery and Import modes.
+    My role also extended into digital marketing, where I worked on promotional material design using Canva, and into system testing for internal tools such as CubeHous (a Warehouse Management System).
     Additionally, I implemented CRM data extraction via the Zoho Bigin API for internal reporting purposes.
 
     Overall, the internship deepened my technical proficiency, strengthened my problem-solving ability, and gave me a practical view of cross-department collaboration in a software company.
@@ -819,7 +819,7 @@ export default function Work() {
                     <div key={project.id} className="group">
                       <div
                         className="flex items-center p-4 cursor-pointer hover:bg-muted/50 transition-colors min-h-24 md:max-h-24 overflow-hidden"
-                        onClick={() => toggleExpand(project.id)
+                        onClick={() => toggleExpand(project.id)}
                       >
                         <div className="flex items-center gap-4 flex-1">
                           <div className="relative w-16 h-16 rounded-md overflow-hidden flex-shrink-0">
