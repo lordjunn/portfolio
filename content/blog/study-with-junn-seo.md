@@ -95,7 +95,7 @@ This created a severe indexing dilemma:
 ### The Solution: Dual-Taxonomy Semantic Aliasing
 Instead of splitting content into redundant duplicate pages (which severely harms SEO via canonical duplication penalties), I engineered an aliased header metadata and navigation schema.
 
-In the subject HTML files (such as [`TMA 1201.html`](file:///K:/Github/Study-With-Junn/TMA%201201.html) and [`TDS 2201.html`](file:///K:/Github/Study-With-Junn/TDS%202201.html)), page headers dynamically ingest a dual-coded configuration payload:
+In the subject HTML files (such as [`TMA 1201.html`](https://lordjunn.github.io/Study-With-Junn/TMA%201201.html) and [`TDS 2201.html`](https://lordjunn.github.io/Study-With-Junn/TDS%202201.html)), page headers dynamically ingest a dual-coded configuration payload:
 
 ```html
 <!-- Configuration element parsed dynamically by js/subject.js -->
@@ -109,7 +109,7 @@ In the subject HTML files (such as [`TMA 1201.html`](file:///K:/Github/Study-Wit
 </div>
 ```
 
-On the client side, [`js/subject.js`](file:///K:/Github/Study-With-Junn/js/subject.js) parses the data attributes and dynamically constructs the navigation bar, ensuring both course codes appear in the Document Object Model (DOM) and the visible UI:
+On the client side, [`js/subject.js`](https://lordjunn.github.io/Study-With-Junn/js/subject.js) parses the data attributes and dynamically constructs the navigation bar, ensuring both course codes appear in the Document Object Model (DOM) and the visible UI:
 
 ```javascript
 // Lightweight client-side header injection without framework overhead
@@ -223,7 +223,7 @@ In contrast, every single page in Study with Junn is pure static markup. When Go
 
 When an academic repository grows to dozens of subjects, hundreds of modules, and hundreds of lecture assets, manually editing an XML sitemap is a recipe for broken links and stale indexing.
 
-To automate search index synchronization, I engineered a custom Python crawler ([`generate_sitemap.py`](file:///K:/Github/Study-With-Junn/generate_sitemap.py)) that runs locally before each deployment:
+To automate search index synchronization, I engineered a custom Python crawler ([`generate_sitemap.py`](https://lordjunn.github.io/Study-With-Junn/generate_sitemap.py)) that runs locally before each deployment:
 
 ```python
 """
@@ -334,7 +334,7 @@ As the site update logs stated plainly: *"Who cares if it's basic as long as it 
 Technical metrics only tell half the story. The real story was the human reality behind the repository:
 
 ### The Strict 1-Man Show (and BadSpider1)
-There was no team, no student committee, and no institutional backing. If you check [`Credits.html`](file:///K:/Github/Study-With-Junn/Credits.html) under "Additional Contributions," the list of contributors literally reads:
+There was no team, no student committee, and no institutional backing. If you check [`Credits.html`](https://lordjunn.github.io/Study-With-Junn/Credits.html) under "Additional Contributions," the list of contributors literally reads:
 
 ```html
 <div class="container-box">
@@ -362,7 +362,7 @@ When generative AI took off, the platform's usage pattern inevitably shifted: st
 
 However, the site retained a vital, enduring role: **the unblocked archive for raw past-year exam papers**. Generative AI cannot conjure up the official 2023 MMU FCI final exam questions out of thin air. To get the actual exam PDF without hunting down a graduated senior or dealing with Moodle MFA clean slates, students still rely on Study with Junn.
 
-In [`Update logs.html`](file:///K:/Github/Study-With-Junn/Update%20logs.html), the site documented this journey right up to the end:
+In [`Update logs.html`](https://lordjunn.github.io/Study-With-Junn/Update%20logs.html), the site documented this journey right up to the end:
 
 ```text
 [11 Jul 2026]
